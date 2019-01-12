@@ -10,9 +10,9 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
 
-    <img src={myPicture} className="my-picture" />
+    {/* <img src={myPicture} className="my-picture" /> */}
 
-    <ul>
+    {/* <ul>
       <li>
         <a href="">Resume</a>
       </li>
@@ -25,7 +25,7 @@ const IndexPage = () => (
       <li>
         <a href="">LinkedIn</a>
       </li>
-    </ul>
+    </ul> */}
   </Layout>
 )
 

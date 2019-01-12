@@ -28,10 +28,22 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
 
-      <h4 className="short-bio">
-        JavaScript Developer and{' '}
-        <a href="https://medium.com/@yazeedb/">Blogger</a>
-      </h4>
+      <h4 className="short-bio">Lead Front-End Developer</h4>
+
+      <ul>
+        <li>
+          <a href="">Resume</a>
+        </li>
+        <li>
+          <a href="">Blog</a>
+        </li>
+        <li>
+          <a href="">GitHub</a>
+        </li>
+        <li>
+          <a href="">LinkedIn</a>
+        </li>
+      </ul>
     </div>
   </div>
 )
