@@ -198,7 +198,7 @@ html {
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
+  /* font-family: georgia, serif; */
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -621,4 +621,34 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+
+/* custom css */
+body {
+  text-align: center;
+}
+
+.short-bio {
+  color: white;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+ul {
+  display: flex;
+}
+
+li {
+  list-style: none;
+  flex-basis: 25%;
+}
+
+li a {
+  color: #00b2d7;
+  text-decoration: none;
+}
+
+.my-picture {
+  border-radius: 100%;
+  margin-bottom: 30px;
 }
