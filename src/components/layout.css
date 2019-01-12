@@ -634,22 +634,28 @@ body {
   margin-top: 10px;
 }
 
-ul {
+.personal-links {
   display: flex;
   margin: 0;
 }
 
 li {
   list-style: none;
+}
+
+.personal-links li {
   flex-basis: 25%;
 }
 
-li a {
+.personal-links li a {
   color: white;
   text-decoration: none;
 }
 
-.my-picture {
-  border-radius: 100%;
-  margin-bottom: 30px;
+.post {
+  margin: 20px 0;
+}
+
+.post a {
+  color: #00b2d7;
 }

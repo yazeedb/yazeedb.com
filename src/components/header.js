@@ -30,18 +30,18 @@ const Header = ({ siteTitle }) => (
 
       <h4 className="short-bio">Lead Front-End Developer</h4>
 
-      <ul>
+      <ul className="personal-links">
         <li>
-          <a href="">Resume</a>
+          <a href="http://yazeedb.com/resume.pdf">Resume</a>
         </li>
         <li>
-          <a href="">Blog</a>
+          <a href="https://medium.com/@yazeedb">Blog</a>
         </li>
         <li>
-          <a href="">GitHub</a>
+          <a href="https://github.com/yazeedb">GitHub</a>
         </li>
         <li>
-          <a href="">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/yazeedb/">LinkedIn</a>
         </li>
       </ul>
     </div>
