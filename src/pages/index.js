@@ -9,23 +9,6 @@ import SEO from '../components/seo'
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-
-    {/* <img src={myPicture} className="my-picture" /> */}
-
-    {/* <ul>
-      <li>
-        <a href="">Resume</a>
-      </li>
-      <li>
-        <a href="">Blog</a>
-      </li>
-      <li>
-        <a href="">GitHub</a>
-      </li>
-      <li>
-        <a href="">LinkedIn</a>
-      </li>
-    </ul> */}
   </Layout>
 )
 

@@ -625,7 +625,7 @@ pre tt:after {
 
 /* custom css */
 body {
-  /* text-align: center; */
+  font-family: sans-serif;
 }
 
 .short-bio {
@@ -645,7 +645,6 @@ li {
 }
 
 li a {
-  /* color: #00b2d7; */
   color: white;
   text-decoration: none;
 }
