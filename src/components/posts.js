@@ -1,5 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import format from 'date-fns/format'
 
 const PostsComponent = ({ allMediumPost: { edges: posts } }) => {
   return (
@@ -16,10 +17,9 @@ const PostsComponent = ({ allMediumPost: { edges: posts } }) => {
             className="post"
             key={node.id}
             style={{
-              margin: '40px 0',
+              margin: '60px 0',
             }}
           >
-            {console.log(node)}
             <a
               href={`https://medium.com/@yazeedb/${node.uniqueSlug}`}
               target="_blank"
@@ -29,11 +29,11 @@ const PostsComponent = ({ allMediumPost: { edges: posts } }) => {
             >
               <h2>{node.title}</h2>
             </a>
-            <p>
-              {node.firstPublishedAt} · {Math.round(node.virtuals.readingTime)}{' '}
-              minute read
+            <p style={{ fontFamily: 'Georgia', color: '#AAAAAA' }}>
+              {format(node.firstPublishedAt, 'MMM DD, YYYY')} ·{' '}
+              {Math.round(node.virtuals.readingTime)} minute read
             </p>
-            <p>{node.content.subtitle}</p>
+            <p style={{ fontFamily: 'Georgia' }}>{node.content.subtitle}</p>
           </li>
         ))}
       </ul>
