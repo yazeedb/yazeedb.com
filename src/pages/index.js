@@ -4,11 +4,20 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Posts from '../components/posts'
 
-const IndexPage = () => (
+const BlogPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO
+      title="Blog"
+      keywords={[
+        'Yazeed Bzadough',
+        'Web Developer',
+        'Frontend Developer',
+        'Front-end Developer',
+        'Front-End Developer',
+      ]}
+    />
     <Posts />
   </Layout>
 )
 
-export default IndexPage
+export default BlogPage
