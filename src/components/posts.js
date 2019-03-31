@@ -33,7 +33,7 @@ const PostsComponent = ({ allMediumPost: { edges: posts } }) => {
               {format(node.firstPublishedAt, 'MMM DD, YYYY')} ·{' '}
               {Math.round(node.virtuals.readingTime)} minute read
             </p>
-            <p style={{ fontFamily: 'Georgia' }}>{node.content.subtitle}</p>
+            <p style={{ fontFamily: 'Georgia' }}>{node.virtuals.subtitle}</p>
           </li>
         ))}
       </ul>
@@ -52,15 +52,9 @@ const Post = () => (
               title
               firstPublishedAt
               uniqueSlug
-              content {
-                subtitle
-              }
               virtuals {
                 subtitle
                 readingTime
-                previewImage {
-                  imageId
-                }
               }
             }
           }
