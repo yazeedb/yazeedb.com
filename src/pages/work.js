@@ -1,7 +1,13 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 
-const WorkPage = () => <Layout>Portfolio coming soon!</Layout>
+const IndexPage = () => (
+  <Layout>
+    <h1>Portfolio Coming Soon!</h1>
+    Perhaps <Link to="/">read my blog</Link> while you wait?
+  </Layout>
+)
 
-export default WorkPage
+export default IndexPage

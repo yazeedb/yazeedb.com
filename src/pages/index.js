@@ -1,13 +1,23 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
+import SEO from '../components/seo'
+import Posts from '../components/posts'
 
-const IndexPage = () => (
+const BlogPage = () => (
   <Layout>
-    <h1>Portfolio Coming Soon!</h1>
-    Perhaps <Link to="/blog">read my blog</Link> while you wait?
+    <SEO
+      title="Blog"
+      keywords={[
+        'Yazeed Bzadough',
+        'Web Developer',
+        'Frontend Developer',
+        'Front-end Developer',
+        'Front-End Developer',
+      ]}
+    />
+    <Posts />
   </Layout>
 )
 
-export default IndexPage
+export default BlogPage
