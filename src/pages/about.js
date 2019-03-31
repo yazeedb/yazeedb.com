@@ -13,14 +13,7 @@ const AboutPage = () => (
           textAlign: 'center',
         }}
       />
-      <h3
-        style={{
-          fontWeight: 400,
-          width: '66%',
-          margin: 'auto',
-          marginBottom: '30px',
-        }}
-      >
+      <h3 className="short-bio">
         I am a Front-End Developer, specializing in well-architected, scalable
         user interfaces.
       </h3>

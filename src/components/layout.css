@@ -631,10 +631,9 @@ body {
   padding: 30px;
 }
 
-.short-bio {
-  color: white;
-  font-weight: 300;
-  margin-top: 10px;
+.site-header {
+  display: inline-block;
+  font-weight: 400;
 }
 
 .personal-links {
@@ -663,4 +662,37 @@ a {
 .about-links li {
   display: inline-block;
   margin: 0 30px;
+}
+
+.posts {
+  width: 66%;
+  margin: 0 auto;
+}
+
+.short-bio {
+  font-weight: 400;
+  width: 66%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 590px) {
+  .site-header {
+    display: block;
+    text-align: center;
+  }
+
+  .personal-links {
+    float: none;
+    text-align: center;
+  }
+
+  .about-links li {
+    display: block;
+  }
+
+  .posts,
+  .short-bio {
+    width: initial;
+  }
 }

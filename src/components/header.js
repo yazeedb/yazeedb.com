@@ -16,7 +16,7 @@ const Header = ({ siteTitle }) => (
       paddingBottom: '20px',
     }}
   >
-    <h2 style={{ display: 'inline-block', fontWeight: 400 }}>
+    <h2 className="site-header">
       <Link
         to="/"
         style={{

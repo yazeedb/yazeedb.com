@@ -4,13 +4,7 @@ import format from 'date-fns/format'
 
 const PostsComponent = ({ allMediumPost: { edges: posts } }) => {
   return (
-    <div
-      className="posts"
-      style={{
-        width: '66%',
-        margin: '0 auto',
-      }}
-    >
+    <div className="posts">
       <ul className="posts-list">
         {posts.map(({ node }) => (
           <li
