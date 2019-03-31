@@ -626,6 +626,9 @@ pre tt:after {
 /* custom css */
 body {
   font-family: sans-serif;
+  background-color: #1e1e1e;
+  color: white;
+  padding: 30px;
 }
 
 .short-bio {
@@ -635,7 +638,7 @@ body {
 }
 
 .personal-links {
-  display: flex;
+  float: right;
   margin: 0;
 }
 
@@ -644,7 +647,8 @@ li {
 }
 
 .personal-links li {
-  flex-basis: 25%;
+  display: inline-block;
+  margin: 0 15px;
 }
 
 .personal-links li a {
@@ -656,6 +660,11 @@ li {
   margin: 20px 0;
 }
 
-.post a {
+a {
   color: #00b2d7;
+}
+
+.about-links li {
+  display: inline-block;
+  margin: 0 30px;
 }
