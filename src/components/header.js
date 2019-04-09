@@ -30,7 +30,7 @@ const Header = ({ siteTitle }) => (
 
     <ul className="personal-links">
       <li>
-        <Link to="/work" style={linkStyles} activeStyle={activeLinkStyles}>
+        <Link to="/work/" style={linkStyles} activeStyle={activeLinkStyles}>
           Work
         </Link>
       </li>
@@ -40,7 +40,7 @@ const Header = ({ siteTitle }) => (
         </Link>
       </li>
       <li>
-        <Link to="/about" style={linkStyles} activeStyle={activeLinkStyles}>
+        <Link to="/about/" style={linkStyles} activeStyle={activeLinkStyles}>
           About
         </Link>
       </li>
