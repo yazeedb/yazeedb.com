@@ -1,23 +1,62 @@
 import React from 'react'
-
+import pokedexScreenshot from '../images/pokedex-screenshot.png'
 import Layout from '../components/layout'
-import SEO from '../components/seo'
-import Posts from '../components/posts'
+import PortfolioProject from '../components/portfolioProject'
 
-const BlogPage = () => (
-  <Layout>
-    <SEO
-      title="Blog"
-      keywords={[
-        'Yazeed Bzadough',
-        'Web Developer',
-        'Frontend Developer',
-        'Front-end Developer',
-        'Front-End Developer',
+const IndexPage = () => (
+  <Layout
+    additionalStyles={{
+      maxWidth: 'none',
+    }}
+  >
+    <PortfolioProject
+      projectName="Pokedex in Material-UI"
+      demoLink="https://yazeed-pokedex.netlify.com"
+      sourceCodeLink="https://github.com/yazeedb/pokedex"
+      technologiesUsed={[
+        'React',
+        'Redux',
+        'RxJS',
+        'Redux-Observable',
+        'TypeScript',
+        'React-Virtualized',
+        'Material-UI',
       ]}
+      coverImage={pokedexScreenshot}
     />
-    <Posts />
+
+    <PortfolioProject
+      projectName="Product Mgmt Tool"
+      technologiesUsed={[
+        'React',
+        'Redux',
+        'RxJS',
+        'Redux-Observable',
+        'Recompose',
+        'Ramda',
+      ]}
+      internalProject={true}
+    />
+
+    <PortfolioProject
+      projectName="Client Benefit Manager"
+      technologiesUsed={[
+        'React',
+        'Redux',
+        'RxJS',
+        'Redux-Observable',
+        'TypeScript',
+        'Ramda',
+      ]}
+      internalProject={true}
+    />
+
+    <PortfolioProject
+      projectName="Forbes Article Page"
+      technologiesUsed={['Angular 2', 'TypeScript', 'RxJS']}
+      internalProject={true}
+    />
   </Layout>
 )
 
-export default BlogPage
+export default IndexPage

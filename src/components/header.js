@@ -32,12 +32,12 @@ const Header = ({ siteTitle }) => (
 
     <ul className="personal-links">
       <li>
-        <Link to="/work/" style={linkStyles} activeStyle={activeLinkStyles}>
+        <Link to="/" style={linkStyles} activeStyle={activeLinkStyles}>
           Work
         </Link>
       </li>
       <li>
-        <Link to="/" style={linkStyles} activeStyle={activeLinkStyles}>
+        <Link to="/blog" style={linkStyles} activeStyle={activeLinkStyles}>
           Blog
         </Link>
       </li>
