@@ -1,13 +1,15 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { colors } from '../colors'
 
 const linkStyles = {
-  color: '#AAAAAA',
+  color: colors.primary,
 }
 
 const activeLinkStyles = {
-  color: 'white',
+  borderBottom: `4px solid ${colors.link}`,
+  paddingBottom: '5px',
 }
 
 const Header = ({ siteTitle }) => (
