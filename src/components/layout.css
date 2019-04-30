@@ -629,6 +629,7 @@ body {
   background-color: #1e1e1e;
   color: white;
   padding: 30px;
+  border-top: 3px solid #00b2d7;
 }
 
 .site-header {

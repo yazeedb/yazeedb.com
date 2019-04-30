@@ -1,13 +1,15 @@
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { colors } from '../colors'
 
 const linkStyles = {
-  color: '#AAAAAA',
+  color: colors.primary,
 }
 
 const activeLinkStyles = {
-  color: 'white',
+  borderBottom: `4px solid ${colors.link}`,
+  paddingBottom: '5px',
 }
 
 const Header = ({ siteTitle }) => (
@@ -30,12 +32,12 @@ const Header = ({ siteTitle }) => (
 
     <ul className="personal-links">
       <li>
-        <Link to="/work/" style={linkStyles} activeStyle={activeLinkStyles}>
+        <Link to="/" style={linkStyles} activeStyle={activeLinkStyles}>
           Work
         </Link>
       </li>
       <li>
-        <Link to="/" style={linkStyles} activeStyle={activeLinkStyles}>
+        <Link to="/blog" style={linkStyles} activeStyle={activeLinkStyles}>
           Blog
         </Link>
       </li>
