@@ -42,7 +42,7 @@ PortfolioProject.propTypes = {
   // coverImage: PropTypes.string,
   demoLink: PropTypes.string,
   sourceCodeLink: PropTypes.string,
-  internalProject: PropTypes.boolean,
+  internalProject: PropTypes.bool,
 }
 
 export default PortfolioProject

@@ -1,33 +1,32 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 import format from 'date-fns/format'
+import { Link } from 'gatsby'
 
-const PostsComponent = ({ allMediumPost: { edges: posts } }) => {
+const Posts = ({ posts }) => {
   return (
     <div className="posts">
       <ul className="posts-list">
-        {posts.map(({ node }) => (
+        {posts.map(post => (
           <li
             className="post"
-            key={node.id}
+            key={post.id}
             style={{
               margin: '60px 0',
             }}
           >
-            <a
-              href={`https://medium.com/@yazeedb/${node.uniqueSlug}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              alt={`${node.title}–by Yazeed Bzadough`}
+            <Link
+              to={post.url}
+              alt={`${post.title}–by Yazeed Bzadough`}
               style={{ textDecoration: 'none' }}
             >
-              <h2>{node.title}</h2>
-            </a>
+              <h2>{post.title}</h2>
+            </Link>
             <p style={{ fontFamily: 'Georgia', color: '#AAAAAA' }}>
-              {format(node.firstPublishedAt, 'MMM DD, YYYY')} ·{' '}
-              {Math.round(node.virtuals.readingTime)} minute read
+              {format(post.date, 'MMM DD, YYYY')} ·{' '}
+              {Math.round(post.readingTime)} minute read
             </p>
-            <p style={{ fontFamily: 'Georgia' }}>{node.virtuals.subtitle}</p>
+            <p style={{ fontFamily: 'Georgia' }}>{post.subtitle}</p>
           </li>
         ))}
       </ul>
@@ -35,27 +34,17 @@ const PostsComponent = ({ allMediumPost: { edges: posts } }) => {
   )
 }
 
-const Post = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        allMediumPost(sort: { fields: [createdAt], order: DESC }) {
-          edges {
-            node {
-              id
-              title
-              firstPublishedAt
-              uniqueSlug
-              virtuals {
-                subtitle
-                readingTime
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={PostsComponent}
-  />
-)
-export default Post
+const PostPropType = PropTypes.shape({
+  id: PropTypes.number,
+  title: PropTypes.string,
+  url: PropTypes.string,
+  date: PropTypes.string,
+  readingTime: PropTypes.number,
+  subtitle: PropTypes.number,
+})
+
+Posts.propTypes = {
+  posts: PropTypes.arrayOf(PostPropType),
+}
+
+export default Posts

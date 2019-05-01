@@ -11,9 +11,24 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/`,
       },
     },
+    {
+      resolve: `gatsby-source-rss-feed`,
+      options: {
+        url: 'https://medium.com/feed/@yazeedb',
+        name: `GatsbyBlog`,
+        // Optional
+        // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
+        // parserOption: {
+        //   customFields: {
+        //     item: ['itunes:duration']
+        //   }
+        // }
+      },
+    },
+    'gatsby-transformer-remark',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
