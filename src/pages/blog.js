@@ -2,7 +2,8 @@ import React from 'react'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import Posts from '../components/posts'
+import MediumPosts from '../components/mediumPosts'
+import SitePosts from '../components/sitePosts'
 
 const BlogPage = () => (
   <Layout>
@@ -16,7 +17,8 @@ const BlogPage = () => (
         'Front-End Developer',
       ]}
     />
-    <Posts />
+    <SitePosts />
+    <MediumPosts />
   </Layout>
 )
 
