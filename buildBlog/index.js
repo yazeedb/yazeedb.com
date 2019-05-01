@@ -3,31 +3,24 @@ const rimRaf = require('rimraf')
 const mediumToMarkdown = require('medium-to-markdown')
 const { getMediumPosts } = require('./getMediumPosts')
 const { cleanupBlogMarkdown } = require('./cleanupBlogMarkdown')
-
+const { slugify } = require('./slugify')
 const toKebabCase = string => string.replace(/\s+/g, '-').toLowerCase()
 const blogsFolder = './src/pages'
 
-rimRaf.sync('*!(.js)')
+rimRaf.sync(`${blogsFolder}/*.md`)
 
-getMediumPosts().then(posts =>
+getMediumPosts().then(posts => {
   posts.forEach(p => {
     mediumToMarkdown.convertFromUrl(p._fullUrl).then(markdown => {
-      const normalizedBlogTitle = `${toKebabCase(p.title).replace(
-        '/',
-        ' and '
-      )}`
-
-      const newBlogFolder = `${blogsFolder}/${normalizedBlogTitle}`
-
-      fs.mkdirSync(newBlogFolder)
+      const titleAsSlug = slugify(p.title)
 
       fs.writeFileSync(
-        `${newBlogFolder}/index.md`,
+        `${blogsFolder}/${slugify(p.title)}.md`,
         cleanupBlogMarkdown(markdown)
       )
-      console.log('wrote file')
+      console.log('wrote', titleAsSlug)
     })
   })
-)
+})
 
 exports.cleanupBlogMarkdown = cleanupBlogMarkdown
