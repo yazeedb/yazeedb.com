@@ -3,6 +3,9 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import { colors } from '../colors'
 
+// TODO: continue cleaning articles. You left off
+// at 30 Seconds of Code Conditionally Change Values with when()
+
 export default ({ data }) => {
   const post = data.markdownRemark
   return (
