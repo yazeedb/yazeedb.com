@@ -1,16 +1,12 @@
 ---
 title: How JavaScript rest parameters actually work
 date: '2017-12-19'
-subtitle: ''
+subtitle: 'A deep dive using Chrome DevTools'
 ---
 
-* * *
+![](https://cdn-images-1.medium.com/max/1600/1*10krG9dLp-2JAyOo1TNVPQ.jpeg)
 
-# How JavaScript rest parameters actually work
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.freecodecamp.org/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.freecodecamp.org/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.freecodecamp.org/how-do-javascript-rest-parameters-actually-work-227726e16cc8" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2017-12-20T00:32:29.926Z">Dec 19, 2017</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="3 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*10krG9dLp-2JAyOo1TNVPQ.jpeg)
-
-[My last article](https://medium.com/@yazeedb/how-do-object-assign-and-spread-actually-work-169b53275cb) covered **spread**syntaxand `Object.assign` in detail, but glossed over **rest parameters**in the interest of time. I do, however, feel they deserve a closer look.
+[My last article](https://medium.com/@yazeedb/how-do-object-assign-and-spread-actually-work-169b53275cb) covered **spread** syntax and `Object.assign` in detail, but glossed over **rest parameters** in the interest of time. I do, however, feel they deserve a closer look.
 
 Let’s begin at the trusty [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters):
 
@@ -105,10 +101,9 @@ Since Babel wrote an old-school function for us, it can access the `arguments` o
 
 This is why we can use Array methods like `map`, `filter`, `reduce` on **rest** parameters, because it creates an Array clone of `arguments`.
 
-Have fun _rest_ing. Please hold that clap button if you enjoyed. (You can go up to 50!)
+Have fun _rest_ ing. Please hold that clap button if you enjoyed. (You can go up to 50!)
 
 Until next time!
 
 Take care,
 Yazeed Bzadough
-  

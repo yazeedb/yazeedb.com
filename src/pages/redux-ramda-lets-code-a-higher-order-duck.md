@@ -1,16 +1,12 @@
 ---
 title: Redux + Ramda Let’s Code a Higher-Order “Duck”
 date: '2018-02-24'
-subtitle: 'What Is It?'
+subtitle: 'Now with Ramda'
 ---
 
-* * *
+![](https://cdn-images-1.medium.com/max/1600/1*AvhLF3EobvdMRIeW31_K2g.png)
 
-# Redux + Ramda: Let’s Code a Higher-Order “Duck”
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/front-end-weekly/redux-ramda-lets-code-a-higher-order-duck-dc87021406cc" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-02-25T04:44:34.186Z">Feb 24, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="5 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*AvhLF3EobvdMRIeW31_K2g.png)I made this <img src=“redux”/> <h1>+</h1> <img src=”ramda” />
-
-My last two posts were on Higher-Order Ducks. We [built one](https://medium.com/front-end-hacking/redux-lets-code-a-higher-order-duck-a045415bef0f), then [refactored it with the](https://medium.com/@yazeedb/redux-lets-refactor-our-higher-order-duck-e44b0110befc) `[createReducer](https://medium.com/@yazeedb/redux-lets-refactor-our-higher-order-duck-e44b0110befc)` [helper](https://medium.com/@yazeedb/redux-lets-refactor-our-higher-order-duck-e44b0110befc).
+My last two posts were on Higher-Order Ducks. We [built one](https://medium.com/front-end-hacking/redux-lets-code-a-higher-order-duck-a045415bef0f), then [refactored it](https://medium.com/@yazeedb/redux-lets-refactor-our-higher-order-duck-e44b0110befc) with the createReducer helper.
 
 As promised in the latter, **it’s Ramda time**. If you spot a better way to implement something please let me know! ❤️
 
@@ -170,4 +166,3 @@ Please clap/comment if you enjoyed! Until next time!
 
 Take care,
 Yazeed Bzadough
-  

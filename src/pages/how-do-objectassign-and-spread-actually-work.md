@@ -1,14 +1,8 @@
 ---
 title: How Do Object.assign and Spread Actually Work?
 date: '2017-12-17'
-subtitle: 'What is spread?'
+subtitle: 'A deep dive using Chrome DevTools'
 ---
-
-* * *
-
-# How Do Object.assign and Spread Actually Work?
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/@yazeedb/how-do-object-assign-and-spread-actually-work-169b53275cb" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2017-12-17T20:15:12.750Z">Dec 17, 2017</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="8 min read"></span>
 
 The code in [my last article](https://medium.com/@yazeedb/how-does-javascripts-curry-actually-work-8d5a6f891499) made good use of _spread_ because of its powerful expressivity. Let’s break it down to better appreciate its magic.
 
@@ -147,9 +141,9 @@ or
 
 ### Quick recap:
 
-*   When using _spread_ in function calls, Babel “fakes it” by wrapping your arguments in `_toConsumableArray` and invoking your function’s `apply` method to…apply them. 👏
-*   Since `identity` only returns the first argument, passings params with `apply` will only return your first argument. All others are discarded.
-*   If you’d like `identity` to capture all parameters in a single array, use _rest_ syntax:`(…params) => params`
+- When using _spread_ in function calls, Babel “fakes it” by wrapping your arguments in `_toConsumableArray` and invoking your function’s `apply` method to…apply them. 👏
+- Since `identity` only returns the first argument, passings params with `apply` will only return your first argument. All others are discarded.
+- If you’d like `identity` to capture all parameters in a single array, use _rest_ syntax:`(…params) => params`
 
 That’s one mystery solved! So what actually happens when you combine arrays using _spread_? Using our earlier example:
 
@@ -322,12 +316,11 @@ And `bigFootBill` has been successfully created.
 
 ### Quick recap:
 
-*   _Spread_ and`Object.assign`are _exactly the same_ regarding objects. _Spread_ uses `Object.assign` if your browser supports it.
-*   `Object.assign`'s first parameter is the `target` object, every parameter after that is a `source` object to be merged into the `target`.
-*   **Inherited properties don’t count**. A `source` object’s property will only get merged if it was defined _directly_ on that `source` object.
+- _Spread_ and`Object.assign`are _exactly the same_ regarding objects. _Spread_ uses `Object.assign` if your browser supports it.
+- `Object.assign`'s first parameter is the `target` object, every parameter after that is a `source` object to be merged into the `target`.
+- **Inherited properties don’t count**. A `source` object’s property will only get merged if it was defined _directly_ on that `source` object.
 
 That was fun. I learned several new things writing this article, and couldn’t be happier that you stuck with me through all of it. Until next time!
 
 Take care,
 Yazeed Bzadough
-  

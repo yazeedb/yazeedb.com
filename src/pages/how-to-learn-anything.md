@@ -1,16 +1,12 @@
 ---
 title: How to Learn Anything
 date: '2018-01-07'
-subtitle: '**Set a target, learn _just enough_ to hit it, teach someone, repeat.**'
+subtitle: 'Set a target, learn just enough to hit it, teach someone, repeat.'
 ---
-
-* * *
-
-# How to Learn Anything
 
 ## **Set a target, learn _just enough_ to hit it, teach someone, repeat.**
 
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.freecodecamp.org/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.freecodecamp.org/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.freecodecamp.org/how-to-learn-anything-1f1324e5ef81" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-01-07T10:33:05.317Z">Jan 7, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="4 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*TG8MtkhYGVnfR21hcOIsdg.jpeg)
+![](https://cdn-images-1.medium.com/max/1600/1*TG8MtkhYGVnfR21hcOIsdg.jpeg)
 
 JavaScript’s my craft.
 
@@ -22,8 +18,8 @@ One question continues to pop up, however. A question that can hinder anyone’s
 
 I thought this question only haunted me, but experience proved otherwise. **This question agitates anyone learning new stuff**. I’ve met smart cookies who ask,
 
-*   “What should I learn?”
-*   “How can I learn it?”
+- “What should I learn?”
+- “How can I learn it?”
 
 Apply those two questions to any skill — programming, basketball, cooking, dancing, archery, Chinese, Chess, Checkers. **Your end result is a confused newbie who’ll start, but never finish.**
 
@@ -39,7 +35,7 @@ By asking “How do I learn **X**?”, you’ve just volunteered to drown in a s
 
 Don’t “learn” **X**,” but rather understand what it’s composed of and tackle one piece at a time. If you say “I want to learn programming!”, I ❤️ your enthusiasm, but you’ve already started down a slippery slope.
 
-Like any large topic, _programming’s too general — _and trying to “learn” it shows a lack of focus that eventually blocks most people from taking action. In my opinion, that’s partly why programming’s a highly paid profession: most people get lost in the maze and give up.
+Like any large topic, \_programming’s too general — _and trying to “learn” it shows a lack of focus that eventually blocks most people from taking action. In my opinion, that’s partly why programming’s a highly paid profession: most people get lost in the maze and give up.
 
 Vague goals = abandoned goals.
 
@@ -73,10 +69,10 @@ Instead, just keep grinding on your projects. When you get stuck (and it will ha
 
 This, I think, is where most people give up. Getting good at something is pretty simple, conceptually.
 
-*   Study
-*   Do
-*   Fail
-*   Repeat
+- Study
+- Do
+- Fail
+- Repeat
 
 But I did forget one piece, arguably the most important one…
 
@@ -106,4 +102,3 @@ Please test this out and let me know what _doesn’t_ work with it.
 
 Take care,
 Yazeed Bzadough
-  

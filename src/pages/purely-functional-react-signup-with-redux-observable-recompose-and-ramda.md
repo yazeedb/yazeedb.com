@@ -1,14 +1,10 @@
 ---
 title: Purely Functional React Signup with Redux-Observable, Recompose, and Ramda
 date: '2018-04-03'
-subtitle: 'Ramda'
+subtitle: 'Sweet tools for scalable'
 ---
 
-* * *
-
-# Purely Functional React Signup with Redux-Observable, Recompose, and Ramda
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/front-end-weekly/purely-functional-react-signup-with-redux-observable-recompose-and-ramda-d37fc0424bdb" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-04-04T02:53:30.540Z">Apr 3, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="14 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*PukMaZu65fHngoD-2AF0Hw.png)
+![](https://cdn-images-1.medium.com/max/1600/1*PukMaZu65fHngoD-2AF0Hw.png)
 
 In this tutorial, we’ll build a signup UI using React/Redux and three of my favorite libraries: Ramda, Recompose, and Redux-Observable. Going in that order:
 
@@ -92,11 +88,11 @@ Much better!
 
 Let’s think about our state next. We wish to manage:
 
-*   Username
-*   Password
-*   Loading indicator
-*   Success indicator
-*   Signup response body (new user’s `id`)
+- Username
+- Password
+- Loading indicator
+- Success indicator
+- Signup response body (new user’s `id`)
 
 Our initial state might look like this
 
@@ -110,10 +106,10 @@ Our initial state might look like this
 
 And we’d want the following actions to update that state
 
-*   `setUsername`
-*   `setPassword`
-*   `sendSignupInfo`
-*   `signupSuccess`
+- `setUsername`
+- `setPassword`
+- `sendSignupInfo`
+- `signupSuccess`
 
 I’ll use autodux because it makes the setup trivial. First the file:
 
@@ -542,4 +538,3 @@ It was fun, hope to share more. Until next time!
 
 Take care,
 Yazeed Bzadough
-  

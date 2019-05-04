@@ -1,14 +1,10 @@
 ---
 title: Redux Let’s Code a Higher-Order “Duck”
 date: '2018-02-17'
-subtitle: 'Getting Started'
+subtitle: 'Spawning actions and reducers'
 ---
 
-* * *
-
-# Redux: Let’s Code a Higher-Order “Duck”
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/front-end-weekly/redux-lets-code-a-higher-order-duck-a045415bef0f" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-02-18T03:55:38.958Z">Feb 17, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="6 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*FykzGL-xJGpGG0FrS7nOtw.jpeg)A Duck that creates Ducks **O_O**
+![](https://cdn-images-1.medium.com/max/1600/1*FykzGL-xJGpGG0FrS7nOtw.jpeg)A Duck that creates Ducks **O_O**
 
 **If you enjoy this, check out how we refactor the reducer** [**here**](https://medium.com/p/e44b0110befc?source=linkShare-93124e8e38fc-1519209473)**.**
 
@@ -20,15 +16,13 @@ We’ll be making a higher-order “list” Duck, one that allows you to perform
 
 Our Duck must have a way to:
 
-*   Add one/many items
-*   Remove an item
-*   Update an item
-*   Set the list
-*   Empty the list (reset)
+- Add one/many items
+- Remove an item
+- Update an item
+- Set the list
+- Empty the list (reset)
 
 As a higher-order Duck, it’s meant to be used to create new Ducks that can maintain lists of anything. See Redux [documentation on higher-order reducers](https://redux.js.org/recipes/structuring-reducers/reusing-reducer-logic) if you’re unfamiliar.
-
-<iframe data-width="800" data-height="400" width="700" height="350" src="/media/18214d8333adbb5668f31791a3202b60?postId=a045415bef0f" data-media-id="18214d8333adbb5668f31791a3202b60" data-thumbnail="https://i.embed.ly/1/image?url=https%3A%2F%2Fucarecdn.com%2F48210494-aaf4-4ea8-96ac-afa3aa561cc2%2F&amp;key=a19fcc184b9711e1b4764040d3dc5c07" allowfullscreen="" frameborder="0"></iframe>
 
 ### Getting Started
 
@@ -285,4 +279,3 @@ Until next time!
 
 Take care,
 Yazeed Bzadough
-  

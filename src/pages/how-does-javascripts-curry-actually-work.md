@@ -1,14 +1,8 @@
 ---
-title: How Does JavaScript’s c_urry() A_ctually Work?
+title: How Does JavaScript’s curry() Actually Work?
 date: '2017-12-12'
-subtitle: 'Umm… **😐**'
+subtitle: 'A deep dive using Chrome DevTools'
 ---
-
-* * *
-
-# How Does JavaScript’s c_urry() A_ctually Work?
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/front-end-weekly/how-does-javascripts-curry-actually-work-8d5a6f891499" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2017-12-12T23:57:33.571Z">Dec 12, 2017</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="7 min read"></span>
 
 Lately I’ve been high on functional programming, courtesy of [Eric Elliott](https://medium.com/@_ericelliott)’s exceptional [“Composing Software” series](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c)–a must-read if you write JavaScript. At one point he mentioned _currying_, a tool that allows you to “partially apply” a function, meaning you don’t have to specify its arguments all at once.
 
@@ -86,10 +80,10 @@ I’ve sprinkled some `debugger` statements to pause the code at noteworthy poin
 
 See any of these links if I’m speaking nonsense
 
-*   Chrome: [https://developer.chrome.com/devtools](https://developer.chrome.com/devtools)
-*   Firefox: [https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Open_the_debugger](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Open_the_debugger)
-*   Edge: [https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide)
-*   IE 11 (If you must): [https://msdn.microsoft.com/en-us/library/bg182326(v=vs.85).aspx](https://msdn.microsoft.com/en-us/library/bg182326%28v=vs.85%29.aspx)
+- Chrome: [https://developer.chrome.com/devtools](https://developer.chrome.com/devtools)
+- Firefox: [https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Open_the_debugger](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Open_the_debugger)
+- Edge: [https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide)
+- IE 11 (If you must): [https://msdn.microsoft.com/en-us/library/bg182326(v=vs.85).aspx](https://msdn.microsoft.com/en-us/library/bg182326%28v=vs.85%29.aspx)
 
 **Quick and dirty steps to access DevTools (might not work in every case)**
 
@@ -136,7 +130,7 @@ Now we’re on line 6, but hold on.
 
 You may have noticed that line 12 actually ran before the `debugger` statement on line 6\. If not, look closer. Our program defines a function called `curriedFunction` on line 5, uses it on line 12, and _then_ we hit that `debugger` statement on line 6\. And what’s `curriedFunction` invoked with?
 
-`[…initialParams, …nextParams]`
+`[…initialParams, …nextParams]`
 
 Yuuuup. Look at `params` on line 5 and you’ll see `['Hello']`. Both `initialParams` and `nextParams` were arrays, so we flattened and combined them into a single array using the handy [_spread_ operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator#Syntax) (Same syntax as _rest_, but it “expands” instead of “condensing”).
 
@@ -182,7 +176,7 @@ We’re inside line 4 again, and `nextParams` is `['John']`. Jump to the next de
 
 ### Why, why, why?
 
-Because remember, line 12 says “Hey `curriedFunction`, he gave me `'Hello'` last time and `‘John’` this time. Take them both in this array `[...initialParams, ...nextParams]`.”
+Because remember, line 12 says “Hey `curriedFunction`, he gave me `'Hello'` last time and `‘John’` this time. Take them both in this array `[...initialParams, ...nextParams]`.”
 
 ![](https://cdn-images-1.medium.com/max/1600/1*Ljvk2BMLxIsbJ09idgStdg.png)
 
@@ -212,4 +206,3 @@ Many thanks to [Eric Elliott](https://medium.com/@_ericelliott) for introducing 
 
 Take care,
 Yazeed Bzadough
-  

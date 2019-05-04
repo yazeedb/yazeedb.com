@@ -4,11 +4,7 @@ date: '2018-01-27'
 subtitle: 'Dynamically find bobo’s name'
 ---
 
-* * *
-
-# Immutably Rename Object Keys in Javascript
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/front-end-weekly/immutably-rename-object-keys-in-javascript-5f6353c7b6dd" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-01-28T04:45:07.071Z">Jan 27, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="4 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*LEDiErvPVtrnmf7lbwS2Cw.jpeg)
+![](https://cdn-images-1.medium.com/max/1600/1*LEDiErvPVtrnmf7lbwS2Cw.jpeg)
 
 **Edit: See how to rename _many_ objectkeys**[**here**](https://medium.com/front-end-hacking/30-seconds-of-code-rename-many-object-keys-in-javascript-268f279c7bfa?source=linkShare-93124e8e38fc-1525786737).
 
@@ -31,10 +27,10 @@ If you don’t want to mutate your data, however, consider this function.
 
 What’s happening here:
 
-*   [Computed property names](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer)
-*   [Spread syntax](https://medium.com/@yazeedb/how-do-object-assign-and-spread-actually-work-169b53275cb)
-*   [Rest params](https://medium.com/@yazeedb/how-do-javascript-rest-parameters-actually-work-227726e16cc8)
-*   [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+- [Computed property names](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer)
+- [Spread syntax](https://medium.com/@yazeedb/how-do-object-assign-and-spread-actually-work-169b53275cb)
+- [Rest params](https://medium.com/@yazeedb/how-do-javascript-rest-parameters-actually-work-227726e16cc8)
+- [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 Let’s add a `debugger` and inspect.
 
@@ -67,10 +63,10 @@ And we want to change `bobo`’s `name` to `firstName`, so we plug him into `ren
 
 Our local variables are
 
-*   `oldProp`: the first parameter, `'name'`
-*   `newProp`: the second parameter, `'firstName'`
-*   `old`: A _computed property name_ based on `oldProp`. It’s `bobo.name`.
-*   `others`: All of `bobo`'s other properties
+- `oldProp`: the first parameter, `'name'`
+- `newProp`: the second parameter, `'firstName'`
+- `old`: A _computed property name_ based on `oldProp`. It’s `bobo.name`.
+- `others`: All of `bobo`'s other properties
 
 Let’s dive into line 4 of our code.
 
@@ -123,10 +119,10 @@ See [my article on _spread_](https://medium.com/@yazeedb/how-do-object-assign-an
 
 Again, our local variables are
 
-*   `oldProp`: `‘name’` because it’s the first parameter
-*   `newProp`: `‘firstName’` because it’s the second parameter
-*   `old`: `‘Bobo’` because we dynamically assigned it using _computed property names_.
-*   `others`: `{ job: ‘Front-End Master’, age: 25 }` because we used _spread syntax_ to dynamically assign it. (Check out [my _spread_ article](https://medium.com/@yazeedb/how-do-object-assign-and-spread-actually-work-169b53275cb)! 😁)
+- `oldProp`: `‘name’` because it’s the first parameter
+- `newProp`: `‘firstName’` because it’s the second parameter
+- `old`: `‘Bobo’` because we dynamically assigned it using _computed property names_.
+- `others`: `{ job: ‘Front-End Master’, age: 25 }` because we used _spread syntax_ to dynamically assign it. (Check out [my _spread_ article](https://medium.com/@yazeedb/how-do-object-assign-and-spread-actually-work-169b53275cb)! 😁)
 
 Now let’s focus on the `return` statement.
 
@@ -163,4 +159,3 @@ Fun fun, until next time!
 
 Take care,
 Yazeed Bzadough
-  

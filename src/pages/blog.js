@@ -18,8 +18,8 @@ const BlogPage = ({ data }) => {
           'Front-End Developer',
         ]}
       />
-      {/* <SitePosts data={data.allMarkdownRemark} /> */}
-      <MediumPosts />
+      <SitePosts data={data.allMarkdownRemark} />
+      {/* <MediumPosts /> */}
     </Layout>
   )
 }

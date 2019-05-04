@@ -4,13 +4,9 @@ date: '2018-01-18'
 subtitle: 'A Mental Slap for Lazy People (Like Myself)'
 ---
 
-* * *
-
-# Want to Die Inside? Live for the Weekend.
-
 ## A Mental Slap for Lazy People (Like Myself)
 
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/@yazeedb/want-to-die-inside-live-for-the-weekend-846858ba3789" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-01-19T02:43:54.448Z">Jan 18, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="3 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*efb3yjt0IjE2OV34FqJTYA.jpeg)
+![](https://cdn-images-1.medium.com/max/1600/1*efb3yjt0IjE2OV34FqJTYA.jpeg)
 
 ### I Write This to Testify Against My Future Laziness
 
@@ -22,13 +18,13 @@ In my short 2.5 year tech career, I’ve already seen too many people “living 
 
 Visualize their average weekly morale.
 
-*   Monday: ☠️
-*   Tuesday: 💀
-*   Wednesday: 😞
-*   Thursday: 😐
-*   Friday: 😍
-*   Saturday: 😝
-*   Sunday: 😀 =**>** 😕
+- Monday: ☠️
+- Tuesday: 💀
+- Wednesday: 😞
+- Thursday: 😐
+- Friday: 😍
+- Saturday: 😝
+- Sunday: 😀 =**>** 😕
 
 Squirm through the work week, numb yourself Friday/Saturday, and spend Sunday night recovering and hating tomorrow.
 
@@ -38,12 +34,12 @@ And it’s not just professionals, **everyone’s at risk**. From childhood, we�
 
 Count how many of these exhausted Friday phrases you’ve said/heard:
 
-*   “Happy Friday!”
-*   “TGIF!” (Thank God it’s Friday!)
-*   “We made it!”
-*   “It’s finally Friday!”
-*   “Smile, it’s Friday!”
-*   “Frinally!” (I recently learned this one)
+- “Happy Friday!”
+- “TGIF!” (Thank God it’s Friday!)
+- “We made it!”
+- “It’s finally Friday!”
+- “Smile, it’s Friday!”
+- “Frinally!” (I recently learned this one)
 
 I understand that our culture idolizes Friday and it makes for easy conversation, but these phrases are fatal.
 
@@ -51,8 +47,8 @@ I understand that our culture idolizes Friday and it makes for easy conversation
 
 By uttering any of those phrases with conviction,
 
-*   You admit you’re dead for 71.4% of your life and alive for only 28.6% of it.
-*   You deny that (most of) your life is work, in some form or another
+- You admit you’re dead for 71.4% of your life and alive for only 28.6% of it.
+- You deny that (most of) your life is work, in some form or another
 
 A week is nothing but seven blocks of time, and whether you’re at school or a job, work is work.
 
@@ -74,16 +70,16 @@ Your bad case of “The Mondays” likely ties to a much deeper issue. Be honest
 
 #### Do You Wait for the End?
 
-*   Your job
-*   School
-*   Chores
-*   Workouts
-*   Diet
-*   Errands to run
-*   Fights
-*   Doctor’s appointments
-*   Car rides
-*   Your favorite show’s commercials
+- Your job
+- School
+- Chores
+- Workouts
+- Diet
+- Errands to run
+- Fights
+- Doctor’s appointments
+- Car rides
+- Your favorite show’s commercials
 
 Which of these do you rush to finish?
 Or worse, which of these do you **crawl** through, wondering when it’ll all be over?
@@ -111,4 +107,3 @@ Set your sights higher. Until next time!
 
 Take care ❤️,
 Yazeed Bzadough
-  

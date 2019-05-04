@@ -4,11 +4,7 @@ date: '2018-04-13'
 subtitle: ''
 ---
 
-* * *
-
-# 30 Seconds of Code: How to rename multiple object keys in JavaScript
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.freecodecamp.org/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.freecodecamp.org/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.freecodecamp.org/30-seconds-of-code-rename-many-object-keys-in-javascript-268f279c7bfa" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-04-13T11:55:29.657Z">Apr 13, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="4 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*qlRItHMmEVJGSEDRYJbGLA.png)
+![](https://cdn-images-1.medium.com/max/1600/1*qlRItHMmEVJGSEDRYJbGLA.png)
 
 30 Seconds of Code is a brilliant collection of JavaScript snippets, digestible in ≤ 30 seconds. **Anyone looking to master JavaScript should go through the entire thing.**
 
@@ -29,8 +25,8 @@ Then [Adam Rowe](https://medium.com/@adaminsley) kindly commented, asking how we
 
 This was inspired by [Ramda Adjunct](https://char0n.github.io/ramda-adjunct/2.6.0/RA.html#.renameKeys)’s `renameKeys` function.
 
-*   `keysMap` contains key/value pairs of your old/new object keys.
-*   `obj` is the object to be changed.
+- `keysMap` contains key/value pairs of your old/new object keys.
+- `obj` is the object to be changed.
 
 You might use it like this:
 
@@ -90,9 +86,9 @@ Here’s where the fun begins. Move to the next `debugger`.
 
 Inspect our local variables on line 7:
 
-*   `acc: {}` because that’s `Array.reduce()`’s initial value (line 19).
-*   `key: “name”` because it’s the first key from `Object.keys(obj)`.
-*   `renamedObject: undefined`
+- `acc: {}` because that’s `Array.reduce()`’s initial value (line 19).
+- `key: “name”` because it’s the first key from `Object.keys(obj)`.
+- `renamedObject: undefined`
 
 Also notice that we can access `keysMap` and `obj` from the parent function’s scope.
 
@@ -144,4 +140,3 @@ Have fun renaming **all the keys**, until next time!
 
 Take care,
 Yazeed Bzadough
-  
