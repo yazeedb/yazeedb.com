@@ -1,14 +1,9 @@
 ---
 title: How to use Wikipedia’s search API to build a user interface with RamdaJS
 date: '2018-11-26'
-subtitle: 'Getting Started'
 ---
 
-* * *
-
-# How to use Wikipedia’s search API to build a user interface with RamdaJS
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.freecodecamp.org/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.freecodecamp.org/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.freecodecamp.org/how-to-build-wikipedias-api-search-with-ramdajs-b3c1a069d7af" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-11-27T01:49:56.470Z">Nov 26, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="7 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*UbRHe_HbWSPhIdqPoNkpdA.gif)Our Wikipedia Search UI
+![](https://cdn-images-1.medium.com/max/1600/1*UbRHe_HbWSPhIdqPoNkpdA.gif)Our Wikipedia Search UI
 
 In this tutorial, we’ll build a UI using Wikipedia’s public search API along with some JavaScript + RamdaJS.
 
@@ -58,9 +53,9 @@ We know `event.target.value`'s the standard way to access an input’s value. No
 
 How can Ramda help us achieve the following?
 
-*   Grab `event.target.value`
-*   Trim the output (strip leading/trailing whitespace)
-*   Default to empty string if `undefined`
+- Grab `event.target.value`
+- Trim the output (strip leading/trailing whitespace)
+- Default to empty string if `undefined`
 
 The `pathOr` function can actually handle the first and third bullet points. It takes three parameters: the default, the path, and the data.
 
@@ -97,11 +92,11 @@ I recommend storing this in a separate file. Maybe call it `getInputValue.js` an
 
 ### Getting the Wikipedia URL
 
-As of this writing, Wikipedia’s API search URL is [https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=](https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=)
+As of this writing, Wikipedia’s API search URL is [https://en.wikipedia.org/w/api.php?origin=\*&action=opensearch&search=](https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=)
 
 For an actual search, just append a topic. If you need bears, for example, the URL looks like this:
 
-[https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=bears](https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=bears)
+[https://en.wikipedia.org/w/api.php?origin=\*&action=opensearch&search=bears](https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=bears)
 
 We’d like a function that takes a topic and returns the full Wikipedia search URL. As the user types we build the URL based off their input.
 
@@ -202,11 +197,11 @@ Edit `Results.js`
 
 Let’s go step by step.
 
-*   It’s a function that takes an array of our expected elements: `query`, `names`, `summaries`, and `links`.
-*   Using [ES6 template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), it returns an HTML string with a title and a list.
-*   Inside the `<ul>` we map `names` to `<li>` tags, so one for each.
-*   Inside those are `<a>` tags pointing to each result’s link. Each link opens in a new tab.
-*   Below the link is a paragraph summary.
+- It’s a function that takes an array of our expected elements: `query`, `names`, `summaries`, and `links`.
+- Using [ES6 template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), it returns an HTML string with a title and a list.
+- Inside the `<ul>` we map `names` to `<li>` tags, so one for each.
+- Inside those are `<a>` tags pointing to each result’s link. Each link opens in a new tab.
+- Below the link is a paragraph summary.
 
 Import this in `index.js` and use it like so:
 
@@ -401,4 +396,3 @@ Until next time.
 Take care,
 Yazeed Bzadough
 [http://yazeedb.com/](http://yazeedb.com/)
-  

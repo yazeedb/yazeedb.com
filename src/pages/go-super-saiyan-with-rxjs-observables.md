@@ -4,17 +4,13 @@ date: '2018-07-17'
 subtitle: 'Let’s Go Super Saiyan'
 ---
 
-* * *
-
-# Go SUPER SAIYAN with RxJS Observables
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.freecodecamp.org/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.freecodecamp.org/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.freecodecamp.org/go-super-saiyan-with-rxjs-observables-d4681ae51930" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-07-17T17:31:50.497Z">Jul 17, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="7 min read"></span>
-
 I loved DragonBall Z as a kid, and still love it as an adult.
 
 Among the ludicrous number of transformations, the original Super Saiyan remains my favorite.
 
-![](https://cdn-images-1.medium.com/max/1600/0*qE2wxzg_yiFOIN-Q)Nothing quite like the original
+![](https://cdn-images-1.medium.com/max/1600/0*qE2wxzg_yiFOIN-Q)
+
+Nothing quite like the original
 
 I’m also loving RxJS the more I level up with it, so why not combine these two for the ultimate showdown?
 
@@ -132,8 +128,8 @@ Here is `main`’s first code snippet:
 
 Goku should power up when a key is held down, and stop when that key is let go. We can use the `fromEvent` operator to create two observables:
 
-*   `begin`: Notifies when the user presses a key **down**.
-*   `end`: Notifies whenever the user **lets go** of a key.
+- `begin`: Notifies when the user presses a key **down**.
+- `end`: Notifies whenever the user **lets go** of a key.
 
 Then we can **subscribe** to these emissions and act upon them. To get the power up animation, give `sprite` the `powerup` class name.
 
@@ -330,4 +326,3 @@ Don’t forget to say hi in the comments! Until next time.
 Take care,
 Yazeed Bzadough
 [http://yazeedb.com/](http://yazeedb.com/)
-  

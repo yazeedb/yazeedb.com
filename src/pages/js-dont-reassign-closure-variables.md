@@ -1,14 +1,9 @@
 ---
 title: JS Don’t Reassign Closure Variables!
 date: '2018-05-13'
-subtitle: 'But things get weird when you reassign it…'
 ---
 
-* * *
-
-# JS: Don’t Reassign Closure Variables!
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/front-end-weekly/js-dont-reassign-closure-variables-ae6cf1083eb" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-05-13T18:21:42.270Z">May 13, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="2 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*ziaoudVG48VIFLJJasu6XA.jpeg)Photo by [Bastien Hervé](https://unsplash.com/photos/1Cz9S1LNFBE?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/change?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+![](https://cdn-images-1.medium.com/max/1600/1*ziaoudVG48VIFLJJasu6XA.jpeg)Photo by [Bastien Hervé](https://unsplash.com/photos/1Cz9S1LNFBE?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/change?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
 I had a serious “gotcha” moment while writing a GraphQL article and felt completely lost.
 
@@ -85,4 +80,3 @@ Be careful, my friends. Until next time!
 
 Take care,
 Yazeed Bzadough
-  

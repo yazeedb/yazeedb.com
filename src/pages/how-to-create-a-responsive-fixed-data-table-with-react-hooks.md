@@ -1,14 +1,9 @@
 ---
 title: How to create a responsive Fixed-Data-Table with React Hooks
 date: '2018-12-12'
-subtitle: 'What are React Hooks?'
 ---
 
-* * *
-
-# How to create a responsive Fixed-Data-Table with React Hooks
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.freecodecamp.org/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.freecodecamp.org/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.freecodecamp.org/how-to-create-a-responsive-fixed-data-table-with-react-hooks-8eae2fff9a52" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-12-12T17:15:15.512Z">Dec 12, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="7 min read"></span>![](https://cdn-images-1.medium.com/max/1600/0*ZIzeIGSw6jm9agFu.JPG)[Hooks on the main board by Rphillip3418](https://commons.wikimedia.org/wiki/File:Hooks_on_the_main_board.JPG).
+![](https://cdn-images-1.medium.com/max/1600/0*ZIzeIGSw6jm9agFu.JPG)
 
 One of my projects uses a library called [Fixed-Data-Table-2](https://schrodinger.github.io/fixed-data-table-2/) (FDT2), and it’s great for efficiently rendering tons of rows of data.
 
@@ -24,10 +19,10 @@ They’re functions that give you React features like state and lifecycle hooks 
 
 Some benefits are
 
-*   isolating stateful logic, making it easier to test
-*   sharing stateful logic without render props or higher-order components
-*   separating your app’s concerns based on logic, not lifecycle hooks
-*   avoiding ES6 classes, because they’re quirky, **not actually classes**, and trip up even experienced JavaScript developers
+- isolating stateful logic, making it easier to test
+- sharing stateful logic without render props or higher-order components
+- separating your app’s concerns based on logic, not lifecycle hooks
+- avoiding ES6 classes, because they’re quirky, **not actually classes**, and trip up even experienced JavaScript developers
 
 For more detail see [React’s official Hooks intro](https://reactjs.org/docs/hooks-intro.html).
 
@@ -219,7 +214,7 @@ For more detail, see [the official docs](https://reactjs.org/docs/hooks-referenc
 
 Super simple, this Hook returns a stateful value and a function to update it. Once we capture the window’s width/height, we’ll have `useState` track it.
 
-### Writing our custom _Hook_
+### Writing our custom *Hook*
 
 According to [the official docs](https://reactjs.org/docs/hooks-custom.html#extracting-a-custom-hook):
 
@@ -365,4 +360,3 @@ Until next time.
 
 Take care,
 [Yazeed Bzadough](http://yazeedb.com)
-  

@@ -1,14 +1,10 @@
 ---
 title: 30 Seconds of Code Conditionally Change Values with when()
 date: '2018-04-21'
-subtitle: 'A Step Further'
+subtitle: 'Change or pass a value based on a predicate'
 ---
 
-* * *
-
-# 30 Seconds of Code: Conditionally Change Values with when()
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/@yazeedb/30-seconds-of-code-conditionally-change-values-with-when-732b09e46334" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-04-21T20:16:45.109Z">Apr 21, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="3 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*Ye9GrpJqOsiaZPbMeZkpGQ.png)
+![](https://cdn-images-1.medium.com/max/1600/1*Ye9GrpJqOsiaZPbMeZkpGQ.png)
 
 30 Seconds of Code is a brilliant collection of JavaScript snippets, digestible in ≤ 30 seconds. **Anyone looking to master JavaScript should go through the entire thing.**
 
@@ -85,8 +81,8 @@ Imagine we have two lists of people, both contain a guy named `Bobo`.
 
 `Bobo` wants a nickname for each list.
 
-*   If we find `Bobo` in list 1, change his name to `B Money`.
-*   If we find `Bobo` in list 2, change his name to `Bo-bob`.
+- If we find `Bobo` in list 1, change his name to `B Money`.
+- If we find `Bobo` in list 2, change his name to `Bo-bob`.
 
 Currying `when` allows us to easily write a function for each concern.
 
@@ -200,12 +196,11 @@ Looks good to me! We gave `Bobo` his nicknames without affecting anyone else.
 
 If you’re further interested, consider these links:
 
-*   [30secondsofcode.org’s collection](https://30secondsofcode.org/array)
-*   [My article on currying](https://medium.com/front-end-hacking/how-does-javascripts-curry-actually-work-8d5a6f891499)
-*   [Ramda](http://ramdajs.com/docs/)
+- [30secondsofcode.org’s collection](https://30secondsofcode.org/array)
+- [My article on currying](https://medium.com/front-end-hacking/how-does-javascripts-curry-actually-work-8d5a6f891499)
+- [Ramda](http://ramdajs.com/docs/)
 
 Until next time!
 
 Take care,
 Yazeed Bzadough
-  

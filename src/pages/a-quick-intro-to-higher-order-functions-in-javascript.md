@@ -4,13 +4,7 @@ date: '2019-03-11'
 subtitle: 'Use functions as data, and unlock some powerful patterns.'
 ---
 
-* * *
-
-# A quick intro to Higher-Order Functions in JavaScript
-
-## Use functions as data, and unlock some powerful patterns.
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.freecodecamp.org/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.freecodecamp.org/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.freecodecamp.org/a-quick-intro-to-higher-order-functions-in-javascript-1a014f89c6b" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2019-03-11T21:44:21.807Z">Mar 11</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="4 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*JyhQls2zLuu22yrnsk6mcA.png)
+![](https://cdn-images-1.medium.com/max/1600/1*JyhQls2zLuu22yrnsk6mcA.png)
 
 ### Higher-Order Functions
 
@@ -20,11 +14,11 @@ It’s _higher-order_ because instead of strings, numbers, or booleans, it goes 
 
 With functions in JavaScript, you can
 
-*   Store them as variables
-*   Use them in arrays
-*   Assign them as object properties (methods)
-*   Pass them as arguments
-*   Return them from other functions
+- Store them as variables
+- Use them in arrays
+- Assign them as object properties (methods)
+- Pass them as arguments
+- Return them from other functions
 
 _Like any other piece of data_. That’s the key here.
 
@@ -211,14 +205,13 @@ How’s this?
 
 ### Summary
 
-*   Strings, numbers, bools, arrays, and objects can be stored as variables, arrays, and properties or methods.
-*   JavaScript treats functions the same way.
-*   This allows for functions that operate on other functions: **higher-order functions**.
-*   Map, filter, and reduce are prime examples — and make common patterns like transforming, searching, and summing lists much easier!
+- Strings, numbers, bools, arrays, and objects can be stored as variables, arrays, and properties or methods.
+- JavaScript treats functions the same way.
+- This allows for functions that operate on other functions: **higher-order functions**.
+- Map, filter, and reduce are prime examples — and make common patterns like transforming, searching, and summing lists much easier!
 
 [I’m on Twitter](https://twitter.com/yazeedBee) if you’d like to talk. Until next time!
 
 Take care,
 Yazeed Bzadough
 [yazeedb.com](http://yazeedb.com/)
-  

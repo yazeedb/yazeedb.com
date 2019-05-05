@@ -1,14 +1,9 @@
 ---
 title: How to Build a Todo List with React Hooks
 date: '2018-11-19'
-subtitle: 'What Are Hooks?'
 ---
 
-* * *
-
-# How to Build a Todo List with React Hooks
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.freecodecamp.org/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.freecodecamp.org/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.freecodecamp.org/how-to-build-a-todo-list-with-react-hooks-ebaa4e3db3b" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-11-19T16:43:20.075Z">Nov 19, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="6 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*mKtppOPghvXQKu0jte2B_g.jpeg)
+![](https://cdn-images-1.medium.com/max/1600/1*mKtppOPghvXQKu0jte2B_g.jpeg)
 
 React v16.7.0-alpha introduced [Hooks](https://reactjs.org/docs/hooks-intro.html), and I’m excited.
 
@@ -18,10 +13,10 @@ They’re functions that give you React features like state and lifecycle hooks 
 
 Some benefits are
 
-*   Isolating stateful logic, making it easier to test.
-*   Sharing stateful logic without render props or higher-order components.
-*   Separating your app’s concerns based on logic, not lifecycle hooks.
-*   Avoiding ES6 classes, because they’re quirky, _not actually classes,_ and trip up even experienced JavaScript developers.
+- Isolating stateful logic, making it easier to test.
+- Sharing stateful logic without render props or higher-order components.
+- Separating your app’s concerns based on logic, not lifecycle hooks.
+- Avoiding ES6 classes, because they’re quirky, _not actually classes,_ and trip up even experienced JavaScript developers.
 
 For more detail see [React’s official Hooks intro](https://reactjs.org/docs/hooks-intro.html).
 
@@ -39,9 +34,9 @@ Todo lists are the most overused example for a good reason — they’re fan
 
 Ours will only do a few things
 
-*   Display todos in a nice Material Design fashion
-*   Allow adding todos via input
-*   Delete todos
+- Display todos in a nice Material Design fashion
+- Allow adding todos via input
+- Delete todos
 
 ### Setup
 
@@ -215,8 +210,8 @@ export default TodoList;</pre>
 
 It takes two props
 
-*   `todos`: The array of todos. We `map` over each one and create a list item.
-*   `deleteTodo`: Clicking a todo’s `IconButton` fires this function. It passes the `index`, which will uniquely identify a todo in our list.
+- `todos`: The array of todos. We `map` over each one and create a list item.
+- `deleteTodo`: Clicking a todo’s `IconButton` fires this function. It passes the `index`, which will uniquely identify a todo in our list.
 
 Import this component in your `index.js`.
 
@@ -435,4 +430,3 @@ Hope you enjoyed, until next time!
 Take care,
 Yazeed Bzadough
 [http://yazeedb.com/](http://yazeedb.com/)
-  

@@ -1,14 +1,9 @@
 ---
 title: How to implement map, filter, and reduce with recursion
 date: '2018-05-30'
-subtitle: 'Array.map'
 ---
 
-* * *
-
-# How to implement map, filter, and reduce with recursion
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.freecodecamp.org/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.freecodecamp.org/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.freecodecamp.org/implement-array-map-with-recursion-35976d0325b2" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-05-30T16:20:44.791Z">May 30, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="7 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*YMYCdveLRLC9SI3ZYg8dBA.jpeg)
+![](https://cdn-images-1.medium.com/max/1600/1*YMYCdveLRLC9SI3ZYg8dBA.jpeg)
 
 ### Array.map
 
@@ -300,4 +295,3 @@ Until next time!
 Take care,
 Yazeed Bzadough
 [http://yazeedb.com/](http://yazeedb.com/)
-  

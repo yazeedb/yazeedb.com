@@ -1,14 +1,10 @@
 ---
 title: GraphQL Resolvers + Ramda = CRUD
 date: '2018-05-13'
-subtitle: 'Disclaimer:'
+subtitle: 'Just for fun'
 ---
 
-* * *
-
-# GraphQL Resolvers + Ramda = CRUD
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/front-end-weekly/graphql-resolvers-ramda-crud-fdd08aae25a0" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-05-13T21:16:30.117Z">May 13, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="6 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*VOtR2vbt1fFGFFF_12N1Og.png)
+![](https://cdn-images-1.medium.com/max/1600/1*VOtR2vbt1fFGFFF_12N1Og.png)
 
 I began learning GraphQL and already love how it compliments Redux by [shaping API responses without actions/reducers](https://hackernoon.com/how-graphql-replaces-redux-3fff8289221d). Writing resolvers feels _a bit_ like writing reducers, which [I already love doing with Ramda](https://medium.com/front-end-hacking/redux-ramda-lets-code-a-higher-order-duck-dc87021406cc).
 
@@ -20,10 +16,10 @@ These patterns are intentionally overkill, and only meant to have some Ramda fun
 
 ### Setup
 
-*   Clone [this repo](https://github.com/yazeedb/howtographql-tutorial)
-*   Checkout the `start` branch
-*   Run `npm i && npm start`
-*   Go to http://localhost:4000
+- Clone [this repo](https://github.com/yazeedb/howtographql-tutorial)
+- Checkout the `start` branch
+- Run `npm i && npm start`
+- Go to http://localhost:4000
 
 #### Schema
 
@@ -230,9 +226,9 @@ Our result:
 
 I think using Ramda here is overkill, but let’s experiment!
 
-*   `R.merge` merges two objects
-*   `R.pick` returns a shallow copy of an object’s chosen keys
-*   `R.pipe` will allow `merge` and `pick` to beautifully flow, left-to-right
+- `R.merge` merges two objects
+- `R.pick` returns a shallow copy of an object’s chosen keys
+- `R.pipe` will allow `merge` and `pick` to beautifully flow, left-to-right
 
 For more detail on `pipe`, see [my article on it](https://medium.com/front-end-hacking/pipe-and-compose-in-javascript-5b04004ac937)!
 
@@ -361,7 +357,7 @@ Our query results haven’t changed.
 
 ![](https://cdn-images-1.medium.com/max/1600/1*ybWFROLj36TlCNuOMGRB4A.png)
 
-### `Mutation: Deleting Links`
+### `Mutation: Deleting Links`
 
 Let’s finish off CRUD and implement **D**elete!
 
@@ -438,4 +434,3 @@ Until next time!
 
 Take care,
 Yazeed Bzadough
-  

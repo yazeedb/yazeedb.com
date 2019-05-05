@@ -1,14 +1,7 @@
 ---
 title: What Is a Pure Function in JavaScript?
 date: '2019-01-03'
-subtitle: 'The Checklist'
 ---
-
-* * *
-
-# What Is a Pure Function in JavaScript?
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.freecodecamp.org/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.freecodecamp.org/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.freecodecamp.org/what-is-a-pure-function-in-javascript-acb887375dfe" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2019-01-03T21:31:37.028Z">Jan 3</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="5 min read"></span>
 
 Pure functions are the atomic building blocks in functional programming. They are adored for their simplicity and testability.
 
@@ -221,11 +214,11 @@ Now you’re guaranteed safety because they’re truly two separate entities!
 
 ![](https://cdn-images-1.medium.com/max/1600/0*_FwSya9ut_O6gmfe.png)
 
-*   A function’s pure if it’s free from side-effects and returns the same output, given the same input.
-*   Side-effects include: mutating input, HTTP calls, writing to disk, printing to the screen.
-*   You can safely _clone_, _then_ _mutate_, your input. Just leave the original one untouched.
-*   Spread syntax (`…` syntax) is the easiest way to _shallowly_ clone objects.
-*   `JSON.parse(JSON.stringify(object))` is the easiest way to _deeply_ clone objects. Thanks again [Rodrigo Fernández Díaz](https://medium.com/@rodrigo_98972)!
+- A function’s pure if it’s free from side-effects and returns the same output, given the same input.
+- Side-effects include: mutating input, HTTP calls, writing to disk, printing to the screen.
+- You can safely _clone_, _then_ _mutate_, your input. Just leave the original one untouched.
+- Spread syntax (`…` syntax) is the easiest way to _shallowly_ clone objects.
+- `JSON.parse(JSON.stringify(object))` is the easiest way to _deeply_ clone objects. Thanks again [Rodrigo Fernández Díaz](https://medium.com/@rodrigo_98972)!
 
 ### My Free Course
 
@@ -240,4 +233,3 @@ It’s full of lessons, graphics, exercises, and runnable code samples to teach 
 Take care,
 Yazeed Bzadough
 [http://yazeedb.com/](http://yazeedb.com/)
-  

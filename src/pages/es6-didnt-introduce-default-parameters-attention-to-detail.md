@@ -1,14 +1,7 @@
 ---
 title: ES6 Didn’t Introduce Default Parameters (Attention to Detail)
 date: '2018-07-04'
-subtitle: 'JavaScript Defaulted the Second Parameter'
 ---
-
-* * *
-
-# ES6 Didn’t Introduce Default Parameters (Attention to Detail)
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/@yazeedb/es6-didnt-introduce-default-parameters-attention-to-detail-3a081d3f0387" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-07-05T02:42:07.911Z">Jul 4, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="2 min read"></span>
 
 > The **Attention to Detail** series aims to better our appreciation of JavaScript by delving into its syntax. Say hi in the comments! 😁
 
@@ -115,4 +108,3 @@ Please don’t forget to say hi! Until next time, friends.
 
 Take care,
 Yazeed Bzadough
-  

@@ -1,14 +1,9 @@
 ---
 title: 10 Ways to Write pipe and compose in JavaScript
 date: '2018-05-16'
-subtitle: 'But They’re All Unary'
 ---
 
-* * *
-
-# 10 Ways to Write pipe and compose in JavaScript
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/@yazeedb/10-ways-to-write-pipe-compose-in-javascript-f6d54c575616" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-05-16T16:41:19.329Z">May 16, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="3 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*I2oy7YWlgX6Ej9uGSOGD7Q.jpeg)
+![](https://cdn-images-1.medium.com/max/1600/1*I2oy7YWlgX6Ej9uGSOGD7Q.jpeg)
 
 `compose`, and especially `pipe`, are easily among my favorite functions.
 
@@ -122,4 +117,3 @@ Plain and simple. Until next time!
 
 Take care,
 Yazeed Bzadough
-  
