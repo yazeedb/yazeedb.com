@@ -19,7 +19,7 @@ description: 'The perfect complement to filter(), this function rejects the item
 
 Here’s the code from the official entry:
 
-```javascript
+```js
 reject = (pred, array) => array.filter((...args) => !pred(...args));
 ```
 
@@ -27,7 +27,7 @@ It works on arrays and denies whatever `Array.filter` would’ve kept.
 
 `filter` example using numbers:
 
-```javascript
+```js
 nums = [1, 2, 3, 4, 5];
 nums.filter((x) => x < 4);
 // [1, 2, 3]
@@ -35,14 +35,14 @@ nums.filter((x) => x < 4);
 
 Copy/pasting that predicate into `reject` does the opposite:
 
-```javascript
+```js
 reject((x) => x < 4, nums);
 // [4, 5]
 ```
 
 You’d reject numbers greater than 3 like so:
 
-```javascript
+```js
 reject((x) => x > 3, nums);
 // [1, 2, 3]
 ```
