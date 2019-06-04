@@ -2,8 +2,9 @@
 
 module.exports = {
   url: 'https://lumen.netlify.com',
-  title: 'Blog by John Doe',
-  subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+  title: 'Blog by Yazeed Bzadough',
+  subtitle:
+    'I am a Front-End Developer, specializing in well-architected, scalable user interfaces.',
   copyright: '© All rights reserved.',
   disqusShortname: '',
   postsPerPage: 4,
@@ -23,14 +24,15 @@ module.exports = {
     }
   ],
   author: {
-    name: 'John Doe',
-    photo: '/photo.jpg',
-    bio: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+    name: 'Yazeed Bzadough',
+    photo: '/me-2016.jpg',
+    bio:
+      'I am a Front-End Developer, specializing in well-architected, scalable user interfaces.',
     contacts: {
-      email: '#',
+      email: 'ybzadough@gmail.com',
       telegram: '#',
-      twitter: '#',
-      github: '#',
+      twitter: 'yazeedBee',
+      github: 'yazeedb',
       rss: '#',
       vkontakte: '#'
     }
