@@ -1,20 +1,22 @@
 ---
-title: A quick introduction to pipe() and compose() in JavaScript
+title: A Quick Introduction to pipe() and compose() in JavaScript
 date: '2018-01-09'
-subtitle: 'Pipe'
+description: 'Pipe and compose let you combine functions like a pro!'
+category: 'Functional programming basics'
+tags:
+  - 'Functional Programming'
+  - 'Functions'
+  - 'Ramda'
+draft: false
+template: 'post'
+slug: '/posts/a-quick-intro-to-pipe-and-compose'
 ---
 
-* * *
-
-# A quick introduction to pipe() and compose() in JavaScript
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.freecodecamp.org/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.freecodecamp.org/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.freecodecamp.org/pipe-and-compose-in-javascript-5b04004ac937" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-01-10T02:30:12.005Z">Jan 9, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="4 min read"></span>
+![](https://cdn-images-1.medium.com/max/1600/1*FKEc-DbmFn54VPLQmCOLRA.jpeg)
 
 Functional programming’s been quite the eye-opening journey for me. This post, and posts like it, are an attempt to share my insights and perspectives as I trek new functional programming lands.
 
 [Ramda’s](http://ramdajs.com/) been my go-to FP library because of how much easier it makes functional programming in JavaScript. I highly recommend it.
-
-![](https://cdn-images-1.medium.com/max/1600/1*FKEc-DbmFn54VPLQmCOLRA.jpeg)Composing blocks to form a structure. Pretty deep stuff…
 
 ### Pipe
 
@@ -22,57 +24,73 @@ The concept of `pipe` is simple — it combines `n` functions. It’s a pipe
 
 Let’s write a function that returns someone’s `name`.
 
-<pre name="42c1" id="42c1" class="graf graf--pre graf-after--p">getName = (person) => person.name</pre>
+```js
+getName = (person) => person.name;
 
-<pre name="1ffe" id="1ffe" class="graf graf--pre graf-after--pre">getName({ name: 'Buckethead' })
-// 'Buckethead'</pre>
+getName({ name: 'Buckethead' });
+// 'Buckethead'
+```
 
 Let’s write a function that uppercases strings.
 
-<pre name="7ad8" id="7ad8" class="graf graf--pre graf-after--p">uppercase = (string) => string.toUpperCase()</pre>
+```js
+uppercase = (string) => string.toUpperCase();
 
-<pre name="e890" id="e890" class="graf graf--pre graf-after--pre">uppercase('Buckethead')
-// 'BUCKETHEAD'</pre>
+uppercase('Buckethead');
+// 'BUCKETHEAD'
+```
 
 So if we wanted to get and capitalize `person`'s name, we could do this:
 
-<pre name="61fa" id="61fa" class="graf graf--pre graf-after--p">name = getName({ name: 'Buckethead' })
-uppercase(name)</pre>
+```js
+name = getName({ name: 'Buckethead' });
+uppercase(name);
 
-<pre name="1db2" id="1db2" class="graf graf--pre graf-after--pre">// 'BUCKETHEAD'</pre>
+// 'BUCKETHEAD'
+```
 
 That’s fine but let’s eliminate that intermediate variable `name`.
 
-<pre name="3a51" id="3a51" class="graf graf--pre graf-after--p">uppercase(getName({ name: 'Buckethead' }))</pre>
+```js
+uppercase(getName({ name: 'Buckethead' }));
+```
 
 Better, but I’m not fond of that nesting. It can get too crowded. What if we want to add a function that gets the first 6 characters of a string?
 
-<pre name="320a" id="320a" class="graf graf--pre graf-after--p">get6Characters = (string) => string.substring(0, 6)</pre>
+```js
+get6Characters = (string) => string.substring(0, 6);
 
-<pre name="b360" id="b360" class="graf graf--pre graf-after--pre">get6Characters('Buckethead')
-// 'Bucket'</pre>
+get6Characters('Buckethead');
+// 'Bucket'
+```
 
 Resulting in:
 
-<pre name="fac3" id="fac3" class="graf graf--pre graf-after--p">get6Characters(uppercase(getName({ name: 'Buckethead' })))</pre>
+```js
+get6Characters(uppercase(getName({ name: 'Buckethead' })));
 
-<pre name="02fd" id="02fd" class="graf graf--pre graf-after--pre">'BUCKET'</pre>
+// 'BUCKET';
+```
 
 Let’s get really crazy and add a function to reverse strings.
 
-<pre name="17f0" id="17f0" class="graf graf--pre graf-after--p">reverse = (string) => string
-  .split('')
-  .reverse()
-  .join('')</pre>
+```js
+reverse = (string) =>
+  string
+    .split('')
+    .reverse()
+    .join('');
 
-<pre name="4c22" id="4c22" class="graf graf--pre graf-after--pre">reverse('Buckethead')
-// 'daehtekcuB'</pre>
+reverse('Buckethead');
+// 'daehtekcuB'
+```
 
 Now we have:
 
-<pre name="ba9a" id="ba9a" class="graf graf--pre graf-after--p">reverse(get6Characters(uppercase(getName({ name: 'Buckethead' }))))</pre>
-
-<pre name="68c8" id="68c8" class="graf graf--pre graf-after--pre">// 'TEKCUB'</pre>
+```js
+reverse(get6Characters(uppercase(getName({ name: 'Buckethead' }))));
+// 'TEKCUB'
+```
 
 It can get a bit…much.
 
@@ -80,14 +98,15 @@ It can get a bit…much.
 
 Instead of jamming functions within functions or creating a bunch of intermediate variables, let’s `pipe` all the things!
 
-<pre name="ba84" id="ba84" class="graf graf--pre graf-after--p">pipe(
+```js
+pipe(
   getName,
   uppercase,
   get6Characters,
-  reverse 
-)({ name: 'Buckethead' })</pre>
-
-<pre name="29c9" id="29c9" class="graf graf--pre graf-after--pre">// 'TEKCUB'</pre>
+  reverse
+)({ name: 'Buckethead' });
+// 'TEKCUB'
+```
 
 Pure art. It’s like a todo list!
 
@@ -95,7 +114,9 @@ Let’s step through it.
 
 For demo purposes, I’ll use a `pipe` implementation from one of [Eric Elliott](https://medium.com/@_ericelliott)’s [functional programming articles](https://medium.com/javascript-scene/reduce-composing-software-fe22f0c39a1d).
 
-<pre name="e637" id="e637" class="graf graf--pre graf-after--p">pipe = (...fns) => x => fns.reduce((v, f) => f(v), x)</pre>
+```js
+pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
+```
 
 I love this little one-liner.
 
@@ -103,27 +124,29 @@ Using _rest_ parameters, [see my article on that](https://medium.com/@yazeedb/ho
 
 And you can use it just like we did above.
 
-<pre name="a001" id="a001" class="graf graf--pre graf-after--p">pipe(
+```js
+pipe(
   getName,
   uppercase,
   get6Characters,
-  reverse 
-)({ name: 'Buckethead' })</pre>
-
-<pre name="9140" id="9140" class="graf graf--pre graf-after--pre">// 'TEKCUB'</pre>
+  reverse
+)({ name: 'Buckethead' });
+// 'TEKCUB'
+```
 
 I’ll expand `pipe` and add some debugger statements, and we’ll go line by line.
 
-<pre name="2842" id="2842" class="graf graf--pre graf-after--p">pipe = (...functions) => (value) => {
-  debugger;</pre>
+```js
+pipe = (...functions) => (value) => {
+  debugger;
 
-<pre name="92d4" id="92d4" class="graf graf--pre graf-after--pre">  return functions
-    .reduce((currentValue, currentFunction) => {
-       debugger;</pre>
+  return functions.reduce((currentValue, currentFunction) => {
+    debugger;
 
-<pre name="ac41" id="ac41" class="graf graf--pre graf-after--pre">       return currentFunction(currentValue);
-    }, value)
-}</pre>
+    return currentFunction(currentValue);
+  }, value);
+};
+```
 
 ![](https://cdn-images-1.medium.com/max/1600/1*jqrKgVeO-raAUJjuN-adug.png)
 
@@ -133,7 +156,7 @@ Call `pipe` with our example and let the wonders unfold.
 
 Check out the local variables. `functions` is an array of the 4 functions, and `value` is `{ name: 'Buckethead' }`.
 
-Since we used _rest_ parameters (again, see [my article](https://medium.com/@yazeedb/how-do-javascript-rest-parameters-actually-work-227726e16cc8) 😁), `pipe` allows any number of functions to be used. It’ll just loop and call each one.
+Since we used _rest_ parameters, `pipe` allows any number of functions to be used. It’ll just loop and call each one.
 
 ![](https://cdn-images-1.medium.com/max/1600/1*UjM5plW8s--8chfQQg3cMg.png)
 
@@ -163,23 +186,21 @@ It’s just `pipe` in the other direction.
 
 So if you wanted the same result as our `pipe` above, you’d do the opposite.
 
-<pre name="f81a" id="f81a" class="graf graf--pre graf-after--p">compose(
+```js
+compose(
   reverse,
   get6Characters,
   uppercase,
-  getName,
-)({ name: 'Buckethead' })</pre>
+  getName
+)({ name: 'Buckethead' });
+```
 
 Notice how `getName` is last in the chain and `reverse` is first?
 
 Here’s a quick implementation of `compose`, again courtesy of the Magical [Eric Elliott](https://medium.com/@_ericelliott), from [the same article](https://medium.com/javascript-scene/reduce-composing-software-fe22f0c39a1d).
 
-<pre name="a698" id="a698" class="graf graf--pre graf-after--p">compose = (...fns) => x => fns.reduceRight((v, f) => f(v), x);</pre>
+```js
+compose = (...fns) => (x) => fns.reduceRight((v, f) => f(v), x);
+```
 
 I’ll leave expanding this function with `debugger`s as an exercise to you. Play around with it, use it, appreciate it. And most importantly, have fun!
-
-Until next time!
-
-Take care,
-Yazeed Bzadough
-  
