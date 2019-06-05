@@ -4,7 +4,7 @@ module.exports = {
   url: 'https://lumen.netlify.com',
   title: 'Yazeed Bzadough',
   subtitle:
-    'I am a Front-End Developer, specializing in well-architected, scalable user interfaces.',
+    'I am a Front-End developer, specializing in well-architected, scalable user interfaces.',
   copyright: '© All rights reserved.',
   disqusShortname: '',
   postsPerPage: 30,
@@ -27,7 +27,7 @@ module.exports = {
     name: 'Yazeed Bzadough',
     photo: '/me-2016.jpg',
     bio:
-      'Front-End Developer, specializing in well-architected, scalable user interfaces.',
+      'Front-End developer, specializing in well-architected, scalable user interfaces.',
     contacts: {
       email: 'ybzadough@gmail.com',
       // telegram: '#',
