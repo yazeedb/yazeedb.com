@@ -9,6 +9,7 @@ category: 'Code snippets explained'
 tags:
   - 'Code snippets'
   - 'Functions'
+  - 'Code Snippets Explained'
 ---
 
 ![](https://cdn-images-1.medium.com/max/1600/1*Ye9GrpJqOsiaZPbMeZkpGQ.png)

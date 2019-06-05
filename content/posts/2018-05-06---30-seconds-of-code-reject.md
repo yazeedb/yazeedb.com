@@ -8,6 +8,8 @@ category: 'Code snippets explained'
 tags:
   - 'Code snippets'
   - 'Functions'
+  - 'Code Snippets Explained'
+
 description: 'The perfect complement to filter(), this function rejects the items that satisfy your predicate.'
 ---
 

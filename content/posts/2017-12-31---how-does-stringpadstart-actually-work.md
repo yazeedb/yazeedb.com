@@ -10,6 +10,7 @@ tags:
   - 'String.padStart'
   - 'Vanilla JavaScript'
   - 'Deep dive'
+  - 'Code Snippets Explained'
 ---
 
 [Previously](youtube-durations-in-4-lines-of-javascript), I shared my usage of `padStart` to elegantly replace what would’ve been loads of `if` statements. This magical method threw me off my rocker. I simply couldn’t believe it existed.
