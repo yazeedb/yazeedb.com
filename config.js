@@ -7,21 +7,21 @@ module.exports = {
     'I am a Front-End developer, specializing in well-architected, scalable user interfaces.',
   copyright: '© All rights reserved.',
   disqusShortname: '',
-  postsPerPage: 30,
+  postsPerPage: 50,
   googleAnalyticsId: 'UA-136388820-1',
   menu: [
     {
       label: 'Articles',
       path: '/'
     },
-    // {
-    // label: 'About me',
-    // path: '/pages/about'
-    // },
     {
-      label: 'Contact me',
-      path: '/pages/contacts'
+      label: 'About me',
+      path: '/pages/about'
     }
+    // {
+    //   label: 'Contact me',
+    //   path: '/pages/contacts'
+    // }
   ],
   author: {
     name: 'Yazeed Bzadough',
@@ -29,10 +29,11 @@ module.exports = {
     bio:
       'Front-End developer specializing in well-architected, scalable user interfaces.',
     contacts: {
-      email: 'ybzadough@gmail.com',
-      // telegram: '#',
       twitter: 'yazeedBee',
-      github: 'yazeedb'
+      github: 'yazeedb',
+      linkedin: 'yazeedb'
+      // email: 'ybzadough@gmail.com',
+      // telegram: '#',
       // rss: '#',
       // vkontakte: '#'
     }
