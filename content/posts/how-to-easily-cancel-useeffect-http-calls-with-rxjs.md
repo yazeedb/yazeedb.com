@@ -1,14 +1,18 @@
 ---
 title: How to easily ignore useEffect HTTP calls with RxJS
 date: '2019-03-07'
-subtitle: 'useEffect'
+description: 'Code along with me as we learn about the new React Hooks API!'
+draft: false
+template: 'post'
+slug: '/posts/easily-cancel-useEffect-http-with-rxjs'
+category: 'React'
+tags:
+  - 'React'
+  - 'React Hooks'
+  - 'RxJS'
 ---
 
-* * *
-
-# How to easily ignore useEffect HTTP calls with RxJS
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.freecodecamp.org/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.freecodecamp.org/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.freecodecamp.org/how-to-easily-cancel-useeffect-http-calls-with-rxjs-d1be418014e8" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2019-03-07T17:25:42.119Z">Mar 7</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="3 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*0P3r47A-UCKu5JgYjANzcA.png)
+![](https://cdn-images-1.medium.com/max/1600/1*0P3r47A-UCKu5JgYjANzcA.png)
 
 Now that [React Hooks](https://reactjs.org/docs/hooks-overview.html) have been officially released, even more patterns are emerging across the Internet.
 
@@ -26,8 +30,8 @@ Conceptually, the UI was like this:
 
 ![](https://cdn-images-1.medium.com/max/1600/1*0P3r47A-UCKu5JgYjANzcA.png)
 
-*   On first load, fetch the list of fruits and render a `<button>` for each one.
-*   Click a `<button>` to fetch that fruit’s details.
+- On first load, fetch the list of fruits and render a `<button>` for each one.
+- Click a `<button>` to fetch that fruit’s details.
 
 But watch what happens when I click multiple fruits in a row
 
@@ -41,25 +45,24 @@ Let’s see my custom hook that leverages `useEffect`.
 
 Here’s the [Codesandbox](https://codesandbox.io/s/l5l746yll7) and [GitHub](https://github.com/yazeedb/useEffect-rxjs-cancel-fetch/) links if you wish to follow along. The file is `useFruitDetail.js`.
 
-<pre name="d808" id="d808" class="graf graf--pre graf-after--p">import { useEffect, useState } from 'react';
-import { getFruit } from './api';</pre>
+```js
+import { useEffect, useState } from 'react';
+import { getFruit } from './api';
 
-<pre name="be8b" id="be8b" class="graf graf--pre graf-after--pre">export const useFruitDetail = fruitName => {
-  const [fruitDetail, setFruitDetail] = useState(null);</pre>
+export const useFruitDetail = (fruitName) => {
+  const [fruitDetail, setFruitDetail] = useState(null);
 
-<pre name="6be0" id="6be0" class="graf graf--pre graf-after--pre">  useEffect(
-    () => {
-      if (!fruitName) {
-        return;
-      }</pre>
+  useEffect(() => {
+    if (!fruitName) {
+      return;
+    }
 
-<pre name="ddd5" id="ddd5" class="graf graf--pre graf-after--pre">      getFruit(fruitName).then(setFruitDetail);
-    },
-    [fruitName]
-  );</pre>
+    getFruit(fruitName).then(setFruitDetail);
+  }, [fruitName]);
 
-<pre name="0a46" id="0a46" class="graf graf--pre graf-after--pre">  return fruitDetail;
-};</pre>
+  return fruitDetail;
+};
+```
 
 Whenever `fruitName` changes, we’ll request its details. And we have no way of cancelling a request! So quickly re-running this results in many state changes that we’re no longer interested in.
 
@@ -73,28 +76,31 @@ It can do so much more than what I’ll demo here, so I highly recommend you [di
 
 This portion of our code, the _effect_ code, needs to change.
 
-<pre name="7f33" id="7f33" class="graf graf--pre graf-after--p">() => {
+```js
+() => {
   if (!fruitName) {
     return;
-  }</pre>
+  }
 
-<pre name="b204" id="b204" class="graf graf--pre graf-after--pre">  getFruit(fruitName).then(setFruitDetail);
-}</pre>
+  getFruit(fruitName).then(setFruitDetail);
+};
+```
 
 Instead of a Promise, let’s convert `getFruit` into an Observable using the RxJS `defer` function. And instead of `.then`, we’ll call `.subscribe`.
 
-<pre name="e2a8" id="e2a8" class="graf graf--pre graf-after--p">import { defer } from 'rxjs';</pre>
+```js
+import { defer } from 'rxjs';
 
-<pre name="7075" id="7075" class="graf graf--pre graf-after--pre">...</pre>
+// ...
 
-<pre name="a6b2" id="a6b2" class="graf graf--pre graf-after--pre">() => {
+() => {
   if (!fruitName) {
     return;
-  }</pre>
+  }
 
-<pre name="c59b" id="c59b" class="graf graf--pre graf-after--pre">  defer(() => getFruit(fruitName))
-    .subscribe(setFruitDetail);
-}</pre>
+  defer(() => getFruit(fruitName)).subscribe(setFruitDetail);
+};
+```
 
 This doesn’t fix the issue yet. We still need to _unsubscribe_ if `fruitName` changes.
 
@@ -102,18 +108,21 @@ According to [React’s docs](https://reactjs.org/docs/hooks-reference.html#clea
 
 So something like this:
 
-<pre name="12e6" id="12e6" class="graf graf--pre graf-after--p">() => {
+```js
+() => {
   if (!fruitName) {
     return;
-  }</pre>
+  }
 
-<pre name="c7ff" id="c7ff" class="graf graf--pre graf-after--pre">  const subscription = defer(() => getFruit(fruitName))
-    .subscribe(setFruitDetail);</pre>
+  const subscription = defer(() => getFruit(fruitName)).subscribe(
+    setFruitDetail
+  );
 
-<pre name="a16b" id="a16b" class="graf graf--pre graf-after--pre">  return () => {
+  return () => {
     subscription.unsubscribe();
   };
-}</pre>
+};
+```
 
 ### It Works!
 
@@ -125,9 +134,4 @@ By clicking another fruit, `useEffect` sees `fruitName` change and runs the prev
 
 Now our UI patiently waits until the user’s done clicking and the latest fruit’s details return.
 
-Thanks for following this tutorial to the end! [I’m on Twitter](https://twitter.com/yazeedBee) if you’d like to talk!
-
-Take care,
-[Yazeed Bzadough](http://yazeedb.com)
-[http://yazeedb.com/](http://yazeedb.com/)
-  
+Thanks for following this tutorial to the end!
