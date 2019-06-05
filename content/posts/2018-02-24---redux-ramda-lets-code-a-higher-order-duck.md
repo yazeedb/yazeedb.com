@@ -1,18 +1,22 @@
 ---
 title: Redux + Ramda Let’s Code a Higher-Order “Duck”
 date: '2018-02-24'
-subtitle: 'What Is It?'
+description: 'The third and final in my higher-order duck series.'
+draft: false
+template: 'post'
+slug: '/posts/redux-ramda-lets-code-a-higher-order-duck'
+category: 'Redux'
+tags:
+  - 'Redux'
+  - 'Ramda'
+  - 'Higher-order functions'
 ---
 
-* * *
+![](https://cdn-images-1.medium.com/max/1600/1*AvhLF3EobvdMRIeW31_K2g.png)
 
-# Redux + Ramda: Let’s Code a Higher-Order “Duck”
+My last two posts were on Higher-Order Ducks. We built one then refactored it with the `createReducer` helper.
 
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/front-end-weekly/redux-ramda-lets-code-a-higher-order-duck-dc87021406cc" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-02-25T04:44:34.186Z">Feb 24, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="5 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*AvhLF3EobvdMRIeW31_K2g.png)I made this <img src=“redux”/> <h1>+</h1> <img src=”ramda” />
-
-My last two posts were on Higher-Order Ducks. We [built one](https://medium.com/front-end-hacking/redux-lets-code-a-higher-order-duck-a045415bef0f), then [refactored it with the](https://medium.com/@yazeedb/redux-lets-refactor-our-higher-order-duck-e44b0110befc) `[createReducer](https://medium.com/@yazeedb/redux-lets-refactor-our-higher-order-duck-e44b0110befc)` [helper](https://medium.com/@yazeedb/redux-lets-refactor-our-higher-order-duck-e44b0110befc).
-
-As promised in the latter, **it’s Ramda time**. If you spot a better way to implement something please let me know! ❤️
+Now it’s Ramda time. If you spot a better way to implement something please let me know! ❤️
 
 ### What Is It?
 
@@ -24,7 +28,7 @@ I’m going to purposely overuse Ramda to show off its power. I wouldn’t neces
 
 ### Show Me the Code
 
-If you read [the previous article](https://medium.com/@yazeedb/redux-lets-refactor-our-higher-order-duck-e44b0110befc), you remember us refactoring the reducer to this:
+If you read [the previous article](redux-lets-refactor-our-higher-order-duck), you remember us refactoring the reducer to this:
 
 ![](https://cdn-images-1.medium.com/max/1600/1*-abhyPqZJiP3JZW6GOU9lQ.png)
 
@@ -32,11 +36,15 @@ While I’m _much happier_ with the code after putting it through `createReducer
 
 #### actionTypes.reset
 
-<pre name="1035" id="1035" class="graf graf--pre graf-after--h4">() => initialState</pre>
+```js
+() => initialState;
+```
 
 All `reset` does is return the initial state. How can Ramda help?
 
-<pre name="0595" id="0595" class="graf graf--pre graf-after--p">R.always(initialState)</pre>
+```js
+R.always(initialState);
+```
 
 ![](https://cdn-images-1.medium.com/max/1600/1*T32OLQ_g4cGoiA6Y5LTQ5A.png)
 
@@ -50,21 +58,26 @@ Instead of an arrow function, we have a nice `R.always` function. It might be ov
 
 #### actionTypes.addOne
 
-<pre name="f03a" id="f03a" class="graf graf--pre graf-after--h4">(state, { item }) => [...state, item]</pre>
+```js
+(state, { item }) => [...state, item];
+```
 
 Merge `state` (a list) with a given `item`.
 
-<pre name="045a" id="045a" class="graf graf--pre graf-after--p">(state, { item }) => R.append(item, state)</pre>
+```js
+(state, { item }) => R.append(item, state)
 
-<pre name="2d95" id="2d95" class="graf graf--pre graf-after--pre">// or</pre>
+// or
 
-<pre name="413d" id="413d" class="graf graf--pre graf-after--pre">(state, { item }) => R.concat(state, [item])</pre>
+(state, { item }) => R.concat(state, [item])
 
-`[R.append](http://ramdajs.com/docs/#append)` [docs:](http://ramdajs.com/docs/#append)
+```
+
+[R.append docs:](http://ramdajs.com/docs/#append)
 
 > Returns a new list containing the contents of the given list, followed by the given element.
 
-`[R.concat](http://ramdajs.com/docs/#concat)` [docs:](http://ramdajs.com/docs/#concat)
+[R.concat docs:](http://ramdajs.com/docs/#concat)
 
 > Returns the result of concatenating the given lists or strings.
 
@@ -72,13 +85,17 @@ Use `R.append` to create a new list with `item` at the end, or turn `item` into 
 
 #### actionTypes.addMany
 
-<pre name="2212" id="2212" class="graf graf--pre graf-after--h4">(state, { items }) => [...state, ...items]</pre>
+```js
+(state, { items }) => [...state, ...items];
+```
 
 This time, `items` is already a list and we want to merge it with `state`.
 
 We already know `R.concat` does the trick.
 
-<pre name="fdac" id="fdac" class="graf graf--pre graf-after--p">(state, { items }) => R.concat(state, items)</pre>
+```js
+(state, { items }) => R.concat(state, items);
+```
 
 Here’s the code so far.
 
@@ -86,13 +103,17 @@ Here’s the code so far.
 
 #### actionTypes.removeOne
 
-<pre name="287a" id="287a" class="graf graf--pre graf-after--h4">(state, { oldItem }) => state.filter((item) => (
+```js
+(state, { oldItem }) => state.filter((item) => (
    !findItemById(oldItem.id)(item)
-)),</pre>
+)),
+```
 
 Recall that we defined `findItemById` as:
 
-<pre name="bb11" id="bb11" class="graf graf--pre graf-after--p">findItemById = (id) => (item) => item.id === id;</pre>
+```js
+findItemById = (id) => (item) => item.id === id;
+```
 
 If `findItemById(id)(item)` returns `false`, keep the item, otherwise remove it. Let’s use it to recap:
 
@@ -151,23 +172,21 @@ In `updateOne`’s case, we used `R.when` to encapsulate our previous ternary lo
 
 #### actionTypes.set
 
-<pre name="435f" id="435f" class="graf graf--pre graf-after--h4">[actionTypes.set]: (_, { items }) => items</pre>
+```js
+[actionTypes.set]: (_, { items }) => items
+```
 
 This is so basic, I have no good ideas. So here’s a bad one.
 
-<pre name="6ed7" id="6ed7" class="graf graf--pre graf-after--p">[actionTypes.set]: R.pipe(
+```js
+[actionTypes.set]: R.pipe(
    R.nthArg(1),
    R.prop('items')
-)</pre>
+)
+```
 
 As my old boss would say: **Lol**.
 
 Through the power of `R.pipe`, we return the second argument’s `items` property. That’s all I got for ya…
 
-If you’re interested in how pipe/compose work, see [my article on it](https://medium.com/@yazeedb/pipe-and-compose-in-javascript-5b04004ac937).
-
-Please clap/comment if you enjoyed! Until next time!
-
-Take care,
-Yazeed Bzadough
-  
+If you’re interested in how pipe/compose work, see [my article on it](a-quick-intro-to-pipe-and-compose). Until next time!
