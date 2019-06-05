@@ -1,7 +1,7 @@
 ---
 title: Redux Let’s Code a Higher-Order “Duck”
 date: '2018-02-17'
-description: 'Code along with me as we learn about the new React Hooks API!'
+description: 'A higher-order duck is a function that creates ducks.'
 draft: false
 template: 'post'
 slug: '/posts/redux-lets-code-a-higher-order-duck'

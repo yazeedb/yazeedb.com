@@ -1,7 +1,7 @@
 ---
 title: How Do Object.assign and Spread Actually Work?
 date: '2017-12-17'
-description: 'Code along with me as we learn about the new React Hooks API!'
+description: 'A deep dive.'
 draft: false
 template: 'post'
 slug: '/posts/how-do-object-assign-and-spread-actually-work'

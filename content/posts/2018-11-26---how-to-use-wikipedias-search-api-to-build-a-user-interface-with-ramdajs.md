@@ -1,7 +1,7 @@
 ---
 title: How to use Wikipedia’s search API to build a user interface with RamdaJS
 date: '2018-11-26'
-description: 'Code along with me as we learn about the new React Hooks API!'
+description: 'Code along with me!'
 draft: false
 template: 'post'
 slug: '/posts/react-hooks-wikipedia-search-interface'
