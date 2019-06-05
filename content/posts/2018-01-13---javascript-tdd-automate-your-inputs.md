@@ -1,24 +1,20 @@
 ---
 title: JavaScript TDD Automate your Inputs
 date: '2018-01-13'
-subtitle: 'Let’s do it together!'
+description: 'Turns out this is called fuzz testing! I had no idea until I ran into it over a year later.'
+draft: false
+template: 'post'
+slug: '/posts/javascript-tdd-automate-your-inputs'
+category: 'TDD'
+tags:
+  - 'JavaScript'
+  - 'TDD'
+  - 'Fuzz testing'
 ---
 
-* * *
-
-# JavaScript TDD: Automate your Inputs
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/@yazeedb/javascript-tdd-automating-your-inputs-18d46374bdef" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-01-14T05:52:43.372Z">Jan 13, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="4 min read"></span>
-
-Recently embracing Test-Driven-Development (TDD) has crushed some of my bad coding habits and forged better ones. Jump on the TDD bandwagon if you haven’t already–I’ll let [Eric Elliott](https://medium.com/@_ericelliott) [explain why it’s amazing](https://medium.com/javascript-scene/tdd-the-rite-way-53c9b46f45e3).
-
-Among those better habits is the concept of automating inputs in my unit tests.
+Recently embracing Test-Driven-Development (TDD) has crushed some of my bad coding habits and forged better ones. Among those better habits is the concept of automating inputs in my unit tests.
 
 ### Let’s do it together!
-
-Grab your favorite editor/terminal combo. I’m using [Atom](https://atom.io/) and [PlatformIO IDE Terminal](https://atom.io/packages/platformio-ide-terminal).
-
-#### Setup
 
 Use `npm init -y` and install [Jest](https://facebook.github.io/jest/) as a devDependency.
 
@@ -74,7 +70,7 @@ Just like that, we have 1000 numbers between 1–10\. And since it’s an array,
 
 [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every):
 
-> The `**every()**` method tests whether all elements in the array pass the test implemented by the provided function.
+> The `every()` method tests whether all elements in the array pass the test implemented by the provided function.
 
 Tests every element, huh? **Perfect**.
 
@@ -87,9 +83,3 @@ Another benefit is your test inputs will always be unique, because you’re gene
 If you want to get really crazy, randomize the range you call `randomBetween` with. **O_O”**
 
 This idea’s made unit testing much more enjoyable for me. After planning a function’s test, hammer it with tons of different inputs and see what breaks. That’s how you ensure truly bulletproof code. Let me know if this helps, or if you’ve already been doing this.
-
-Until next time!
-
-Take care,
-Yazeed Bzadough
-  
