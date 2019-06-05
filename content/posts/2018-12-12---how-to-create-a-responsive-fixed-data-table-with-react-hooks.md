@@ -1,14 +1,21 @@
 ---
 title: How to create a responsive Fixed-Data-Table with React Hooks
 date: '2018-12-12'
-subtitle: 'What are React Hooks?'
+description: 'Code along with me as we learn about the new React Hooks API!'
+draft: false
+template: 'post'
+slug: '/posts/responsive-table-using-react-hooks'
+category: 'React'
+tags:
+  - 'React'
+  - 'React Hooks'
+  - 'Fixed-Data-Table'
+  - 'Code with me'
 ---
 
-* * *
+![](https://cdn-images-1.medium.com/max/1600/0*ZIzeIGSw6jm9agFu.JPG)
 
-# How to create a responsive Fixed-Data-Table with React Hooks
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.freecodecamp.org/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.freecodecamp.org/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.freecodecamp.org/how-to-create-a-responsive-fixed-data-table-with-react-hooks-8eae2fff9a52" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-12-12T17:15:15.512Z">Dec 12, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="7 min read"></span>![](https://cdn-images-1.medium.com/max/1600/0*ZIzeIGSw6jm9agFu.JPG)[Hooks on the main board by Rphillip3418](https://commons.wikimedia.org/wiki/File:Hooks_on_the_main_board.JPG).
+> [Hooks on the main board by Rphillip3418](https://commons.wikimedia.org/wiki/File:Hooks_on_the_main_board.JPG).
 
 One of my projects uses a library called [Fixed-Data-Table-2](https://schrodinger.github.io/fixed-data-table-2/) (FDT2), and it’s great for efficiently rendering tons of rows of data.
 
@@ -24,10 +31,10 @@ They’re functions that give you React features like state and lifecycle hooks 
 
 Some benefits are
 
-*   isolating stateful logic, making it easier to test
-*   sharing stateful logic without render props or higher-order components
-*   separating your app’s concerns based on logic, not lifecycle hooks
-*   avoiding ES6 classes, because they’re quirky, **not actually classes**, and trip up even experienced JavaScript developers
+- isolating stateful logic, making it easier to test
+- sharing stateful logic without render props or higher-order components
+- separating your app’s concerns based on logic, not lifecycle hooks
+- avoiding ES6 classes, because they’re quirky, **not actually classes**, and trip up even experienced JavaScript developers
 
 For more detail see [React’s official Hooks intro](https://reactjs.org/docs/hooks-intro.html).
 
@@ -47,17 +54,19 @@ We’ll be building a responsive Fixed-Data-Table. It won’t be too narrow or t
 
 Here are the [GitHub](https://github.com/yazeedb/Responsive-FDT2-Hooks/) and [CodeSandbox](https://codesandbox.io/s/1vpm1z193j) links.
 
-<pre name="df24" id="df24" class="graf graf--pre graf-after--p">git clone [https://github.com/yazeedb/Responsive-FDT2-Hooks/](https://github.com/yazeedb/Responsive-FDT2-Hooks/)
+```
+git clone https://github.com/yazeedb/Responsive-FDT2-Hooks/
 cd Responsive-FDT2-Hooks
-npm install</pre>
+npm install
+```
 
 The `master` branch has the finished project, so checkout the `start` branch if you wish to follow along.
 
-<pre name="c222" id="c222" class="graf graf--pre graf-after--p">git checkout start</pre>
+`git checkout start`
 
 And run the project.
 
-<pre name="310d" id="310d" class="graf graf--pre graf-after--p">npm start</pre>
+`npm start`
 
 The app should be running on `localhost:3000`. Let’s start coding.
 
@@ -75,7 +84,8 @@ We’ll use the awesome [faker.js](https://www.npmjs.com/package/faker) library 
 
 Here’s the source if you want to copy/paste.
 
-<pre name="b06d" id="b06d" class="graf graf--pre graf-after--p">import faker from 'faker';
+```js
+import faker from 'faker';
 
 const createFakeRowData = () => ({
   firstName: faker.name.firstName(),
@@ -93,7 +103,8 @@ const createFakeRowData = () => ({
     })
 });
 
-export default () => Array.from({ length: 2000 }, createFakeRowData);</pre>
+export default () => Array.from({ length: 2000 }, createFakeRowData);
+```
 
 `createFakeRowData` returns an object with a full name, email, city, and salary in US dollars.
 
@@ -105,12 +116,15 @@ We have our data, let’s code up the table now.
 
 At the top of `index.js`, import our data and FDT2 components.
 
-<pre name="a3c1" id="a3c1" class="graf graf--pre graf-after--p">import { Table, Column, Cell } from 'fixed-data-table-2';
-import getData from './getData';</pre>
+```jsx
+import { Table, Column, Cell } from 'fixed-data-table-2';
+import getData from './getData';
+```
 
 And use them like so.
 
-<pre name="ca9c" id="ca9c" class="graf graf--pre graf-after--p">function App() {
+```jsx
+function App() {
   const data = getData();
 
   return (
@@ -165,7 +179,8 @@ And use them like so.
       </Table>
     </div>
   );
-}</pre>
+}
+```
 
 We configure the table with our data and create a `Column` for each field we want displayed.
 
@@ -219,19 +234,20 @@ For more detail, see [the official docs](https://reactjs.org/docs/hooks-referenc
 
 Super simple, this Hook returns a stateful value and a function to update it. Once we capture the window’s width/height, we’ll have `useState` track it.
 
-### Writing our custom _Hook_
+### Writing our custom *Hook*
 
 According to [the official docs](https://reactjs.org/docs/hooks-custom.html#extracting-a-custom-hook):
 
-> **A custom Hook is a JavaScript function whose name starts with ”**`**use**`**” and that may call other Hooks.**
+> **A custom Hook is a JavaScript function whose name starts with ”use” and that may call other Hooks.**
 
 Our custom hook will be called `useWindowSize`, and it’ll call the `useState` and `useEffect` hooks.
 
 This Hook’s mainly from [Gabe Ragland](https://medium.com/@gabe_ragland)’s `useWindowSize` on [useHooks.com](https://gist.github.com/gragland/4e3d9b1c934a18dc76f585350f97e321).
 
-<pre name="7045" id="7045" class="graf graf--pre graf-after--p">// `useWindowSize.js`</pre>
+```jsx
+// `useWindowSize.js`
 
-<pre name="6525" id="6525" class="graf graf--pre graf-after--pre">import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default () => {
   const getSize = () => {
@@ -256,24 +272,29 @@ export default () => {
   }, []);
 
   return windowSize;
-};</pre>
+};
+```
 
 Let’s break this down.
 
 #### Getting the window size
 
-<pre name="dfee" id="dfee" class="graf graf--pre graf-after--h4">const getSize = () => {
+```js
+const getSize = () => {
   return {
     width: window.innerWidth,
     height: window.innerHeight
   };
-};</pre>
+};
+```
 
 `getSize` simply returns the window’s `innerWidth` and `innerHeight`.
 
 #### Initializing useState
 
-<pre name="78b8" id="78b8" class="graf graf--pre graf-after--h4">const [windowSize, setWindowSize] = useState(getSize);</pre>
+```js
+const [windowSize, setWindowSize] = useState(getSize);
+```
 
 `useState` can take an initial value or a function that returns a value.
 
@@ -283,17 +304,19 @@ In this case we want the window’s dimensions to start, so `getSize` is the per
 
 #### Configuring useEffect
 
-<pre name="c564" id="c564" class="graf graf--pre graf-after--h4">useEffect(() => {
+```js
+useEffect(() => {
   const handleResize = () => {
     setWindowSize(getSize());
   };
 
-  window.addEventListener('resize', handleResize);</pre>
+  window.addEventListener('resize', handleResize);
 
-<pre name="1e3d" id="1e3d" class="graf graf--pre graf-after--pre">  return () => {
+  return () => {
     window.removeEventListener('resize', handleResize);
   };
-}, []);</pre>
+}, []);
+```
 
 `useEffect` takes a function that will run your desired effect.
 
@@ -303,9 +326,11 @@ Whenever the window size changes, `handleResize` sets the state by giving `setWi
 
 Our effect function then returns a **new function**, which `useEffect` recognizes as cleanup logic.
 
-<pre name="b4e8" id="b4e8" class="graf graf--pre graf-after--p">return () => {
+```js
+return () => {
   window.removeEventListener('resize', handleResize);
-};</pre>
+};
+```
 
 When we leave the page or somehow unmount our component, this cleanup function runs and removes the `resize` event listener. This helps prevent memory leaks.
 
@@ -313,7 +338,9 @@ When we leave the page or somehow unmount our component, this cleanup function r
 
 `useEffect`'s first argument is the function handling our logic, but we also gave it a second argument: an empty array.
 
-<pre name="7598" id="7598" class="graf graf--pre graf-after--p">useEffect(() => { ... }, []); **// empty array**</pre>
+```js
+useEffect(() => { ... }, []); // empty array
+```
 
 **Why an empty array?**
 
@@ -358,11 +385,3 @@ Now your table should adjust to the window’s dimensions.
 ![](https://cdn-images-1.medium.com/max/1600/1*jwBuYI8qvS6NZjeL8-8m9g.gif)
 
 I hope you enjoyed this tutorial!
-
-[I’m on Twitter](https://twitter.com/yazeedBee) if you’d like to talk. And please don’t forget to hold that clap 👏 button 50x! ❤️
-
-Until next time.
-
-Take care,
-[Yazeed Bzadough](http://yazeedb.com)
-  
