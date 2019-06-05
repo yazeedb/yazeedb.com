@@ -27,7 +27,7 @@ module.exports = {
     name: 'Yazeed Bzadough',
     photo: '/me-2016.jpg',
     bio:
-      'Front-End developer, specializing in well-architected, scalable user interfaces.',
+      'Front-End developer specializing in well-architected, scalable user interfaces.',
     contacts: {
       email: 'ybzadough@gmail.com',
       // telegram: '#',
