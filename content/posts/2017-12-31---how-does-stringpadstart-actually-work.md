@@ -1,22 +1,24 @@
 ---
 title: How does String.padStart actually work?
 date: '2017-12-31'
-subtitle: 'What it does'
+description: 'A deep dive into this magical method.'
+draft: false
+template: 'post'
+slug: '/posts/how-does-string-padstart-actually-work'
+category: 'Code Snippets Explained'
+tags:
+  - 'String.padStart'
+  - 'Vanilla JavaScript'
+  - 'Deep dive'
 ---
 
-* * *
-
-# How does String.padStart actually work?
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/@yazeedb/how-does-string-padstart-actually-work-abba34d982e" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2017-12-31T20:40:59.046Z">Dec 31, 2017</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="7 min read"></span>
-
-[Previously](https://medium.com/@yazeedb/youtube-durations-in-4-lines-of-javascript-e9a92cea67a4), I shared my usage of `padStart` to elegantly replace what would’ve been loads of `if` statements. This magical method threw me off my rocker. I simply couldn’t believe it existed.
+[Previously](youtube-durations-in-4-lines-of-javascript), I shared my usage of `padStart` to elegantly replace what would’ve been loads of `if` statements. This magical method threw me off my rocker. I simply couldn’t believe it existed.
 
 ### What it does
 
 [Mozilla Developer Network (MDN) Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart):
 
-> The `**padStart()**` method pads the current string with another string (repeated, if needed) so that the resulting string reaches the given length. The padding is applied from the start (left) of the current string.
+> The `padStart()` method pads the current string with another string (repeated, if needed) so that the resulting string reaches the given length. The padding is applied from the start (left) of the current string.
 
 Keep **prepending a string** to **another string** until the **target length** is met.
 
@@ -46,10 +48,10 @@ Here’s MDN’s polyfill.
 
 ### Some points of interest:
 
-*   **Prototypes** (lines 1 and 2)
-*   **Bitwise operators** (line 4)
-*   `padString.repeat` (line 14)
-*   `padString.slice` (line 17)
+- **Prototypes** (lines 1 and 2)
+- **Bitwise operators** (line 4)
+- `padString.repeat` (line 14)
+- `padString.slice` (line 17)
 
 I’m down to step through them if you are 😁
 
@@ -67,8 +69,9 @@ But my Chrome and Firefox do.
 
 Consider this safety check on line 1
 
-```
-if(!String.prototype.padStart)
+```js
+if (!String.prototype.padStart) {
+}
 ```
 
 That `if` statement would only return `true` in my old Safari. It returns `false` in Chrome/Firefox, so no polyfill-ing happens.
@@ -95,7 +98,9 @@ I also removed that `if` statement from line 1, so even the native `String.proto
 
 Using our initial example
 
-<pre name="c797" id="c797" class="graf graf--pre graf-after--p">'world'.padStart(11, 'hello ')</pre>
+```js
+'world'.padStart(11, 'hello ');
+```
 
 ![](https://cdn-images-1.medium.com/max/1600/1*lFrlt-xxEwyByiesDNqHpw.png)
 
@@ -107,12 +112,12 @@ The comment above line 5 briefly describes its purpose: “If `targetLength` is 
 
 **Bitwise operators** make this possible.
 
-<pre name="260a" id="260a" class="graf graf--pre graf-after--p">targetLength >> 0</pre>
+`targetLength >> 0;`
 
 This operator `>>` is known as a [sign-propagating right shift](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators#Right_shift) (LOLWUT?).
 You use it with two numbers
 
-<pre name="47b9" id="47b9" class="graf graf--pre graf-after--p">a >> b</pre>
+`a >> b`
 
 **What this does:**
 
@@ -161,7 +166,9 @@ Jump to line 7’s `debugger` now. `targetLength` has been sanitized. **Next!**
 
 **Line 11.**
 
-<pre name="7f55" id="7f55" class="graf graf--pre graf-after--p">padString = String(padString || ' ');</pre>
+```js
+padString = String(padString || ' ');
+```
 
 If we don’t provide a `padString` argument, it defaults to an empty space. I actually never noticed until now.
 
@@ -173,8 +180,10 @@ Notice how line 13 had another safety check, “If the original string’s lengt
 
 That makes sense because if our `targetLength` is 1, but the string is already 10 characters, what’s the point? We demonstrated that earlier with
 
-<pre name="4e61" id="4e61" class="graf graf--pre graf-after--p">// just returns 'world'
-'world'.padStart(0, 'hello ')</pre>
+```js
+// just returns 'world'
+'world'.padStart(0, 'hello ');
+```
 
 Line 18 determines how many _more_ characters we need by subtracting `targetLength` from the original string’s length. We need 6, in this case.
 
@@ -186,13 +195,15 @@ We skipped that `if` statement on line 20 because `targetLength` and `padString.
 
 For now, we’re stopped right before line 29\. Let’s break it up.
 
-<pre name="ff66" id="ff66" class="graf graf--pre graf-after--p">padString.slice(0, targetLength)</pre>
+```js
+padString.slice(0, targetLength);
+```
 
 The good old `String.prototype.slice` method.
 
 [**MDN Docs**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice):
 
-> The `**slice()**` method extracts a section of a string and returns it as a new string.
+> The `slice()` method extracts a section of a string and returns it as a new string.
 
 It’s index-based, so we’re starting at index 0 of `padString`, and grabbing the amount of characters equal to `targetLength`. It’s kind of like
 
@@ -206,24 +217,28 @@ Return that sliced `padString` combined with the original string, and you’re d
 
 I’d normally conclude here, but we haven’t explored that `if` statement on line 20\. To make sure we hit it this time, let’s try another earlier example
 
-<pre name="110c" id="110c" class="graf graf--pre graf-after--p">'yo'.padStart(20, 'yo')</pre>
+```js
+'yo'.padStart(20, 'yo');
+```
 
 ![](https://cdn-images-1.medium.com/max/1600/1*xMe4-5cz9E4TcaxRV-OpCw.png)
 
 I skipped to line 20 because we already know what happens up to this point.
 
-<pre name="df34" id="df34" class="graf graf--pre graf-after--p">if (targetLength > padString.length)</pre>
+`if (targetLength > padString.length)`
 
 `targetLength` is 18, and `padString` is `'yo'`, with 2 as its length.
 18 > 2, so what next?
 
-<pre name="edf7" id="edf7" class="graf graf--pre graf-after--p">padString += padString.repeat(targetLength / padString.length);</pre>
+```js
+padString += padString.repeat(targetLength / padString.length);
+```
 
 Remember, `padStart` returns a _sliced_ `padString` + original string. If you want to pad `'yo'` with `'yo'` until it’s 20 characters long, you’ll have to repeat many times. This is where that logic happens, using `padString.repeat`.
 
 [**MDN Docs**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat):
 
-> The `**repeat()**` method constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
+> The `repeat()` method constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
 
 So it copy/pastes the string `n` times.
 
@@ -236,7 +251,3 @@ Repeat `'yo'` 9 times and get a string of `'yo'`s that is 18 characters long. Ad
 ![](https://cdn-images-1.medium.com/max/1600/1*0A9siQbKWnKn6cFuidfNMQ.png)
 
 Mission accomplished. Until next time!
-
-Take care,
-Yazeed Bzadough
-  
