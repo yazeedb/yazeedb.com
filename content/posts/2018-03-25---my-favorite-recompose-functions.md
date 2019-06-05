@@ -1,14 +1,18 @@
 ---
 title: My Favorite Recompose Functions
 date: '2018-03-25'
-subtitle: 'withHandlers() and withState()'
+description: 'Before React Hooks came out, I thought this was the future for people seeking a more functional approach.'
+draft: false
+template: 'post'
+slug: '/posts/my-favorite-recompose-functions'
+category: 'React'
+tags:
+  - 'React'
+  - 'Functional Programming'
+  - 'Recompose'
 ---
 
-* * *
-
-# My Favorite Recompose Functions
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://itnext.io/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://itnext.io/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://itnext.io/my-favorite-recompose-functions-c8ff98ea308f" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-03-25T15:25:10.741Z">Mar 25, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="5 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*GqfBOm-WZKNslxosoZaB0g.png)
+![](https://cdn-images-1.medium.com/max/1600/1*GqfBOm-WZKNslxosoZaB0g.png)
 
 [Recompose](https://github.com/acdlite/recompose) is great. Ever used libraries like Lodash or Ramda? Recompose is that, but for React.
 
@@ -78,7 +82,7 @@ And our functionality remains unchanged.
 
 ### compose()
 
-If you’re familiar with functional programming, you likely recognize `compose()`. If not, I’ve written [a post explaining it and](https://medium.com/@yazeedb/pipe-and-compose-in-javascript-5b04004ac937) `[pipe()](https://medium.com/@yazeedb/pipe-and-compose-in-javascript-5b04004ac937)` [here.](https://medium.com/@yazeedb/pipe-and-compose-in-javascript-5b04004ac937)
+If you’re familiar with functional programming, you likely recognize `compose()`. If not, I’ve written [a post explaining it here](https://medium.com/@yazeedb/pipe-and-compose-in-javascript-5b04004ac937).
 
 `compose` combines `n` functions, allowing you to more elegantly nest functions. Let’s refactor our enhanced `MyForm` with it.
 
@@ -161,7 +165,3 @@ As I’ve begun using [RxJS Observables](http://reactivex.io/rxjs/) again, some 
 They might be the subject of a future post, here’s [a link to the Recompose observable utils docs](https://github.com/acdlite/recompose/blob/master/docs/API.md#observable-utilities) if you’re interested.
 
 Until next time!
-
-Take care,
-Yazeed Bzadough
-  
