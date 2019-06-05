@@ -1,37 +1,44 @@
 ---
 title: How to implement map, filter, and reduce with recursion
 date: '2018-05-30'
-subtitle: 'Array.map'
+description: ''
+draft: false
+template: 'post'
+slug: '/posts/implement-map-filter-reduce-using-recursion'
+category: 'React'
+tags:
+  - 'React'
+  - 'React Hooks'
+  - 'Wikipedia search'
 ---
 
-* * *
-
-# How to implement map, filter, and reduce with recursion
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.freecodecamp.org/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.freecodecamp.org/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.freecodecamp.org/implement-array-map-with-recursion-35976d0325b2" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-05-30T16:20:44.791Z">May 30, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="7 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*YMYCdveLRLC9SI3ZYg8dBA.jpeg)
+![](https://cdn-images-1.medium.com/max/1600/1*YMYCdveLRLC9SI3ZYg8dBA.jpeg)
 
 ### Array.map
 
 We all probably know `Array.map`. It transforms an array of elements according to a given function.
 
-<pre name="7d90" id="7d90" class="graf graf--pre graf-after--p">double = (x) => x * 2;</pre>
-
-<pre name="3c38" id="3c38" class="graf graf--pre graf-after--pre">map(double, [1, 2, 3]);
-// [2, 4, 6]</pre>
+```js
+double = (x) => x * 2;
+map(double, [1, 2, 3]);
+// [2, 4, 6]
+```
 
 I’ve always seen it implemented along these lines:
 
-<pre name="deed" id="deed" class="graf graf--pre graf-after--p">map = (fn, arr) => {
-    const mappedArr = [];</pre>
+```js
+map = (fn, arr) => {
+  const mappedArr = [];
 
-<pre name="486a" id="486a" class="graf graf--pre graf-after--pre">    for (let i = 0; i < arr.length; i++) {
-        let mapped = fn(arr[i]);</pre>
+  for (let i = 0; i < arr.length; i++) {
+    let mapped = fn(arr[i]);
 
-<pre name="a541" id="a541" class="graf graf--pre graf-after--pre">        mappedArr.push(mapped);
-    }</pre>
+    mappedArr.push(mapped);
+  }
 
-<pre name="0333" id="0333" class="graf graf--pre graf-after--pre">    return mappedArr;
-};</pre>
+  return mappedArr;
+};
+```
 
 [This video](https://youtu.be/XcS-LdEBUkE?t=4m16s) exposed me to an alternative `Array.map` implementation. It’s from a 2014 JSConf — way before I jumped on the functional programming bandwagon.
 
@@ -39,24 +46,29 @@ I’ve always seen it implemented along these lines:
 
 The original example’s in CoffeeScript, here’s a JavaScript equivalent.
 
-<pre name="1786" id="1786" class="graf graf--pre graf-after--p">map = (fn, [head, ...tail]) => (
- head === undefined ? [] : [fn(head), ...map(fn, tail)]
-);</pre>
+```js
+map = (fn, [head, ...tail]) =>
+  head === undefined ? [] : [fn(head), ...map(fn, tail)];
+```
 
 You might use [David Cizek](https://medium.com/@dadc)’s safer implementation instead.
 
-<pre name="5549" id="5549" class="graf graf--pre graf-after--p">map = (_fn_, [_head_, ..._tail_]) _=>_ (
+```js
+map = (_fn_, [_head_, ..._tail_]) _=>_ (
   head === undefined && tail.length < 1
     ? []
     : [fn(head), ...map(fn, tail)]
-);</pre>
+);
+```
 
 Using [ES6's destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment), we store the array’s first element into the variable `head`. Then we store _all the other_ array elements into `tail`.
 
 If `head` is `undefined`, that means we have an empty array, so just return an empty array. We’ve _mapped_ nothing.
 
-<pre name="977e" id="977e" class="graf graf--pre graf-after--p">map(double, []);
-// []</pre>
+```js
+map(double, []);
+// []
+```
 
 If `head` _is not_ `undefined` we return a new array with `fn(head)` as the first element. We’ve now _mapped_ the array’s first element. Alongside it is `map(fn, tail)` which calls `map` again, this time with one less element.
 
@@ -64,15 +76,17 @@ Since `map` returns an array, we use ES6’s [spread syntax](https://developer.m
 
 Let’s step through this in the debugger. Paste this into your browser’s JavaScript console.
 
-<pre name="e617" id="e617" class="graf graf--pre graf-after--p">map = (fn, [head, ...tail]) => {
-    if (head === undefined) {
-        return [];
-    }</pre>
+```js
+map = (fn, [head, ...tail]) => {
+  if (head === undefined) {
+    return [];
+  }
 
-<pre name="3849" id="3849" class="graf graf--pre graf-after--pre">    debugger;</pre>
+  debugger;
 
-<pre name="a712" id="a712" class="graf graf--pre graf-after--pre">    return [fn(head), ...map(fn, tail)];
-};</pre>
+  return [fn(head), ...map(fn, tail)];
+};
+```
 
 Now let’s `map(double, [1, 2, 3])`.
 
@@ -80,11 +94,11 @@ Now let’s `map(double, [1, 2, 3])`.
 
 We see our local variables:
 
-`head`: `1`
-
-`tail`: `[2, 3]`
-
-`fn`: `double`
+```
+head: 1
+tail: [2, 3]
+fn: double
+```
 
 We know `fn(head)` is `2`. That becomes the new array’s first element. Then we call `map` again with `fn` and the rest of the array’s elements: `tail`.
 
@@ -108,19 +122,24 @@ And here’s our end result:
 
 `Array.filter` returns a new array based on the elements that satisfy a given predicate function.
 
-<pre name="2c1f" id="2c1f" class="graf graf--pre graf-after--p">isEven = (x) => x % 2 === 0;</pre>
-
-<pre name="b407" id="b407" class="graf graf--pre graf-after--pre">filter(isEven, [1, 2, 3]);
-// [2]</pre>
+```js
+isEven = (x) => x % 2 === 0;
+filter(isEven, [1, 2, 3]);
+// [2]
+```
 
 Consider this recursive solution:
 
-<pre name="5b08" id="5b08" class="graf graf--pre graf-after--p">filter = (pred, [head, ...tail]) => head === undefined ? [] : (
- pred(head) ?
-   [head, ...filter(pred, tail)] : [...filter(pred, tail)]
-);</pre>
+```js
+filter = (pred, [head, ...tail]) =>
+  head === undefined
+    ? []
+    : pred(head)
+    ? [head, ...filter(pred, tail)]
+    : [...filter(pred, tail)];
+```
 
-If you understand the [recursive Array.](https://medium.com/front-end-hacking/implement-array-map-with-recursion-35976d0325b2)`[map](https://medium.com/front-end-hacking/implement-array-map-with-recursion-35976d0325b2)`, this one’s easy 💲.
+If `map` made sense, this'll be easy.
 
 We’re still capturing the array’s first element in a variable called `head`, and the rest in a separate array called `tail`.
 
@@ -132,19 +151,21 @@ If `pred(head)` doesn’t return `true`, just call `filter(pred, tail)` without 
 
 Let’s quickly expand and step through this in the Chrome console.
 
-<pre name="9392" id="9392" class="graf graf--pre graf-after--p">filter = (pred, [head, ...tail]) => {
-    if (head === undefined) return [];</pre>
+```js
+filter = (pred, [head, ...tail]) => {
+  if (head === undefined) return [];
 
-<pre name="b830" id="b830" class="graf graf--pre graf-after--pre">    if (pred(head)) {
- **debugger;**</pre>
+  if (pred(head)) {
+    debugger;
 
-<pre name="84aa" id="84aa" class="graf graf--pre graf-after--pre">        return [head, ...filter(pred, tail)];
-    }</pre>
+    return [head, ...filter(pred, tail)];
+  }
 
-<pre name="4365" id="4365" class="graf graf--pre graf-after--pre"> **debugger;**</pre>
+  debugger;
 
-<pre name="9064" id="9064" class="graf graf--pre graf-after--pre">    return [...filter(pred, tail)];
-};</pre>
+  return [...filter(pred, tail)];
+};
+```
 
 And look for numbers ≤ 10:
 
@@ -184,46 +205,54 @@ Last but not least, `Array.reduce` is great for boiling an array down to a singl
 
 Here’s my naive `reduce` implementation:
 
-<pre name="69ef" id="69ef" class="graf graf--pre graf-after--p">reduce = (fn, acc, arr) => {
+```js
+reduce = (fn, acc, arr) => {
   for (let i = 0; i < arr.length; i++) {
     acc = fn(acc, arr[i]);
-  }</pre>
+  }
 
-<pre name="38ba" id="38ba" class="graf graf--pre graf-after--pre">  return acc;
-}</pre>
+  return acc;
+};
+```
 
 And we can use it like this:
 
-<pre name="26b7" id="26b7" class="graf graf--pre graf-after--p">add = (x, y) => x + y;</pre>
-
-<pre name="bb50" id="bb50" class="graf graf--pre graf-after--pre">reduce(add, 0, [1, 2, 3]); **// 6**</pre>
+```js
+add = (x, y) => x + y;
+reduce(add, 0, [1, 2, 3]); // 6
+```
 
 You’d get the same result with this recursive implementation:
 
-<pre name="daab" id="daab" class="graf graf--pre graf-after--p">reduce = (fn, acc, [head, ...tail]) => head === undefined ?
-  acc : reduce(fn, fn(acc, head), tail);</pre>
+```js
+reduce = (fn, acc, [head, ...tail]) =>
+  head === undefined ? acc : reduce(fn, fn(acc, head), tail);
+```
 
 I find this one much easier to read than recursive `map` and `filter`.
 
 Let’s step through this in the browser console. Here’s an expanded version with `debugger` statements:
 
-<pre name="12a0" id="12a0" class="graf graf--pre graf-after--p">reduce = (fn, acc, [head, ...tail]) => {
+```js
+reduce = (fn, acc, [head, ...tail]) => {
   if (head === undefined) {
- **debugger;**</pre>
+    debugger;
 
-<pre name="78e4" id="78e4" class="graf graf--pre graf-after--pre">    return acc;
-  }</pre>
+    return acc;
+  }
 
-<pre name="7c7f" id="7c7f" class="graf graf--pre graf-after--pre"> **debugger;**</pre>
+  debugger;
 
-<pre name="24c7" id="24c7" class="graf graf--pre graf-after--pre">    return reduce(fn, fn(acc, head), tail);
-};</pre>
+  return reduce(fn, fn(acc, head), tail);
+};
+```
 
 Then we’ll call this in the console:
 
-<pre name="1f6e" id="1f6e" class="graf graf--pre graf-after--p">add = (x, y) => x + y;</pre>
-
-<pre name="05e4" id="05e4" class="graf graf--pre graf-after--pre">reduce(add, 0, [1, 2, 3]);</pre>
+```js
+add = (x, y) => x + y;
+reduce(add, 0, [1, 2, 3]);
+```
 
 ![](https://cdn-images-1.medium.com/max/1600/1*2oPtNloFlI-0OZ1B3IZENA.png)
 
@@ -291,13 +320,4 @@ Check it out, we paused on line 3 instead of line 6 this time! `head` is `undefi
 
 ![](https://cdn-images-1.medium.com/max/1600/1*VBzXT1FLhUP0_iRPJ_QTFQ.png)![](https://cdn-images-1.medium.com/max/1600/1*ApR1Nzk791drSLLBzcq2Xw.png)
 
-Looks good to me!
-
-Thank you so much reading this. [I’m on Twitter](https://twitter.com/yazeedBee) if you’d like to talk.
-
-Until next time!
-
-Take care,
-Yazeed Bzadough
-[http://yazeedb.com/](http://yazeedb.com/)
-  
+Looks good to me! Thank you so much for reading this.
