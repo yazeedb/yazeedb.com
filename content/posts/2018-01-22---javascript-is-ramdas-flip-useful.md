@@ -37,7 +37,7 @@ It’s a valid question! Would you ever write a function expecting to need its p
 
 Let’s imagine `greet` is from a 3rd party library. We’re using it within an enterprise app and fetching names from a database. When a name comes back, we want to `greet` it with “Hey there”.
 
-Let’s also imagine that `greet` is curried. If you’re not familiar with currying in JavaScript, see [my post on it](https://medium.com/@yazeedb/how-does-javascripts-curry-actually-work-8d5a6f891499). Currying `greet` allows us to pass one argument instead of two. You can _partially apply_ `greet` and reuse it. Quick example:
+Let’s also imagine that `greet` is curried. If you’re not familiar with currying in JavaScript, see [my post on it](how-does-javascripts-curry-actually-work). Currying `greet` allows us to pass one argument instead of two. You can _partially apply_ `greet` and reuse it. Quick example:
 
 ![](https://cdn-images-1.medium.com/max/1600/1*L3oSxvEkTSMlC-YcK00oZA.png)
 

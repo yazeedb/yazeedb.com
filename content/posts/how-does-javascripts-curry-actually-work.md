@@ -1,95 +1,97 @@
 ---
-title: How Does JavaScript’s c_urry() A_ctually Work?
+title: How Does JavaScript’s curry() Actually Work?
 date: '2017-12-12'
-subtitle: 'Umm… **😐**'
+description: 'A deep dive into this infinitely useful functional programming concept.'
+draft: false
+template: 'post'
+slug: '/posts/how-does-javascripts-curry-actually-work'
+category: 'Functional Programming Basics'
+tags:
+  - 'Currying'
+  - 'Functional Programming'
 ---
 
-* * *
+Lately I’ve been high on functional programming, courtesy of Eric Elliott’s exceptional [“Composing Software” series](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c)–a must-read if you write JavaScript.
 
-# How Does JavaScript’s c_urry() A_ctually Work?
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/front-end-weekly/how-does-javascripts-curry-actually-work-8d5a6f891499" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2017-12-12T23:57:33.571Z">Dec 12, 2017</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="7 min read"></span>
-
-Lately I’ve been high on functional programming, courtesy of [Eric Elliott](https://medium.com/@_ericelliott)’s exceptional [“Composing Software” series](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c)–a must-read if you write JavaScript. At one point he mentioned _currying_, a tool that allows you to “partially apply” a function, meaning you don’t have to specify its arguments all at once.
+At one point he mentioned _currying_, a tool that allows you to “partially apply” a function, meaning you don’t have to specify its arguments all at once.
 
 So if you have
 
-<pre name="3741" id="3741" class="graf graf--pre graf-after--p">greet = (greeting, first, last) => `${greeting}, ${first} ${last}`greet('Hello', 'John', 'Doe') // Hello, John Doe</pre>
+```js
+greet = (greeting, first, last) => `${greeting}, ${first} ${last}`;
+greet('Hello', 'John', 'Doe'); // Hello, John Doe
+```
 
 Curry that and you get
 
-<pre name="bc20" id="bc20" class="graf graf--pre graf-after--p">curriedGreet = curry(greet)</pre>
+```js
+curriedGreet = curry(greet);
 
-<pre name="c414" id="c414" class="graf graf--pre graf-after--pre">curriedGreet('Hello')('John')('Doe') // Hello, John Doe
-curriedGreet('Hello', 'John')('Doe') // Hello, John Doe</pre>
+curriedGreet('Hello')('John')('Doe'); // Hello, John Doe
+curriedGreet('Hello', 'John')('Doe'); // Hello, John Doe
+```
 
 As you fill up a curried function’s parameters, it returns functions that expect the remaining parameters.
 
 A little more in-depth:
 
-<pre name="0bb2" id="0bb2" class="graf graf--pre graf-after--p">// greet requires 3 params: **(greeting, first, last)**</pre>
+```js
+// greet requires 3 params: **(greeting, first, last)
 
-<pre name="c97d" id="c97d" class="graf graf--pre graf-after--pre">// these all return a function looking for **(first, last)**
-curriedGreet('Hello')
-curriedGreet('Hello')()
-curriedGreet()('Hello')()()</pre>
+// these all return a function looking for (first, last)
+curriedGreet('Hello');
+curriedGreet('Hello')();
+curriedGreet()('Hello')()();
 
-<pre name="24a5" id="24a5" class="graf graf--pre graf-after--pre">// these all return a function looking for **(last)**
-curriedGreet('Hello')('John')
-curriedGreet('Hello', 'John')
-curriedGreet('Hello')()('John')()</pre>
+// these all return a function looking for (last)
+curriedGreet('Hello')('John');
+curriedGreet('Hello', 'John');
+curriedGreet('Hello')()('John')();
 
-<pre name="1084" id="1084" class="graf graf--pre graf-after--pre">// these return a greeting, since all 3 params were honored
-curriedGreet('Hello')('John')('Doe')
-curriedGreet('Hello', 'John', 'Doe')
-curriedGreet('Hello', 'John')()()('Doe')</pre>
+// these return a greeting, since all 3 params were honored
+curriedGreet('Hello')('John')('Doe');
+curriedGreet('Hello', 'John', 'Doe');
+curriedGreet('Hello', 'John')()()('Doe');
+```
 
 As demonstrated above, you can invoke a curried function forever without parameters and it’ll always return a function that expects the remaining parameters. **#Loyalty**
 
 But how is this possible?
 
-Mr. Elliot shared a `curry` implementation in [this article](https://medium.com/javascript-scene/a-functional-programmers-introduction-to-javascript-composing-software-d670d14ede30). Here’s the code (or as he aptly called it, a magic spell):
+Mr. Elliot shared a `curry` implementation. Here’s the code (or as he aptly called it, a magic spell):
 
-<pre name="7a54" id="7a54" class="graf graf--pre graf-after--p">const curry = (
-  f, arr = []
-) => (...args) => (
-  a => a.length === f.length ?
-    f(...a) :
-    curry(f, a)
-)([...arr, ...args]);</pre>
+```js
+const curry = (f, arr = []) => (...args) =>
+  ((a) => (a.length === f.length ? f(...a) : curry(f, a)))([...arr, ...args]);
+```
 
 ### Umm… **😐**
 
 Let’s expand that concise work of art and appreciate it together
 
-<pre name="e6e9" id="e6e9" class="graf graf--pre graf-after--p">curry = (originalFunction, initialParams = []) => {
-    debugger;</pre>
+```js
+curry = (originalFunction, initialParams = []) => {
+  debugger;
 
-<pre name="4393" id="4393" class="graf graf--pre graf-after--pre">    return (...nextParams) => {
-        debugger;</pre>
+  return (...nextParams) => {
+    debugger;
 
-<pre name="f163" id="f163" class="graf graf--pre graf-after--pre">        const curriedFunction = (params) => {
-            debugger;</pre>
+    const curriedFunction = (params) => {
+      debugger;
 
-<pre name="9ba7" id="9ba7" class="graf graf--pre graf-after--pre">            if (params.length === originalFunction.length) {
-                return originalFunction(...params);
-            }</pre>
+      if (params.length === originalFunction.length) {
+        return originalFunction(...params);
+      }
 
-<pre name="51d6" id="51d6" class="graf graf--pre graf-after--pre">            return curry(originalFunction, params);
-        };</pre>
-
-<pre name="83bf" id="83bf" class="graf graf--pre graf-after--pre">        return curriedFunction([...initialParams, ...nextParams]);
+      return curry(originalFunction, params);
     };
-};</pre>
+
+    return curriedFunction([...initialParams, ...nextParams]);
+  };
+};
+```
 
 I’ve sprinkled some `debugger` statements to pause the code at noteworthy points. I highly recommend a modern browser to debug like this because you can easily inspect the relevant parameters at different points.
-
-See any of these links if I’m speaking nonsense
-
-*   Chrome: [https://developer.chrome.com/devtools](https://developer.chrome.com/devtools)
-*   Firefox: [https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Open_the_debugger](https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Open_the_debugger)
-*   Edge: [https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide)
-*   IE 11 (If you must): [https://msdn.microsoft.com/en-us/library/bg182326(v=vs.85).aspx](https://msdn.microsoft.com/en-us/library/bg182326%28v=vs.85%29.aspx)
 
 **Quick and dirty steps to access DevTools (might not work in every case)**
 
@@ -136,11 +138,13 @@ Now we’re on line 6, but hold on.
 
 You may have noticed that line 12 actually ran before the `debugger` statement on line 6\. If not, look closer. Our program defines a function called `curriedFunction` on line 5, uses it on line 12, and _then_ we hit that `debugger` statement on line 6\. And what’s `curriedFunction` invoked with?
 
-`[…initialParams, …nextParams]`
+```js
+[...initialParams, ...nextParams];
+```
 
 Yuuuup. Look at `params` on line 5 and you’ll see `['Hello']`. Both `initialParams` and `nextParams` were arrays, so we flattened and combined them into a single array using the handy [_spread_ operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator#Syntax) (Same syntax as _rest_, but it “expands” instead of “condensing”).
 
-If you like, I wrote an article covering spreadand`Object.assign` in detail: [https://medium.com/@ybzadough/how-do-object-assign-and-spread-actually-work-169b53275cb](https://medium.com/@ybzadough/how-do-object-assign-and-spread-actually-work-169b53275cb)
+If you like, I wrote an article covering spread and `Object.assign` in detail: [https://medium.com/@ybzadough/how-do-object-assign-and-spread-actually-work-169b53275cb](https://medium.com/@ybzadough/how-do-object-assign-and-spread-actually-work-169b53275cb)
 
 Here’s where the good stuff happens.
 
@@ -152,9 +156,17 @@ Line 7 says “If `params` and `originalFunction` are the same length, call `gre
 
 This is how `curry` does its magic! This is how it decides whether or not to ask for more parameters. In JavaScript, a function’s `.length` property tells you [_how many arguments it expects_](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length).
 
-<pre name="8fc2" id="8fc2" class="graf graf--pre graf-after--p">greet.length // 3
-((a, b) => {}).length // 2
-((a) => {}).length // 1</pre>
+```js
+greet
+  .length(
+    // 3
+    (a, b) => {}
+  )
+  .length(
+    // 2
+    (a) => {}
+  ).length; // 1
+```
 
 If our provided and expected parameters match, we’re good, just hand them off to the original function and finish the job!
 
@@ -182,7 +194,7 @@ We’re inside line 4 again, and `nextParams` is `['John']`. Jump to the next de
 
 ### Why, why, why?
 
-Because remember, line 12 says “Hey `curriedFunction`, he gave me `'Hello'` last time and `‘John’` this time. Take them both in this array `[...initialParams, ...nextParams]`.”
+Because remember, line 12 says “Hey `curriedFunction`, he gave me `'Hello'` last time and `‘John’` this time. Take them both in this array `[...initialParams, ...nextParams]`.”
 
 ![](https://cdn-images-1.medium.com/max/1600/1*Ljvk2BMLxIsbJ09idgStdg.png)
 
@@ -204,12 +216,10 @@ I think we know what happens next.
 
 Play around with this function some more. Try supplying multiple or no parameters in one shot, get as crazy as you want. See how many times `curry` has to recurse before returning your expected output.
 
-<pre name="6bad" id="6bad" class="graf graf--pre graf-after--p">curriedGreet('Hello', 'John', 'Doe')
-curriedGreet('Hello', 'John')('Doe')
-curriedGreet()()('Hello')()('John')()()()()('Doe')</pre>
+```js
+curriedGreet('Hello', 'John', 'Doe');
+curriedGreet('Hello', 'John')('Doe');
+curriedGreet()()('Hello')()('John')()()()()('Doe');
+```
 
 Many thanks to [Eric Elliott](https://medium.com/@_ericelliott) for introducing this to me, and even more thanks to you for appreciating `curry` with me. Until next time!
-
-Take care,
-Yazeed Bzadough
-  
