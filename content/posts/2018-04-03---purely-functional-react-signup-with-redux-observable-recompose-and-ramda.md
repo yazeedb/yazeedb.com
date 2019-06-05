@@ -1,14 +1,20 @@
 ---
 title: Purely Functional React Signup with Redux-Observable, Recompose, and Ramda
 date: '2018-04-03'
-subtitle: 'Ramda'
+description: 'A full tutorial using a bunch of the latest React ecosystem tools.'
+draft: false
+template: 'post'
+slug: '/posts/purely-functional-react-signup-app'
+category: 'React'
+tags:
+  - 'React'
+  - 'Recompose'
+  - 'Ramda'
+  - 'RxJS'
+  - 'Redux-Observable'
 ---
 
-* * *
-
-# Purely Functional React Signup with Redux-Observable, Recompose, and Ramda
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/front-end-weekly/purely-functional-react-signup-with-redux-observable-recompose-and-ramda-d37fc0424bdb" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-04-04T02:53:30.540Z">Apr 3, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="14 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*PukMaZu65fHngoD-2AF0Hw.png)
+![](https://cdn-images-1.medium.com/max/1600/1*PukMaZu65fHngoD-2AF0Hw.png)
 
 In this tutorial, we’ll build a signup UI using React/Redux and three of my favorite libraries: Ramda, Recompose, and Redux-Observable. Going in that order:
 
@@ -40,11 +46,11 @@ You may also clone [this tutorial’s GitHub repo](https://github.com/yazeedb/Re
 
 Either way, make sure you have the aforementioned libraries
 
-<pre name="c4cd" id="c4cd" class="graf graf--pre graf-after--p">npm i redux-observable rxjs recompose ramda -S</pre>
+`npm i redux-observable rxjs recompose ramda -S`
 
 Optionally install autodux
 
-<pre name="0017" id="0017" class="graf graf--pre graf-after--p">npm i autodux -S</pre>
+`npm i autodux -S`
 
 ### Signup/index.js
 
@@ -92,28 +98,30 @@ Much better!
 
 Let’s think about our state next. We wish to manage:
 
-*   Username
-*   Password
-*   Loading indicator
-*   Success indicator
-*   Signup response body (new user’s `id`)
+- Username
+- Password
+- Loading indicator
+- Success indicator
+- Signup response body (new user’s `id`)
 
 Our initial state might look like this
 
-<pre name="a047" id="a047" class="graf graf--pre graf-after--p">initial: {
+```js
+initial: {
     username: '',
     password: '',
     loading: false,
     success: false,
     id: null
-},</pre>
+}
+```
 
 And we’d want the following actions to update that state
 
-*   `setUsername`
-*   `setPassword`
-*   `sendSignupInfo`
-*   `signupSuccess`
+- `setUsername`
+- `setPassword`
+- `sendSignupInfo`
+- `signupSuccess`
 
 I’ll use autodux because it makes the setup trivial. First the file:
 
@@ -123,7 +131,7 @@ Now import autodux and give it our `slice` and `initial` state.
 
 ![](https://cdn-images-1.medium.com/max/1600/1*GzlHi76th-CtBvVnPUsA8Q.png)
 
-`slice` prepends your auto-generated action types, helping guarantee their uniqueness. It’s not that different from the `[createReducer](https://redux.js.org/recipes/reducing-boilerplate#generating-reducers)` [helper](https://redux.js.org/recipes/reducing-boilerplate#generating-reducers) I’ve previously mentioned.
+`slice` prepends your auto-generated action types, helping guarantee their uniqueness. It’s not that different from the [createReducer](https://redux.js.org/recipes/reducing-boilerplate#generating-reducers) I’ve previously mentioned.
 
 `initial` is our initial state. Now let’s add the `actions`.
 
@@ -201,7 +209,7 @@ As previously mentioned, you give `withHandlers` an object of _handler creators_
 
 I love it because normally, you’d need to extend `React.Component` to create handlers, but Recompose abstracts that away, letting you write plain ol’ functions.
 
-It’s actually on my list of [favorite Recompose functions](https://medium.com/@yazeedb/my-favorite-recompose-functions-c8ff98ea308f#9da6-2f8c5cce0b28).
+It’s actually on my list of [favorite Recompose functions](my-favorite-recompose-functions).
 
 #### Before you add this to your JSX!
 
@@ -255,7 +263,7 @@ Since `withHandlers` provides `handleSubmit` our `props`, we’ll grab `username
 
 Our handler calls `event.preventDefault()` to prevent page reload, and the `sendSignupInfo` action gets fired with our form data.
 
-If you have something like `[redux-logger](https://github.com/evgenyrodionov/redux-logger)`, your browser console will be notified.
+If you have something like [redux-logger](https://github.com/evgenyrodionov/redux-logger), your browser console will be notified.
 
 ![](https://cdn-images-1.medium.com/max/1600/1*78vOTjlZOHBQjgvDudcJrQ.png)
 
@@ -369,7 +377,7 @@ It’s just a function expecting an action stream: `action$`. Appending `$` is c
 
 It returns `action$.pipe()`. Now we’re getting into RxJS territory.
 
-RxJS version 5.5 shipped [_pipeable operators_](https://github.com/ReactiveX/rxjs/blob/master/doc/pipeable-operators.md). You pipe your operators instead of dot-chaining them.
+RxJS version 5.5 shipped [pipeable operators](https://github.com/ReactiveX/rxjs/blob/master/doc/pipeable-operators.md). You pipe your operators instead of dot-chaining them.
 
 **This**
 
@@ -539,7 +547,3 @@ Our side effect’s contained within Redux-Observable, and future side effects w
 We can take this app anywhere we want, but we’ve reached the end of this blog post. Haven’t checked, but this might’ve been my longest post to date.
 
 It was fun, hope to share more. Until next time!
-
-Take care,
-Yazeed Bzadough
-  
