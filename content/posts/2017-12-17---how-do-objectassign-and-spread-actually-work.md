@@ -1,16 +1,15 @@
 ---
 title: How Do Object.assign and Spread Actually Work?
 date: '2017-12-17'
-subtitle: 'What is spread?'
+description: 'Code along with me as we learn about the new React Hooks API!'
+draft: false
+template: 'post'
+slug: '/posts/how-do-object-assign-and-spread-actually-work'
+category: 'JavaScript In-depth'
+tags:
+  - 'JavaScript'
+  - 'Deep dive'
 ---
-
-* * *
-
-# How Do Object.assign and Spread Actually Work?
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/@yazeedb/how-do-object-assign-and-spread-actually-work-169b53275cb" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2017-12-17T20:15:12.750Z">Dec 17, 2017</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="8 min read"></span>
-
-The code in [my last article](https://medium.com/@yazeedb/how-does-javascripts-curry-actually-work-8d5a6f891499) made good use of _spread_ because of its powerful expressivity. Let’s break it down to better appreciate its magic.
 
 ### What is spread?
 
@@ -54,27 +53,29 @@ Let’s add our initial code
 
 Whoa `_toConsumableArray`, what’s that? Let’s expand and restructure it.
 
-<pre name="e193" id="e193" class="graf graf--pre graf-after--p">function _toConsumableArray(arr) {
-    // if it's already an array
-    if (Array.isArray(arr)) {
-        // create a new array
-        // of the same length
-        var newArr = Array(arr.length);
-        var i = 0;</pre>
+```js
+function _toConsumableArray(arr) {
+  // if it's already an array
+  if (Array.isArray(arr)) {
+    // create a new array
+    // of the same length
+    var newArr = Array(arr.length);
+    var i = 0;
 
-<pre name="b644" id="b644" class="graf graf--pre graf-after--pre">        // and populate it with the
-        // original's contents
-        for (i; i < arr.length; i++) {
-            arr2[i] = arr[i];
-        }</pre>
-
-<pre name="1731" id="1731" class="graf graf--pre graf-after--pre">        return arr2;
-    } else {
-        // If it's not an array,
-        // turn it into one
-        return Array.from(arr);
+    // and populate it with the
+    // original's contents
+    for (i; i < arr.length; i++) {
+      arr2[i] = arr[i];
     }
-}</pre>
+
+    return arr2;
+  } else {
+    // If it's not an array,
+    // turn it into one
+    return Array.from(arr);
+  }
+}
+```
 
 Okay cool... If we have an array return a new copy, otherwise, make an array out of it. But something’s still not adding up here…
 
@@ -96,60 +97,71 @@ You can use `apply` to invoke a function and pass it parameters, sure…but why 
 
 The first sentence:
 
-> The `**apply()**` method calls a function with a given `this` value, **and** `**arguments**` **provided as an array (or an** [**array-like object**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections#Working_with_array-like_objects)**).**
+> The `apply()` method calls a function with a given `this` value, **and** `arguments` **provided as an array (or an** [array-like object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections#Working_with_array-like_objects)**).**
 
 ![](https://cdn-images-1.medium.com/max/1600/1*Nh-S3PxSlsiSOs3-KR2jEw.png)
 
 That makes so much sense. `apply` takes an array of params and feeds it to your function _one by one_.
 
-<pre name="1799" id="1799" class="graf graf--pre graf-after--p">// 1
-identity.apply(undefined, [1, 2, 3])</pre>
+```js
+// 1
+identity.apply(undefined, [1, 2, 3]);
+```
 
 is the same as saying this
 
-<pre name="2c3d" id="2c3d" class="graf graf--pre graf-after--p">// 1
-identity(1, 2, 3)</pre>
+```js
+// 1
+identity(1, 2, 3);
+```
 
 and **NOT** this
 
-<pre name="710a" id="710a" class="graf graf--pre graf-after--p">// This says identity([1, 2, 3])
+```js
+// This says identity([1, 2, 3])
 // which is **NOT** the same
-`identity(_toConsumableArray(arr))`</pre>
+identity(_toConsumableArray(arr));
+```
 
 And in JavaScript, extra parameters are thrown away.
 
-<pre name="a63d" id="a63d" class="graf graf--pre graf-after--p">combineWords = (one, two) => `${one} ${two}`</pre>
+```js
+combineWords = (one, two) => `${one} ${two}`;
 
-<pre name="f3ed" id="f3ed" class="graf graf--pre graf-after--pre">// 'big sandwich'
-combineWords('big', 'sandwich')</pre>
+// 'big sandwich'
+combineWords('big', 'sandwich');
 
-<pre name="39d7" id="39d7" class="graf graf--pre graf-after--pre">// 'now' isn't used
+// 'now' isn't used
 // still returns 'big sandwich'
-combineWords('big', 'sandwich', 'now')</pre>
+combineWords('big', 'sandwich', 'now');
+```
 
 See that? We kept getting `'big sandwich'` because `combineWords` only accepts two arguments. Any others are thrown out.
 
-If you want `identity` to return all of its arguments, use the [rest syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) to get the _rest_ of them. 👏
+If you want `identity` to return all of its arguments, use the rest syntax to get the _rest_ of them. 👏
 
+```js
+restIdentity = (...args) => args;
+restIdentity(...arr); // [1, 2, 3]
 ```
-restIdentity = (...args) => args
-```
-
-<pre name="2581" id="2581" class="graf graf--pre graf-after--pre">restIdentity(...arr) // [1, 2, 3]</pre>
 
 This uses _rest_ to capture all params in an array. Since we _spread_ `[1, 2, 3]`, Babel turned it into
 
-`restIdentity.apply(undefined, [1, 2, 3])`
+```js
+restIdentity.apply(undefined, [1, 2, 3]);
+```
 
 or
 
-`restIdentity(1, 2, 3)`
+```js
+restIdentity(1, 2, 3);
+```
 
 ### Quick recap:
 
-*   When using _spread_ in function calls, Babel “fakes it” by wrapping your arguments in `_toConsumableArray` and invoking your function’s `apply` method to…apply them. 👏
-*   Since `identity` only returns the first argument, passings params with `apply` will only return your first argument. All others are discarded.
-*   If you’d like `identity` to capture all parameters in a single array, use _rest_ syntax:`(…params) => params`
+- When using _spread_ in function calls, Babel “fakes it” by wrapping your arguments in `_toConsumableArray` and invoking your function’s `apply` method to…apply them. 👏
+- Since `identity` only returns the first argument, passings params with `apply` will only return your first argument. All others are discarded.
+- If you’d like `identity` to capture all parameters in a single array, use _rest_ syntax:`(…params) => params`
 
 That’s one mystery solved! So what actually happens when you combine arrays using _spread_? Using our earlier example:
 
@@ -159,7 +171,7 @@ Okay, our arrays are still wrapped in `_toConsumableArray` and then concatenated
 
 Once again, ❤️ [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat):
 
-> The `**concat()**` method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
+> The `concat()` method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
 
 Nice. So however many arrays we combine, `concat` returns a new array with the end result.
 
@@ -169,15 +181,21 @@ Nice. So however many arrays we combine, `concat` returns a new array with the e
 
 I’m predicting that `_toConsumableArray` won’t suffice when we’re using _spread_ on objects. Let’s see what our good friend, REPL, has to say.
 
-![](https://cdn-images-1.medium.com/max/1600/1*KRC9ML9a5gMXHMMrwtkn4w.png)I broke it
+![](https://cdn-images-1.medium.com/max/1600/1*KRC9ML9a5gMXHMMrwtkn4w.png)
+
+> I broke it
 
 Whoops, I forgot to mention: make sure to select any of the **stage-x** presets.
 
-![](https://cdn-images-1.medium.com/max/1600/1*GqkHXygIL0fWK9lVNTE1aw.png)I fixed it
+![](https://cdn-images-1.medium.com/max/1600/1*GqkHXygIL0fWK9lVNTE1aw.png)
+
+> I fixed it
 
 So with that out of the way, let’s look at our newly generated code from when we entered `bigFoot` and friends.
 
-![](https://cdn-images-1.medium.com/max/1600/1*YVLuudd52754IGZyQLKGUw.png)I see a familiar face on line 3
+![](https://cdn-images-1.medium.com/max/1600/1*YVLuudd52754IGZyQLKGUw.png)
+
+> I see a familiar face on line 3
 
 **Look very closely at line 3…**
 
@@ -189,30 +207,34 @@ I think we’ll get two gems for the price of one today.
 
 By understanding that custom function Babel wrote, we’ll understand object _spread_ and `Object.assign` at the same time!
 
-Let’s restructure and play with this in [DevTools](https://forum.freecodecamp.org/t/which-browser-has-the-best-developer-tools-and-explain-why/2025)
+Let’s restructure and play with this in DevTools
 
-<pre name="b65e" id="b65e" class="graf graf--pre graf-after--p">function fakeObjectAssign(target) {
-    for (var i = 1; i < arguments.length; i++) {
-        var source = arguments[i];</pre>
+```js
+function fakeObjectAssign(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
 
-<pre name="9da3" id="9da3" class="graf graf--pre graf-after--pre">        debugger;</pre>
+    debugger;
 
-<pre name="8936" id="8936" class="graf graf--pre graf-after--pre">        for (var key in source) {
-            debugger;</pre>
+    for (var key in source) {
+      debugger;
 
-<pre name="cb5e" id="cb5e" class="graf graf--pre graf-after--pre">            if (Object.prototype.hasOwnProperty.call(source, key)) {
-                target[key] = source[key];
-            }
-        }
-    }</pre>
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
 
-<pre name="664a" id="664a" class="graf graf--pre graf-after--pre">    debugger;
-    return target;
-};</pre>
+  debugger;
+  return target;
+}
+```
 
 Remember, `Object.assign`'s first parameter is the _target._
 
-<pre name="2a71" id="2a71" class="graf graf--pre graf-after--p">Object.assign({}, bill, bigFoot)</pre>
+```js
+Object.assign({}, bill, bigFoot);
+```
 
 Here an empty object `{}` is populated with `bill` and `bigFoot`'s fusion. So you get a brand new object.
 
@@ -232,27 +254,33 @@ Our `target` is a brand-new object, and each argument after that is what we’re
 
 Remember how I mentioned using _rest_ parameters to capture your arguments in an array?
 
-```
-restIdentity = (...args) => args
+```js
+restIdentity = (...args) => args;
 ```
 
 Pre-ES6 arrow functions, we used the `arguments` object.
 
-<pre name="bf96" id="bf96" class="graf graf--pre graf-after--p">function oldSchoolArguments() {
-    return arguments;
-}</pre>
+```js
+function oldSchoolArguments() {
+  return arguments;
+}
+```
 
 For fun, I’ll do
 
-`oldSchoolArguments('Hello', 'World')`
+```js
+oldSchoolArguments('Hello', 'World');
+```
 
 ![](https://cdn-images-1.medium.com/max/1600/1*pwsmfIAF7o8862kjpYB_mQ.png)
 
-It’s not [_quite_ an array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) but it has indices, so its iterable. We can loop through it.
+It’s not _quite_ an array but it has indices, so its iterable. We can loop through it.
 
 That’s what `fakeObjectAssign` does on line 2
 
-<pre name="b578" id="b578" class="graf graf--pre graf-after--p">for (var i = 1; i < arguments.length; i++)</pre>
+```js
+for (var i = 1; i < arguments.length; i++)
+```
 
 Wait, but `arguments` indices are zero-based, meaning the first argument’s in position 0\. This loop skips the first argument!
 
@@ -262,9 +290,11 @@ Looking at line 3, `arguments[i]` (the current argument) has been appropriately 
 
 Now on line 7 it loops through the current `source` and does an interesting check
 
-<pre name="6915" id="6915" class="graf graf--pre graf-after--p">if (Object.prototype.hasOwnProperty.call(source, key)) {
-    target[key] = source[key];
-}</pre>
+```js
+if (Object.prototype.hasOwnProperty.call(source, key)) {
+  target[key] = source[key];
+}
+```
 
 `hasOwnProperty` is a method on every JavaScript object that tells you whether or not that object has a certain property. **Inherited properties don’t count**.
 
@@ -272,13 +302,15 @@ Now on line 7 it loops through the current `source` and does an interesting chec
 
 `bill.hasOwnProperty('name')` returns true because we _directly_ defined `name` on `bill`. But what if `bill` inherits a method `sayName`?
 
-<pre name="a9bf" id="a9bf" class="graf graf--pre graf-after--p">function inherit(name) {
-    this.name = name;</pre>
+```js
+function inherit(name) {
+  this.name = name;
 
-<pre name="a57a" id="a57a" class="graf graf--pre graf-after--pre">    inherit.prototype.sayName = function() {
-        return this.name;
-    };
-}</pre>
+  inherit.prototype.sayName = function() {
+    return this.name;
+  };
+}
+```
 
 I won’t cover prototypes in this post. If you’re unfamiliar with them, just understand that `bill` will _inherit_ the `sayName` method. [Further reading if you’re interested](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes).
 
@@ -288,9 +320,11 @@ We’ve got the point across: `hasOwnProperty` only returns `true` for propertie
 
 Back to our loop:
 
-<pre name="605d" id="605d" class="graf graf--pre graf-after--p">if (Object.prototype.hasOwnProperty.call(source, key)) {
-    target[key] = source[key];
-}</pre>
+```js
+if (Object.prototype.hasOwnProperty.call(source, key)) {
+  target[key] = source[key];
+}
+```
 
 If `key` was defined directly on `source`, copy it to `target`.
 
@@ -310,7 +344,9 @@ Jump to the next `debugger`, and you see that `target` has a `name` property now
 
 On the next `debugger` (line 8), we’re evaluating `bigFoot`'s original properties
 
-![](https://cdn-images-1.medium.com/max/1600/1*Fm2--x5c5mv0uRJ3ESofkw.png)bigFoot does indeed have a shoeSize > 9000
+![](https://cdn-images-1.medium.com/max/1600/1*Fm2--x5c5mv0uRJ3ESofkw.png)
+
+> bigFoot does indeed have a shoeSize > 9000
 
 Jump to the next `debugger` and we’re on line 16, just before we return the `target` object. This means we’ve finished looping through each `argument` and its properties.
 
@@ -322,12 +358,10 @@ And `bigFootBill` has been successfully created.
 
 ### Quick recap:
 
-*   _Spread_ and`Object.assign`are _exactly the same_ regarding objects. _Spread_ uses `Object.assign` if your browser supports it.
-*   `Object.assign`'s first parameter is the `target` object, every parameter after that is a `source` object to be merged into the `target`.
-*   **Inherited properties don’t count**. A `source` object’s property will only get merged if it was defined _directly_ on that `source` object.
+- _Spread_ and `Object.assign` are _exactly the same_ regarding objects. _Spread_ uses `Object.assign` if your browser supports it.
+- `Object.assign`'s first parameter is the `target` object, every parameter after that is a `source` object to be merged into the `target`.
+- **Inherited properties don’t count**. A `source` object’s property will only get merged if it was defined _directly_ on that `source` object.
 
-That was fun. I learned several new things writing this article, and couldn’t be happier that you stuck with me through all of it. Until next time!
+That was fun. I learned several new things writing this article, and couldn’t be happier that you stuck with me through all of it.
 
-Take care,
-Yazeed Bzadough
-  
+Until next time!
