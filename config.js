@@ -2,12 +2,13 @@
 
 module.exports = {
   url: 'https://lumen.netlify.com',
-  title: 'Blog by John Doe',
-  subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+  title: 'Yazeed Bzadough',
+  subtitle:
+    'I am a Front-End developer, specializing in well-architected, scalable user interfaces.',
   copyright: '© All rights reserved.',
   disqusShortname: '',
-  postsPerPage: 4,
-  googleAnalyticsId: 'UA-73379983-2',
+  postsPerPage: 50,
+  googleAnalyticsId: 'UA-136388820-1',
   menu: [
     {
       label: 'Articles',
@@ -16,23 +17,25 @@ module.exports = {
     {
       label: 'About me',
       path: '/pages/about'
-    },
-    {
-      label: 'Contact me',
-      path: '/pages/contacts'
     }
+    // {
+    //   label: 'Contact me',
+    //   path: '/pages/contacts'
+    // }
   ],
   author: {
-    name: 'John Doe',
-    photo: '/photo.jpg',
-    bio: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+    name: 'Yazeed Bzadough',
+    photo: '/me-2016.jpg',
+    bio:
+      'Front-End developer specializing in well-architected, scalable user interfaces.',
     contacts: {
-      email: '#',
-      telegram: '#',
-      twitter: '#',
-      github: '#',
-      rss: '#',
-      vkontakte: '#'
+      twitter: 'yazeedBee',
+      github: 'yazeedb',
+      linkedin: 'yazeedb'
+      // email: 'ybzadough@gmail.com',
+      // telegram: '#',
+      // rss: '#',
+      // vkontakte: '#'
     }
   }
 };

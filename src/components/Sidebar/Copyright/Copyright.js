@@ -1,14 +1,17 @@
 // @flow
 import React from 'react';
+import moment from 'moment';
 import styles from './Copyright.module.scss';
 
-type Props = {
-  copyright: string
-};
+// type Props = {
+//   copyright: string
+// };
 
-const Copyright = ({ copyright }: Props) => (
+// const Copyright = ({ copyright }: Props) => (
+const Copyright = () => (
   <div className={styles['copyright']}>
-    {copyright}
+    {/* {copyright} */}© {moment().format('YYYY')} Copyright Yazeed Bzadough.
+    All rights reserved.
   </div>
 );
 

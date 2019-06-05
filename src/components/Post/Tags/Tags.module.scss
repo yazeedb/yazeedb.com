@@ -2,7 +2,7 @@
 @import '../../../assets/scss/mixins';
 
 .tags {
-  @include margin-bottom(.5);
+  @include margin-bottom(0.5);
 
   &__list {
     list-style: none;
@@ -12,6 +12,13 @@
     &-item {
       display: inline-block;
       margin: 10px 5px;
+      background: $color-gray-bg;
+      border-radius: 3px;
+
+      &:hover,
+      &:focus {
+        background: $color-gray-border;
+      }
 
       &-link {
         display: inline-block;
@@ -21,17 +28,13 @@
         border: 1px solid $color-gray-border;
         text-decoration: none;
         border-radius: $button-border-radius;
-        color: $color-base;
+        color: $color-gray;
 
         &:hover,
         &:focus {
-          color: $color-primary;
+          color: inherit;
         }
-
       }
-
     }
-
   }
-
 }

@@ -1,12 +1,22 @@
 ---
-title: "About me"
-template: "page"
+title: 'About me'
+template: 'page'
 ---
 
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
+> “Teaching is the fastest way to learn.”
 
-![Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.](/media/image-2.jpg)
+I've [written](/posts/how-to-learn-anything) and mentioned countless times that teaching is the fastest way to learn. I realized that you'll never truly understand a concept until you help someone else reach that same understanding.
 
-*Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.*
+Through my blog and personal efforts, I help other developers understand modern web technologies. Not just the _what_, but the _how_ and _why_.
 
-Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
+That kind of work requires passion, which I try to deliver every single time. The moment I understand something, the urge to spread that knowledge and benefit everyone around me is unbearable.
+
+I love all things **JavaScript**, **React**, **Redux**, **TypeScript**, and more recently **Elm** and **functional programming** in general.
+
+For inquiries, feel free to email me at [ybzadough@gmail.com](), or message me [on Twitter](https://www.twitter.com/yazeedBee). Look forward to hearing from you!
+
+### More Links
+
+- [Resume](https://www.yazeedb.com/resume.pdf)
+- [LinkedIn](https://www.linkedin.com/in/yazeedb/)
+- [Blog on Medium](https://medium.com/@yazeedb/)
