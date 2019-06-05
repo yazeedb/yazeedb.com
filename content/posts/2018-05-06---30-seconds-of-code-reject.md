@@ -1,5 +1,5 @@
 ---
-title: 30 Seconds of Code reject()
+title: '30 Seconds of Code: reject()'
 date: '2018-05-06'
 template: 'post'
 draft: false

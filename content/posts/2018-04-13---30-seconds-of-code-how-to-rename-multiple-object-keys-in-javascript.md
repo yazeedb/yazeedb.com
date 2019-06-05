@@ -1,5 +1,5 @@
 ---
-title: 30 Seconds of Code How to rename multiple object keys in JavaScript
+title: '30 Seconds of Code: How to rename multiple object keys in JavaScript'
 date: '2018-04-13'
 description: 'A response to my article on renaming a single object key in JavaScript.'
 draft: false
