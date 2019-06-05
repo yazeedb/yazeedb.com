@@ -1,14 +1,20 @@
 ---
 title: How to build GitHub search functionality in React with RxJS 6 and Recompose
 date: '2018-08-06'
-subtitle: 'Setup'
+description: 'Code along with me as we learn about RxJS and Recompose!'
+draft: false
+template: 'post'
+slug: '/posts/build-a-github-ui-with-rxjs-and-recompose'
+category: 'React'
+tags:
+  - 'React'
+  - 'RxJS'
+  - 'Recompose'
+  - 'Functional Programming'
+  - 'Reactive Programming'
 ---
 
-* * *
-
-# How to build GitHub search functionality in React with RxJS 6 and Recompose
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.freecodecamp.org/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.freecodecamp.org/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.freecodecamp.org/how-to-build-a-github-search-in-react-with-rxjs-6-and-recompose-e9c6cc727e7f" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-08-06T19:08:03.271Z">Aug 6, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="9 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*ZeifRZJH1QudGiIiA6En4Q.png)
+![](https://cdn-images-1.medium.com/max/1600/1*ZeifRZJH1QudGiIiA6En4Q.png)
 
 This post is intended for those with React and RxJS experience. I’m just sharing patterns I found useful while making this UI.
 
@@ -22,17 +28,19 @@ No classes, lifecycle hooks, or `setState`.
 
 Everything’s on [my GitHub](https://github.com/yazeedb/recompose-github-ui).
 
-<pre name="e203" id="e203" class="graf graf--pre graf-after--p">git clone [https://github.com/yazeedb/recompose-github-ui](https://github.com/yazeedb/recompose-github-ui)
+```
+git clone https://github.com/yazeedb/recompose-github-ui
 cd recompose-github-ui
-yarn install</pre>
+yarn install
+```
 
 The `master` branch has the finished project, so checkout the `start` branch if you wish to follow along.
 
-<pre name="c222" id="c222" class="graf graf--pre graf-after--p">git checkout start</pre>
+`git checkout start`
 
 And run the project.
 
-<pre name="310d" id="310d" class="graf graf--pre graf-after--p">npm start</pre>
+`npm start`
 
 The app should be running on `localhost:3000`, and here’s our initial UI.
 
@@ -44,11 +52,9 @@ Open the project in your favorite text editor and view `src/index.js`.
 
 ### Recompose
 
-If you haven’t seen it yet, [Recompose](https://github.com/acdlite/recompose/) is a wonderful React utility belt for making components in a functional programming style. It has a ton of functions, and I’d have a hard time picking [my favorites](https://medium.com/@yazeedb/my-favorite-recompose-functions-c8ff98ea308f#9da6-2f8c5cce0b28).
+If you haven’t seen it yet, [Recompose](https://github.com/acdlite/recompose/) is a wonderful React utility belt for making components in a functional programming style. It has a ton of functions, and I’d have a hard time picking [my favorites](my-favorite-recompose-functions).
 
-It’s Lodash/Ramda, but for React.
-
-I also love that they support observables. Quoting from [the docs](https://github.com/acdlite/recompose/blob/master/docs/API.md#observable-utilities):
+It’s Lodash/Ramda, but for React. I also love that they support observables. Quoting from [the docs](https://github.com/acdlite/recompose/blob/master/docs/API.md#observable-utilities):
 
 > It turns out that much of the React Component API can be expressed in terms of observables
 
@@ -56,9 +62,9 @@ We’ll be exercising that concept today! 😁
 
 ### Streaming Our Component
 
-Right now `App` is an ordinary React component. We can return it through an observable using Recompose’s `[componentFromStream](https://github.com/acdlite/recompose/blob/master/docs/API.md#componentfromstream)` function.
+Right now `App` is an ordinary React component. We can return it through an observable using Recompose’s [componentFromStream](https://github.com/acdlite/recompose/blob/master/docs/API.md#componentfromstream) function.
 
-This function initially renders [a](https://github.com/acdlite/recompose/blob/master/src/packages/recompose/componentFromStream.js#L8) `[null](https://github.com/acdlite/recompose/blob/master/src/packages/recompose/componentFromStream.js#L8)` [component](https://github.com/acdlite/recompose/blob/master/src/packages/recompose/componentFromStream.js#L8), and _re-renders_ when our observable returns a new value.
+This function initially renders [a null component](https://github.com/acdlite/recompose/blob/master/src/packages/recompose/componentFromStream.js#L8), and _re-renders_ when our observable returns a new value.
 
 #### A Dash of Config
 
@@ -72,16 +78,20 @@ Create a new file in `src` called `observableConfig.js`.
 
 And add this code to make Recompose compatible with RxJS 6:
 
-<pre name="7240" id="7240" class="graf graf--pre graf-after--p">import { from } from 'rxjs';
-import { setObservableConfig } from 'recompose';</pre>
+```js
+import { from } from 'rxjs';
+import { setObservableConfig } from 'recompose';
 
-<pre name="3bb0" id="3bb0" class="graf graf--pre graf-after--pre">setObservableConfig({
+setObservableConfig({
   fromESObservable: from
-});</pre>
+});
+```
 
 Import it into `index.js`:
 
-<pre name="9656" id="9656" class="graf graf--pre graf-after--p">import './observableConfig';</pre>
+```js
+import './observableConfig';
+```
 
 And we’re ready!
 
@@ -89,16 +99,21 @@ And we’re ready!
 
 Import `componentFromStream`.
 
-<pre name="9f57" id="9f57" class="graf graf--pre graf-after--p">import React from 'react';
+```js
+import React from 'react';
 import ReactDOM from 'react-dom';
-**import { componentFromStream } from 'recompose';** import './styles.css';
-import './observableConfig';</pre>
+import { componentFromStream } from 'recompose';
+import './styles.css';
+import './observableConfig';
+```
 
 And begin redefining `App` with this code:
 
-<pre name="3a7a" id="3a7a" class="graf graf--pre graf-after--p">const App = componentFromStream(prop$ => {
-  ...
-});</pre>
+```js
+const App = componentFromStream((prop$) => {
+  // ...
+});
+```
 
 Notice that `componentFromStream` takes a callback function expecting a `prop$` stream. The idea is that our `props` become an observable, and we map them to a React component.
 
@@ -110,19 +125,23 @@ As the name implies, you’re transforming `Observable(something)` into `Observa
 
 Import the `map` operator:
 
-<pre name="63d2" id="63d2" class="graf graf--pre graf-after--p">import { map } from 'rxjs/operators';</pre>
+```js
+import { map } from 'rxjs/operators';
+```
 
 And redefine App:
 
-<pre name="2ef7" id="2ef7" class="graf graf--pre graf-after--p">const App = componentFromStream(prop$ => {
-  return **prop$.pipe(
+```js
+const App = componentFromStream((prop$) => {
+  return prop$.pipe(
     map(() => (
       <div>
         <input placeholder="GitHub username" />
       </div>
     ))
-  )**
-});</pre>
+  );
+});
+```
 
 Ever since RxJS 5, we use `pipe` instead of chaining operators.
 
@@ -136,23 +155,25 @@ Now we’ll make our `input` a bit more reactive.
 
 Import the `createEventHandler` from Recompose.
 
-<pre name="ced6" id="ced6" class="graf graf--pre graf-after--p">import { componentFromStream, **createEventHandler** } from 'recompose';</pre>
+```js
+import { componentFromStream, createEventHandler } from 'recompose';
+```
 
 And use it like so:
 
-<pre name="0470" id="0470" class="graf graf--pre graf-after--p">const App = componentFromStream(prop$ => {
-  **const { handler, stream } = createEventHandler();**</pre>
+```jsx
+const App = componentFromStream((prop$) => {
+  const { handler, stream } = createEventHandler();
 
-<pre name="0885" id="0885" class="graf graf--pre graf-after--pre">  return prop$.pipe(
+  return prop$.pipe(
     map(() => (
       <div>
- **<input**
- **onChange={handler}**
- **placeholder="GitHub username"
-        />**      </div>
+        <input onChange={handler} placeholder="GitHub username" />{' '}
+      </div>
     ))
-  )
-});</pre>
+  );
+});
+```
 
 `createEventHandler` is an object with two interesting properties: `handler` and `stream`.
 
@@ -170,16 +191,20 @@ We can fix that by giving `stream` an initial value.
 
 Import RxJS’s `startWith` operator:
 
-<pre name="13e9" id="13e9" class="graf graf--pre graf-after--p">import { map, **startWith** } from 'rxjs/operators';</pre>
+```js
+import { map, startWith } from 'rxjs/operators';
+```
 
 And create a new variable to capture the modified `stream`.
 
-<pre name="9735" id="9735" class="graf graf--pre graf-after--p">const { handler, stream } = createEventHandler();</pre>
+```js
+const { handler, stream } = createEventHandler();
 
-<pre name="b385" id="b385" class="graf graf--pre graf-after--pre">**const value$ = stream.pipe(
-  map(e => e.target.value),
+const value$ = stream.pipe(
+  map((e) => e.target.value),
   startWith('')
-);**</pre>
+);
+```
 
 We know that `stream` will emit events from `input`'s onChange, so let’s immediately map each `event` to its text value.
 
@@ -189,33 +214,36 @@ On top of that, we’ll initialize `value$` as an empty string — an approp
 
 We’re ready to combine these two streams and import `combineLatest` as a creation method, **not as an operator**.
 
-<pre name="4a6a" id="4a6a" class="graf graf--pre graf-after--p">import { combineLatest } from 'rxjs';</pre>
+```js
+import { combineLatest } from 'rxjs';
+```
 
 You can also import the `tap` operator to inspect values as they come:
 
-<pre name="bc69" id="bc69" class="graf graf--pre graf-after--p">import { map, startWith, **tap** } from 'rxjs/operators';</pre>
+```js
+import { map, startWith, tap } from 'rxjs/operators';
+```
 
 And use it like so:
 
-<pre name="a027" id="a027" class="graf graf--pre graf-after--p">const App = componentFromStream(prop$ => {
+```jsx
+const App = componentFromStream((prop$) => {
   const { handler, stream } = createEventHandler();
   const value$ = stream.pipe(
-    map(e => e.target.value),
+    map((e) => e.target.value),
     startWith('')
-  );</pre>
+  );
 
-<pre name="84ff" id="84ff" class="graf graf--pre graf-after--pre">  return **combineLatest(prop$, value$)**.pipe(
- **tap(console.warn),**
+  return combineLatest(prop$, value$).pipe(
+    tap(console.warn),
     map(() => (
       <div>
-        <input
-          onChange={handler}
-          placeholder="GitHub username"
-        />
+        <input onChange={handler} placeholder="GitHub username" />
       </div>
     ))
-  )
-});</pre>
+  );
+});
+```
 
 Now as you type, `[props, value]` is logged.
 
@@ -241,31 +269,26 @@ Now that the “dumb” component’s out of the way, let’s do the “smart”
 
 Here’s `src/User/index.js`:
 
-<pre name="5dac" id="5dac" class="graf graf--pre graf-after--p">import React from 'react';
+```jsx
+import React from 'react';
 import { componentFromStream } from 'recompose';
-import {
-  debounceTime,
-  filter,
-  map,
-  pluck
-} from 'rxjs/operators';
+import { debounceTime, filter, map, pluck } from 'rxjs/operators';
 import Component from './Component';
-import './User.css';</pre>
+import './User.css';
 
-<pre name="9814" id="9814" class="graf graf--pre graf-after--pre">const User = componentFromStream(prop$ => {
+const User = componentFromStream((prop$) => {
   const getUser$ = prop$.pipe(
     debounceTime(1000),
     pluck('user'),
-    filter(user => user && user.length),
-    map(user => (
-      <h3>{user}</h3>
-    ))
-  );</pre>
+    filter((user) => user && user.length),
+    map((user) => <h3>{user}</h3>)
+  );
 
-<pre name="bbb8" id="bbb8" class="graf graf--pre graf-after--pre">  return getUser$;
-});</pre>
+  return getUser$;
+});
 
-<pre name="3ac6" id="3ac6" class="graf graf--pre graf-after--pre">export default User;</pre>
+export default User;
+```
 
 We define `User` as a `componentFromStream`, which returns a `prop$` stream that maps to an `<h3>`.
 
@@ -295,17 +318,17 @@ Back in `src/index.js`, import the `User` component:
 
 And provide `value` as the `user` prop:
 
-<pre name="61a3" id="61a3" class="graf graf--pre graf-after--p">  return combineLatest(prop$, value$).pipe(
-    tap(console.warn),
- **map(([props, value]) => (**      <div>
-        <input
-          onChange={handler}
-          placeholder="GitHub username"
-        /></pre>
-
-<pre name="53cd" id="53cd" class="graf graf--pre graf-after--pre"> **<User user={value} />**      </div>
-    ))
-  );</pre>
+```jsx
+return combineLatest(prop$, value$).pipe(
+  tap(console.warn),
+  map(([props, value]) => (
+    <div>
+      <input onChange={handler} placeholder="GitHub username" />
+      <User user={value} />{' '}
+    </div>
+  ))
+);
+```
 
 Now your value’s rendered to the screen after 1 second.
 
@@ -315,9 +338,11 @@ Good start, but we need to actually fetch the user.
 
 ### Fetching the User
 
-GitHub’s User API is available at `[https://api.github.com/users/${user}](https://api.github.com/users/$%7Buser%7D.)`[.](https://api.github.com/users/$%7Buser%7D.) We can easily extract that into a helper function inside `User/index.js`:
+GitHub’s User API is available [here](https://api.github.com/users). We can easily extract that into a helper function inside `User/index.js`:
 
-<pre name="1155" id="1155" class="graf graf--pre graf-after--p">const formatUrl = user => `https://api.github.com/users/${user}`;</pre>
+```js
+const formatUrl = (user) => `https://api.github.com/users/${user}`;
+```
 
 Now we can add `map(formatUrl)` after `filter`:
 
@@ -349,32 +374,31 @@ RxJS provides its own implementation of `ajax` that works great with `switchMap`
 
 Let’s import both. My code is looking like this:
 
-<pre name="86a2" id="86a2" class="graf graf--pre graf-after--p">**import { ajax } from 'rxjs/ajax';** import {
-  debounceTime,
-  filter,
-  map,
-  pluck,
-  **switchMap**
-} from 'rxjs/operators';</pre>
+```js
+import { ajax } from 'rxjs/ajax';
+import { debounceTime, filter, map, pluck, switchMap } from 'rxjs/operators';
+```
 
 And use them like so:
 
-<pre name="6a8d" id="6a8d" class="graf graf--pre graf-after--p">const User = componentFromStream(prop$ => {
+```js
+const User = componentFromStream((prop$) => {
   const getUser$ = prop$.pipe(
     debounceTime(1000),
     pluck('user'),
-    filter(user => user && user.length),
+    filter((user) => user && user.length),
     map(formatUrl),
-    **switchMap(url =>
+    switchMap((url) =>
       ajax(url).pipe(
         pluck('response'),
         map(Component)
       )
-    )**
-  );</pre>
+    )
+  );
 
-<pre name="bc0a" id="bc0a" class="graf graf--pre graf-after--pre">  return getUser$;
-});</pre>
+  return getUser$;
+});
+```
 
 **Switch** from our `input` stream to an `ajax` request stream. Once the request completes, grab its `response` and `map` to our `User` component.
 
@@ -398,24 +422,28 @@ With the `catchError` operator, we can render a reasonable response to the scree
 
 Import it:
 
-<pre name="1e9c" id="1e9c" class="graf graf--pre graf-after--p">import {
- **catchError,**
+```js
+import {
+  catchError,
   debounceTime,
   filter,
   map,
   pluck,
   switchMap
-} from 'rxjs/operators';</pre>
+} from 'rxjs/operators';
+```
 
 And stick it to the end of your `ajax` chain.
 
-<pre name="5329" id="5329" class="graf graf--pre graf-after--p">switchMap(url =>
+```jsx
+switchMap((url) =>
   ajax(url).pipe(
     pluck('response'),
     map(Component),
- **catchError(({ response }) => alert(response.message))**
+    catchError(({ response }) => alert(response.message))
   )
-)</pre>
+);
+```
 
 ![](https://cdn-images-1.medium.com/max/1600/1*krBPGwW4tSv7FOxGaleZxQ.png)
 
@@ -425,7 +453,8 @@ At least we get some feedback, but we can do better.
 
 Create a new component, `src/Error/index.js`.
 
-<pre name="e9a6" id="e9a6" class="graf graf--pre graf-after--p">import React from 'react';
+```jsx
+import React from 'react';
 
 const Error = ({ response, status }) => (
   <div className="error">
@@ -437,27 +466,34 @@ const Error = ({ response, status }) => (
   </div>
 );
 
-export default Error;</pre>
+export default Error;
+```
 
 This will nicely display `response` and `status` from our AJAX call.
 
 Let’s import it in `User/index.js`:
 
-<pre name="7147" id="7147" class="graf graf--pre graf-after--p">import Error from '../Error';</pre>
+```jsx
+import Error from '../Error';
+```
 
 And `of` from RxJS:
 
-<pre name="770a" id="770a" class="graf graf--pre graf-after--p">import { of } from 'rxjs';</pre>
+```jsx
+import { of } from 'rxjs';
+```
 
 Remember, our `componentFromStream` callback must return an observable. We can achieve that with `of`.
 
 Here’s the new code:
 
-<pre name="02e7" id="02e7" class="graf graf--pre graf-after--p">ajax(url).pipe(
+```jsx
+ajax(url).pipe(
   pluck('response'),
   map(Component),
-  **catchError(error => of(<Error {...error} />))**
-)</pre>
+  catchError((error) => of(<Error {...error} />))
+);
+```
 
 Simply spread the `error` object as props on our component.
 
@@ -481,35 +517,43 @@ The [Recompose docs](https://github.com/acdlite/recompose/blob/master/docs/API.m
 
 Import the `merge` operator.
 
-<pre name="5a05" id="5a05" class="graf graf--pre graf-after--p">import { **merge**, of } from 'rxjs';</pre>
+```jsx
+import { merge, of } from 'rxjs';
+```
 
 When the request is made, we’ll merge our `ajax` with a Loading Component stream.
 
 Inside `componentFromStream`:
 
-<pre name="e47f" id="e47f" class="graf graf--pre graf-after--p">const User = componentFromStream(prop$ => {
- **const loading$ = of(<h3>Loading...</h3>);**  const getUser$ = ...</pre>
+```jsx
+const User = componentFromStream((prop$) => {
+  const loading$ = of(<h3>Loading...</h3>);
+  // ...
+});
+```
 
 A simple `h3` loading indicator turned into an observable! And use it like so:
 
-<pre name="a4a4" id="a4a4" class="graf graf--pre graf-after--p">const loading$ = of(<h3>Loading...</h3>);</pre>
+```jsx
+const loading$ = of(<h3>Loading...</h3>);
 
-<pre name="8fac" id="8fac" class="graf graf--pre graf-after--pre">const getUser$ = prop$.pipe(
+const getUser$ = prop$.pipe(
   debounceTime(1000),
   pluck('user'),
-  filter(user => user && user.length),
+  filter((user) => user && user.length),
   map(formatUrl),
-  switchMap(url =>
-    **merge(
+  switchMap((url) =>
+    merge(
       loading$,
       ajax(url).pipe(
         pluck('response'),
         map(Component),
-        catchError(error => of(<Error {...error} />))
+        catchError((error) => of(<Error {...error} />))
       )
-    )**
+    )
   )
-);</pre>
+);
+```
 
 I love how concise this is. Upon entering `switchMap`, merge the `loading$` and `ajax` observables.
 
@@ -517,36 +561,32 @@ Since `loading$` is a static value, it’ll emit first. Once the asynchronous `a
 
 Before testing it out, we can import the `delay` operator so the transition doesn’t happen too fast.
 
-<pre name="c700" id="c700" class="graf graf--pre graf-after--p">import {
+```js
+import {
   catchError,
   debounceTime,
- **delay,**
+  delay,
   filter,
   map,
   pluck,
   switchMap,
   tap
-} from 'rxjs/operators';</pre>
+} from 'rxjs/operators';
+```
 
 And use it just before `map(Component)`:
 
-<pre name="0baa" id="0baa" class="graf graf--pre graf-after--p">ajax(url).pipe(
+```jsx
+ajax(url).pipe(
   pluck('response'),
- **delay(1500),**  map(Component),
-  catchError(error => of(<Error {...error} />))
-)</pre>
+  delay(1500),
+  map(Component),
+  catchError((error) => of(<Error {...error} />))
+);
+```
 
 Our result?
 
 ![](https://cdn-images-1.medium.com/max/1600/1*9ZPxZaVZt5d5TVKbPKGT9w.gif)
 
-I’m wondering how far to take this pattern and in what direction. Please leave a comment and share your thoughts!
-
-And remember to hold that clap button. (You can go up to 50!)
-
-Until next time.
-
-Take care,
-Yazeed Bzadough
-[http://yazeedb.com/](http://yazeedb.com/)
-  
+I’m wondering how far to take this pattern and in what direction. Please share your thoughts!
