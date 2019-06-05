@@ -1,14 +1,20 @@
 ---
 title: Using Ramda’s converge() Function
 date: '2018-02-17'
-subtitle: 'But That’s Not All!'
+description: 'Great for forms!'
+draft: false
+template: 'post'
+slug: '/posts/using-ramdas-converge-function'
+category: 'RamdaJS'
+tags:
+  - 'Functions'
+  - 'Ramda'
+  - 'Functional Programming'
 ---
 
-* * *
+![](https://cdn-images-1.medium.com/max/1600/1*Nmv_XVkJn_X61m7XcLfjWw.jpeg)
 
-# Using Ramda’s converge() Function
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/@yazeedb/using-ramdas-converge-function-676d90031937" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-02-17T20:59:32.286Z">Feb 17, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="4 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*Nmv_XVkJn_X61m7XcLfjWw.jpeg)Photo credit (without text): Wasan Ritthawon / Shutterstock.com
+> Photo credit (without text): Wasan Ritthawon / Shutterstock.com
 
 Summarizing the [docs](http://ramdajs.com/docs/#converge), `converge` takes two parameters:
 
@@ -108,9 +114,3 @@ And our end result:
 ![](https://cdn-images-1.medium.com/max/1600/1*lNLfBoeXdFMtF02wFcFu3A.gif)
 
 Using `converge` has been most effective for forms in my experience, but I’m sure you can think of many more use cases. I hope this post’s given you some ideas and would love your feedback!
-
-Until next time!
-
-Take care,
-Yazeed Bzadough
-  
