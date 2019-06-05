@@ -1,7 +1,7 @@
 ---
 title: How to Learn Anything
 date: '2018-01-07'
-description: 'Set a target, learn _just enough_ to hit it, teach someone, repeat.'
+description: 'Set a target, learn just enough to hit it, teach someone, repeat.'
 draft: false
 template: 'post'
 slug: '/posts/how-to-learn-anything'
