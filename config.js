@@ -2,22 +2,22 @@
 
 module.exports = {
   url: 'https://lumen.netlify.com',
-  title: 'Blog by Yazeed Bzadough',
+  title: 'Yazeed Bzadough',
   subtitle:
     'I am a Front-End Developer, specializing in well-architected, scalable user interfaces.',
   copyright: '© All rights reserved.',
   disqusShortname: '',
-  postsPerPage: 4,
-  googleAnalyticsId: 'UA-73379983-2',
+  postsPerPage: 30,
+  googleAnalyticsId: 'UA-136388820-1',
   menu: [
     {
       label: 'Articles',
       path: '/'
     },
-    {
-      label: 'About me',
-      path: '/pages/about'
-    },
+    // {
+    // label: 'About me',
+    // path: '/pages/about'
+    // },
     {
       label: 'Contact me',
       path: '/pages/contacts'
@@ -27,14 +27,14 @@ module.exports = {
     name: 'Yazeed Bzadough',
     photo: '/me-2016.jpg',
     bio:
-      'I am a Front-End Developer, specializing in well-architected, scalable user interfaces.',
+      'Front-End Developer, specializing in well-architected, scalable user interfaces.',
     contacts: {
       email: 'ybzadough@gmail.com',
-      telegram: '#',
+      // telegram: '#',
       twitter: 'yazeedBee',
-      github: 'yazeedb',
-      rss: '#',
-      vkontakte: '#'
+      github: 'yazeedb'
+      // rss: '#',
+      // vkontakte: '#'
     }
   }
 };
