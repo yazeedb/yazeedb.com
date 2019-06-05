@@ -1,14 +1,19 @@
 ---
 title: Autodux Is Awesome Let’s TDD Code a Todo List Duck
 date: '2018-03-24'
-subtitle: '**This**'
+description: 'This library by Eric Elliott cuts through much of the Redux boilerplate, and encourages keeping your different pieces colocated in a single file.'
+draft: false
+template: 'post'
+slug: '/posts/lets-tdd-code-a-todo-list-duck-with-autodux'
+category: 'Redux'
+tags:
+  - 'Redux'
+  - 'TDD'
+  - 'Autodux'
+  - 'Code with me'
 ---
 
-* * *
-
-# Autodux Is Awesome: Let’s TDD Code a Todo List Duck
-
-[![Go to the profile of Yazeed Bzadough](https://cdn-images-1.medium.com/fit/c/100/100/1*D0_8f6gW_H8ufCLRpsjVtA@2x.jpeg)](https://medium.com/@yazeedb?source=post_header_lockup)[Yazeed Bzadough](https://medium.com/@yazeedb)<span class="followState js-followState" data-user-id="93124e8e38fc"><button class="button button--smallest u-noUserSelect button--withChrome u-baseColor--buttonNormal button--withHover button--unblock js-unblockButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-block-user" data-requires-token="true" data-redirect="https://medium.com/front-end-weekly/autodux-is-awesome-lets-tdd-code-a-todo-list-duck-b906e28c0764" data-action-source="post_header_lockup"><span class="button-label  button-defaultState">Blocked</span><span class="button-label button-hoverState">Unblock</span></button><button class="button button--primary button--smallest button--dark u-noUserSelect button--withChrome u-accentColor--buttonDark button--follow js-followButton u-marginLeft10 u-xs-hide" data-action="sign-up-prompt" data-sign-in-action="toggle-subscribe-user" data-requires-token="true" data-redirect="https://medium.com/_/subscribe/user/93124e8e38fc" data-action-source="post_header_lockup-93124e8e38fc-------------------------follow_byline"><span class="button-label  button-defaultState js-buttonLabel">Follow</span><span class="button-label button-activeState">Following</span></button></span><time datetime="2018-03-24T22:18:08.016Z">Mar 24, 2018</time><span class="middotDivider u-fontSize12"></span><span class="readingTime" title="6 min read"></span>![](https://cdn-images-1.medium.com/max/1600/1*7Q-RAovohomeitfI2zlzKg.jpeg)Photo by [Andrew Wulf](https://unsplash.com/photos/59yg_LpcvzQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/search/photos/cyber-duck?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+![](https://cdn-images-1.medium.com/max/1600/1*7Q-RAovohomeitfI2zlzKg.jpeg)
 
 My last couple of posts were all about reducing the Redux boilerplate needed to create List ducks.
 
@@ -16,30 +21,34 @@ My last couple of posts were all about reducing the Redux boilerplate needed to 
 
 #### **This**
 
-<pre name="c6a9" id="c6a9" class="graf graf--pre graf-after--h4">const reducer = (state = 0, action) => {
+```js
+const reducer = (state = 0, action) => {
   switch (action.type) {
     case 'INCREMENT':
-      return state + 1
+      return state + 1;
     case 'DECREMENT':
-      return state - 1
+      return state - 1;
     default:
-      return state
+      return state;
   }
-}</pre>
+};
 
-<pre name="487b" id="487b" class="graf graf--pre graf-after--pre">const actionTypes = { ... }
-const actions = { ... }</pre>
+const actionTypes = {};
+const actions = {};
+```
 
 #### **Is now this**
 
-<pre name="fc01" id="fc01" class="graf graf--pre graf-after--h4">const counter = autodux({
+```js
+const counter = autodux({
   slice: 'counter',
   initial: 0,
   actions: {
     increment: (state) => state + 1,
     decrement: (state) => state - 1
   }
-});</pre>
+});
+```
 
 That’s it. Everything is here. `counter` is an object containing your reducer and action creators.
 
@@ -69,11 +78,13 @@ Before writing the assertion, let’s discuss how todos will be added. You shoul
 
 returns…
 
-<pre name="e52a" id="e52a" class="graf graf--pre graf-after--p">{
+```js
+{
     id: '123',
     text: 'Buy groceries',
     complete: false
-}</pre>
+}
+```
 
 `id` will be generated using `shortid.generate()` and `complete` will default to `false`.
 
@@ -97,19 +108,19 @@ We’ll import and invoke the `autodux` function. It takes an object describing 
 
 ![](https://cdn-images-1.medium.com/max/1600/1*JRL_3H1S0aS1wwbSy5BnHw.png)
 
-*   `initial` represents the reducer’s initial state: an empty array.
-*   `actions` will contain functions describing how your reducer should respond to incoming actions. The syntax closely mirrors `createReducer`'s syntax. More info [here](https://redux.js.org/recipes/reducing-boilerplate#generating-reducers).
-*   `slice` is what `autodux` uses to generate your action types
+- `initial` represents the reducer’s initial state: an empty array.
+- `actions` will contain functions describing how your reducer should respond to incoming actions. The syntax closely mirrors `createReducer`'s syntax. More info [here](https://redux.js.org/recipes/reducing-boilerplate#generating-reducers).
+- `slice` is what `autodux` uses to generate your action types
 
 Now let’s add our first action: `addTodo`.
 
 ![](https://cdn-images-1.medium.com/max/1600/1*XnBlPgaxUMnrUO70e2GX8w.png)
 
-*   `autodux` feeds `state` and `payload` to `addTodo`, just like a reducer.
-*   Using the _spread_ operator, `addTodo` merges the current `state` (list) with a new object containing properties `id`, `text`, and `complete`.
-*   `shortid` will provide unique `id`s using its `generate` function.
-*   `payload` is the todo text, which gets assigned to the `text` property.
-*   `complete` defaults to false, as previously mentioned.
+- `autodux` feeds `state` and `payload` to `addTodo`, just like a reducer.
+- Using the _spread_ operator, `addTodo` merges the current `state` (list) with a new object containing properties `id`, `text`, and `complete`.
+- `shortid` will provide unique `id`s using its `generate` function.
+- `payload` is the todo text, which gets assigned to the `text` property.
+- `complete` defaults to false, as previously mentioned.
 
 Let’s export the entire duck.
 
@@ -139,11 +150,13 @@ Our duck’s next piece of functionality is removing todos. It should find and r
 
 should remove…
 
-<pre name="156e" id="156e" class="graf graf--pre graf-after--p">{
+```js
+{
     id: '123',
     text: 'Buy groceries',
     complete: false
-}</pre>
+}
+```
 
 Here’s the test.
 
@@ -171,26 +184,32 @@ Our last piece of functionality is updating a given todo. Just like `removeTodo`
 
 So an action like this
 
-<pre name="4a1c" id="4a1c" class="graf graf--pre graf-after--p">todosDuck.actions.removeTodo({
-    id: '123',
-    **complete: true**
-})</pre>
+```js
+todosDuck.actions.removeTodo({
+  id: '123',
+  complete: true
+});
+```
 
-should find and update the `**.complete**` of…
+should find and update the `.complete` of…
 
-<pre name="8ccb" id="8ccb" class="graf graf--pre graf-after--p">{
- **complete: false,**
-    id: '123',
-    text: 'Buy groceries'
-}</pre>
+```js
+{
+  complete: false,
+  id: '123',
+  text: 'Buy groceries'
+}
+```
 
 to
 
-<pre name="dacb" id="dacb" class="graf graf--pre graf-after--p">{
- **complete: true,**
-    id: '123',
-    text: 'Buy groceries'
-}</pre>
+```js
+{
+  complete: true,
+  id: '123',
+  text: 'Buy groceries'
+}
+```
 
 Here’s the test
 
@@ -215,11 +234,3 @@ Let’s re-check our test.
 ![](https://cdn-images-1.medium.com/max/1600/1*thVzRhnYfFwR0sBErjJCXg.png)
 
 Autodux has made the process so much easier. I’m excited to use it in future projects, and even current ones. It’s so easy to slip it into an existing project, because the end result is just actions/reducers. The export remains the same.
-
-I might come back to this subject to introduce Ramda like in [my last article](https://medium.com/front-end-hacking/redux-ramda-lets-code-a-higher-order-duck-dc87021406cc?source=user_profile---------2----------------). I’ve learned a trick or two to pretty this code up and would love to share with you guys!
-
-Until next time!
-
-Take care,
-Yazeed Bzadough
-  
