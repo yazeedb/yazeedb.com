@@ -164,7 +164,7 @@ If I actually get something done, it usually has the following qualities:
 
 Here's that list in Doge form.
 
-~![](https://cdn-images-1.medium.com/max/1600/1*aAv6kLUeOoONUuR4c35ciQ.png)
+![](https://cdn-images-1.medium.com/max/1600/1*aAv6kLUeOoONUuR4c35ciQ.png)
 
 > Doge's work checklist
 
