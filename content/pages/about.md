@@ -3,15 +3,13 @@ title: 'About me'
 template: 'page'
 ---
 
-> “Teaching is the fastest way to learn.”
+I create content for developers who want a deep understanding of their tools.
 
-I've [written](/posts/how-to-learn-anything) and mentioned countless times that teaching is the fastest way to learn. I realized that you'll never truly understand a concept until you help someone else reach that same understanding.
+This understanding should enable them to explain what they learned to a coworker, customer, parent, or even a five-year-old.
 
-Through my blog and personal efforts, I help other developers understand modern web technologies. Not just the _what_, but the _how_ and _why_.
+You won’t find half-baked explanations or hand waving here. Everything is broken down using clear language, not with an intent to memorize–but to deeply understand.
 
-That kind of work requires passion, which I try to deliver every single time. The moment I understand something, the urge to spread that knowledge and benefit everyone around me is unbearable.
-
-I love all things **JavaScript**, **React**, **Redux**, **TypeScript**, and more recently **Elm** and **functional programming** in general.
+I'm currently focusing on JavaScript, TypeScript, and React, and hope to bring great value to you.
 
 For inquiries, feel free to email me at [ybzadough@gmail.com](), or message me [on Twitter](https://www.twitter.com/yazeedBee). Look forward to hearing from you!
 
