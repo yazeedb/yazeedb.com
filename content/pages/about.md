@@ -3,15 +3,11 @@ title: 'About me'
 template: 'page'
 ---
 
-I create content for developers who want a deep understanding of their tools.
+I create motivational and educational content for developers, hoping to inspire and teach with a deep understanding.
 
-This understanding should enable them to explain what they learned to a coworker, customer, parent, or even a five-year-old.
+I mainly focus on web technologies–currently JavaScript, TypeScript, and React.
 
-You won’t find half-baked explanations or hand waving here. Everything is broken down using clear language, not with an intent to memorize–but to deeply understand.
-
-I'm currently focusing on JavaScript, TypeScript, and React, and hope to bring great value to you.
-
-For inquiries, feel free to email me at [ybzadough@gmail.com](), or message me [on Twitter](https://www.twitter.com/yazeedBee). Look forward to hearing from you!
+For inquiries please email [ybzadough@gmail.com](), or message me [on Twitter](https://www.twitter.com/yazeedBee). Look forward to hearing from you!
 
 ### More Links
 
