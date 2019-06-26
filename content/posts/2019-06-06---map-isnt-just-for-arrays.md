@@ -98,7 +98,7 @@ The idea behind map, however, goes much further.
 
 ## All Boxes are Mappable
 
-Think of array as simply a box, and map lets you transform the inner values without affecting the box itself. If you call `map` on an array of 10 items, you'll always get back a _new_ array of 10 items.
+Think of array as simply a box, and `map` lets you transform the inner values without affecting the box itself. If you call `map` on an array of 10 items, you'll always get back a _new_ array of 10 items.
 
 ## Objects are Mappable
 
