@@ -1,7 +1,7 @@
 ---
 title: 10x Your Productivity by Creating a Process
 date: '2019-06-29'
-description: 'Not sure yet'
+description: 'Organization can sometimes cure demotivation.'
 draft: false
 template: 'post'
 slug: '/posts/10x-your-productivity-by-creating-a-process'
@@ -148,7 +148,7 @@ There’s your process–congratulations, you’re now exactly like the candidat
 
 ## This Works Everywhere
 
-I’m a huge fan of universal principles, and this is one of them. Whatever you’re trying to do, programming, speaking, lifting, sports, chess, Chinese, you learn it through following a trusted process. EIther pay someone (school, bootcamp, course, mentor) to create that process, or you do it yourself.
+I’m a huge fan of universal principles, and this is one of them. Whatever you’re doing–programming, speaking, lifting, sports, chess, Chinese, you learn it through following a trusted process. Either pay someone (school, bootcamp, course, mentor) to create that process, or do it yourself.
 
 Bottom line that process _must_ be created, otherwise you’ll keep getting inspired, making vague declarations of change, and remain the same.
 
