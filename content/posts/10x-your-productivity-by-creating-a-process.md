@@ -75,6 +75,8 @@ I was suffering from this around 2013, before JavaScript _really_ detonated a fe
 
 Every endeavor has a ton of paths, and most of us waste precious time considering all possible paths instead of just committing to one and flourishing.
 
+You're going to end up unmotivated again, because a specific target wasn't set.
+
 ## Tell Me What You Want
 
 You want to become a web developer, ok great.
@@ -133,7 +135,7 @@ How about a project that incorporates the job description we just found? I alway
 - Use HTML, CSS, and JavaScript
 - Make sure the app looks spectacular on all screen sizes
 - Put it on GitHub
-- Not everyone will agree here, but I don’t recommend using a framework until you’re somewhat proficient in JavaScript. This means you can comfortably write basic apps without needing a framework and you understand how pieces connect in a more complex app.
+- Not everyone will agree here, but I say don't use a framework until you’re somewhat proficient in JavaScript. This means you can comfortably write basic apps without needing a framework and you understand how the pieces connect in a more complex app.
 - Once you’re more advanced, feel free to redo this in React, Angular, Vue, etc.
 
 ## Less Shopping, More Googling
@@ -148,12 +150,14 @@ There’s your process–congratulations, you’re now exactly like the candidat
 
 ## This Works Everywhere
 
-I’m a huge fan of universal principles, and this is one of them. Whatever you’re doing–programming, speaking, lifting, sports, chess, Chinese, you learn it through following a trusted process. Either pay someone (school, bootcamp, course, mentor) to create that process, or do it yourself.
+I’m a huge fan of universal principles, and **create a process** is one of them.
 
-Bottom line that process _must_ be created, otherwise you’ll keep getting inspired, making vague declarations of change, and remain the same.
+Whatever you’re doing–programming, speaking, lifting, sports, chess, Chinese, you learn it through following a trusted process. Either pay someone (school, bootcamp, course, mentor) to create that process, or do it yourself.
+
+Bottom line is that process _must_ be created, otherwise you’ll keep getting inspired, making vague declarations of change, and remain the same.
 
 That’s momentum my friends. It’s wrecked me several times, and now I know some of you feel that pain too. It’ll push us right off the cliff unless we slam the brakes and turn the car around.
 
-But just remember, when you start heading in the other direction this time, use a map.
+But just remember next time, before you start going the other direction, use a map.
 
 Until next time!
