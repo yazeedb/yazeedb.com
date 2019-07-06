@@ -1,42 +1,52 @@
 ---
-title: How Does JavaScript’s curry() Actually Work?
-date: '2017-12-12'
-description: 'A deep dive into this infinitely useful functional programming concept.'
+title: Deeply Understand Currying in 7 Minutes
+date: '2019-07-04'
+description: 'Developer Tools, here we come!'
 draft: false
 template: 'post'
-slug: '/posts/how-does-javascripts-curry-actually-work'
-category: 'Functional Programming Basics'
+slug: '/posts/deeply-understand-currying-in-7-minutes'
+category: 'Motivational'
 tags:
+  - 'JavaScript'
+  - 'JavaScript In-Depth'
   - 'Currying'
   - 'Functional Programming'
 ---
 
-Lately I’ve been high on functional programming, courtesy of Eric Elliott’s exceptional [“Composing Software” series](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c)–a must-read if you write JavaScript.
+Eric Elliott’s exceptional [Composing Software](https://medium.com/javascript-scene/the-rise-and-fall-and-rise-of-functional-programming-composable-software-c2d91b424c8c) series is initially what got me excited about functional programming. It's a must-read.
 
-At one point he mentioned _currying_, a tool that allows you to “partially apply” a function, meaning you don’t have to specify its arguments all at once.
+At one point in the series, he mentioned _currying_. Both computer science and mathematics agree on the definition:
 
-So if you have
+> Currying turns multi-argument functions into unary (single argument) functions.
+
+Curried functions take many arguments **one at a time**. So if you have
 
 ```js
 greet = (greeting, first, last) => `${greeting}, ${first} ${last}`;
-greet('Hello', 'John', 'Doe'); // Hello, John Doe
+
+greet('Hello', 'Bruce', 'Wayne'); // Hello, Bruce Wayne
 ```
 
-Curry that and you get
+Properly currying `greet` gives you
 
 ```js
 curriedGreet = curry(greet);
 
-curriedGreet('Hello')('John')('Doe'); // Hello, John Doe
-curriedGreet('Hello', 'John')('Doe'); // Hello, John Doe
+curriedGreet('Hello')('Bruce')('Wayne'); // Hello, Bruce Wayne
 ```
 
-As you fill up a curried function’s parameters, it returns functions that expect the remaining parameters.
+This 3-argument function has been turned into three unary functions. As you supply one parameter, a new function pops out expecting the next one.
 
-A little more in-depth:
+<img src="/media/dog-properly-currying-a-function.jpeg" />
+
+## Properly?
+
+I say "properly currying" because some `curry` functions are more flexible in their usage. Currying's great in theory, but invoking a function for each argument gets tiring in JavaScript.
+
+[Ramda's](https://ramdajs.com/) `curry` function lets you invoke `curriedGreet` like this:
 
 ```js
-// greet requires 3 params: **(greeting, first, last)
+// greet requires 3 params: (greeting, first, last)
 
 // these all return a function looking for (first, last)
 curriedGreet('Hello');
@@ -44,30 +54,38 @@ curriedGreet('Hello')();
 curriedGreet()('Hello')()();
 
 // these all return a function looking for (last)
-curriedGreet('Hello')('John');
-curriedGreet('Hello', 'John');
-curriedGreet('Hello')()('John')();
+curriedGreet('Hello')('Bruce');
+curriedGreet('Hello', 'Bruce');
+curriedGreet('Hello')()('Bruce')();
 
 // these return a greeting, since all 3 params were honored
-curriedGreet('Hello')('John')('Doe');
-curriedGreet('Hello', 'John', 'Doe');
-curriedGreet('Hello', 'John')()()('Doe');
+curriedGreet('Hello')('Bruce')('Wayne');
+curriedGreet('Hello', 'Bruce', 'Wayne');
+curriedGreet('Hello', 'Bruce')()()('Wayne');
 ```
 
-As demonstrated above, you can invoke a curried function forever without parameters and it’ll always return a function that expects the remaining parameters. **#Loyalty**
+Notice you can choose to give multiple arguments in a single shot. This implementation's more useful while writing code.
 
-But how is this possible?
+And as demonstrated above, you can invoke this function forever without parameters and it’ll always return a function that expects the remaining parameters.
 
-Mr. Elliot shared a `curry` implementation. Here’s the code (or as he aptly called it, a magic spell):
+## How's This Possible?
+
+Mr. Elliot shared a `curry` implementation much like Ramda's. Here’s the code, or as he aptly called it, a magic spell:
 
 ```js
 const curry = (f, arr = []) => (...args) =>
   ((a) => (a.length === f.length ? f(...a) : curry(f, a)))([...arr, ...args]);
 ```
 
-### Umm… **😐**
+## Umm… 😐
 
-Let’s expand that concise work of art and appreciate it together
+<img src="/media/that-code-is-hard-to-read-cmm.jpeg" />
+
+Yeah, I know... It's incredibly concise, so let's refactor and appreciate it together.
+
+## This Version Works the Same
+
+I've also sprinkled `debugger` statements to examine it in Chrome Developer Tools.
 
 ```js
 curry = (originalFunction, initialParams = []) => {
@@ -91,36 +109,36 @@ curry = (originalFunction, initialParams = []) => {
 };
 ```
 
-I’ve sprinkled some `debugger` statements to pause the code at noteworthy points. I highly recommend a modern browser to debug like this because you can easily inspect the relevant parameters at different points.
+Open your [Developer Tools](https://developers.google.com/web/tools/chrome-devtools/) and follow along!
 
-**Quick and dirty steps to access DevTools (might not work in every case)**
-
-1.  Open a tab in your browser
-2.  Right-click anywhere on the page and click “Inspect Element”
-3.  A DevTools console _should_ pop up. Click the “console” tab
-
-### All right, let’s do this!
+## Let's Do This!
 
 Paste `greet` and `curry` into your console. Then enter `curriedGreet = curry(greet)` and begin the madness.
 
+### Pause on line 2
+
 ![](https://cdn-images-1.medium.com/max/1600/1*8_q3YkOu6fDzIEMY65lqUg.png)
 
-We pause on line 2\. Inspecting our two params we see `originalFunction` is `greet` and `initialParams` defaulted to an empty array because we didn’t supply it. Move to the next breakpoint and, oh wait… that’s it.
+Inspecting our two params we see `originalFunction` is `greet` and `initialParams` defaulted to an empty array because we didn’t supply it. Move to the next breakpoint and, oh wait… that’s it.
 
 Yep! `curry(greet)` just returns a new function that expects 3 more parameters. Type `curriedGreet` in the console to see what I’m talking about.
 
 When you’re done playing with that, let’s get a bit crazier and do
 `sayHello = curriedGreet('Hello')`.
 
+### Pause on line 4
+
 ![](https://cdn-images-1.medium.com/max/1600/1*FXCJQi5Numlbis5d_bGsjw.png)
 
-Now we’re inside of that function defined on line 4\. Before moving on, type `originalFunction` and `initialParams` in your console. Notice we can still access those 2 parameters even though we’re in a completely new function? That’s because functions returned from parent functions enjoy their parent’s scope.
+Before moving on, type `originalFunction` and `initialParams` in your console. Notice we can still access those 2 parameters even though we’re in a completely new function? That’s because functions returned from parent functions enjoy their parent’s scope.
 
-#### Even if a parent function has passed on, they leave the parameters for their kids to use.
+#### Real-life inheritance
 
-Kind of like inheritance (in the real life sense, not OOP). `curry` was initially given `originalFunction` and `initialParams` and then returned a “child” function. Those 2 variables weren’t [garbage collected](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management) yet because maybe Function Jr. wants to use them. If he doesn’t, _then_ that scope gets cleaned up because when no one references you, that’s when you truly die.
+After a parent function passes on, they leave their parameters for their kids to use. Kind of like inheritance in the real life sense.
 
-Ok, back to line 4…
+`curry` was initially given `originalFunction` and `initialParams` and then returned a “child” function. Those 2 variables weren’t [disposed of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management) yet because maybe that child needs them. If he doesn’t, _then_ that scope gets cleaned up because when no one references you, that’s when you truly die.
+
+### Ok, back to line 4…
 
 ![](https://cdn-images-1.medium.com/max/1600/1*_TFVnxtqgisi1i0q_K3dUQ.png)
 
@@ -128,13 +146,13 @@ Inspect `nextParams` and see that it’s `['Hello']`…an array? But I thought w
 
 Correct: we invoked `curriedGreet` with `'Hello'`, but thanks to the [rest syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator#Rest_syntax_%28parameters%29), we’ve _turned_ `'Hello'` into `['Hello']`.
 
-**Y THO?!**
+### Y THO?!
 
 `curry` is a general function that can be supplied 1, 10, or 10,000,000 parameters, so it needs a way to reference all of them. Using the rest syntax like that captures every single parameter in one array, making `curry`'s job much easier.
 
 Let’s jump to the next `debugger` statement.
 
-Now we’re on line 6, but hold on.
+### Line 6 now, but hold on.
 
 You may have noticed that line 12 actually ran before the `debugger` statement on line 6\. If not, look closer. Our program defines a function called `curriedFunction` on line 5, uses it on line 12, and _then_ we hit that `debugger` statement on line 6\. And what’s `curriedFunction` invoked with?
 
@@ -142,9 +160,7 @@ You may have noticed that line 12 actually ran before the `debugger` statement o
 [...initialParams, ...nextParams];
 ```
 
-Yuuuup. Look at `params` on line 5 and you’ll see `['Hello']`. Both `initialParams` and `nextParams` were arrays, so we flattened and combined them into a single array using the handy [_spread_ operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator#Syntax) (Same syntax as _rest_, but it “expands” instead of “condensing”).
-
-If you like, I wrote an article covering spread and `Object.assign` in detail: [https://medium.com/@ybzadough/how-do-object-assign-and-spread-actually-work-169b53275cb](https://medium.com/@ybzadough/how-do-object-assign-and-spread-actually-work-169b53275cb)
+Yuuuup. Look at `params` on line 5 and you’ll see `['Hello']`. Both `initialParams` and `nextParams` were arrays, so we flattened and combined them into a single array using the handy [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator#Syntax).
 
 Here’s where the good stuff happens.
 
@@ -154,23 +170,23 @@ Line 7 says “If `params` and `originalFunction` are the same length, call `gre
 
 ### JavaScript functions have lengths too
 
-This is how `curry` does its magic! This is how it decides whether or not to ask for more parameters. In JavaScript, a function’s `.length` property tells you [_how many arguments it expects_](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length).
+This is how `curry` does its magic! This is how it decides whether or not to ask for more parameters.
+
+In JavaScript, a function’s `.length` property tells you _how many arguments it expects_.
 
 ```js
-greet
-  .length(
-    // 3
-    (a, b) => {}
-  )
-  .length(
-    // 2
-    (a) => {}
-  ).length; // 1
+greet.length; // 3
+
+iTakeOneParam = (a) => {};
+iTakeTwoParams = (a, b) => {};
+
+iTakeOneParam.length; // 1
+iTakeTwoParams.length; // 2
 ```
 
 If our provided and expected parameters match, we’re good, just hand them off to the original function and finish the job!
 
-**That’s baller** 🏀
+### That’s baller 🏀
 
 But in our case, the parameters and function length are _not_ the same. We only provided `‘Hello’`, so `params.length` is 1, and `originalFunction.length` is 3 because `greet` expects 3 parameters: `greeting, first, last`.
 
@@ -184,7 +200,9 @@ That’s [recursion](https://developer.mozilla.org/en-US/docs/Glossary/Recursion
 
 ![](https://cdn-images-1.medium.com/max/1600/1*AZKiupYSanV5iJSQWrtUwg.png)
 
-Now you’re back at line 2 with the same parameters as before, except `initialParams` is `['Hello']` this time. Skip again to exit the cycle. Type our new variable into the console, `sayHello`. It’s another function, still expecting more parameters, but we’re getting warmer…
+### Back at line 2
+
+Same parameters as before, except `initialParams` is `['Hello']` this time. Skip again to exit the cycle. Type our new variable into the console, `sayHello`. It’s another function, still expecting more parameters, but we’re getting warmer…
 
 Let’s turn up the heat with `sayHelloToJohn = sayHello('John')`.
 
@@ -210,7 +228,7 @@ I think we know what happens next.
 
 ![](https://cdn-images-1.medium.com/max/1600/1*tMJvls2j9eAjrCGykVN84g.png)![](https://cdn-images-1.medium.com/max/1600/1*NHm1TMo8Tjk7jQVlGGa9zQ.png)![](https://cdn-images-1.medium.com/max/1600/1*eTwjEYLKGCGJoqdP4Xe9hA.png)
 
-### The deed is done.
+## The Deed Is Done
 
 `greet` got his parameters, `curry` stopped looping, and we’ve received our greeting: `Hello, John Doe`.
 
