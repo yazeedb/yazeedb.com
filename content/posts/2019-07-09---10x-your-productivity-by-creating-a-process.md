@@ -1,6 +1,6 @@
 ---
-title: 10x Your Productivity by Creating a Process
-date: '2019-06-29'
+title: How to 10x Your Productivity by Creating a Process
+date: '2019-07-09'
 description: 'Organization can sometimes cure demotivation.'
 draft: false
 template: 'post'
