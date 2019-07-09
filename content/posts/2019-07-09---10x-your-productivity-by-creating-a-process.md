@@ -11,6 +11,8 @@ tags:
   - 'Self-help'
 ---
 
+<img src="/media/vegeta-process-web.png" alt="Vegeta crossing off his todo list" />
+
 ## Thank You
 
 <a href="/posts/how-to-kill-procrastination">My last article</a> on killing procrastination did much better than I expected. It was reassuring to see others like myself fighting this uphill battle, and heartwarming to hear that you all enjoyed my humble piece! Thank you ❤️
