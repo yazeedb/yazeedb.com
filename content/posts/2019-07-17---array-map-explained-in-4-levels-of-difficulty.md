@@ -21,10 +21,10 @@ Tell me which ones you got and which ones surprised you!
 
 ## Table of Contents
 
-1. <a href="#toafiveyearold">To a Five Year Old</a>
-2. <a href="#toahighschoolcodingstudent">To a High School Coding Student</a>
-3. <a href="#toareactdeveloper">To a React Developer</a>
-4. <a href="#toafunctionalprogrammer">To a Functional Programmer</a>
+1. <a href="#to-a-five-year-old">To a Five Year Old</a>
+2. <a href="#to-a-high-school-coding-student">To a High School Coding Student</a>
+3. <a href="#to-a-react-developer">To a React Developer</a>
+4. <a href="#to-a-functional-programmer">To a Functional Programmer</a>
 
 ## To a Five Year Old
 
