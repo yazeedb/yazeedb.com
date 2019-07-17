@@ -71,7 +71,7 @@
     "invariant": "^2.2.4",
     "js-yaml": "^3.13.1",
     "katex": "^0.10.2",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "moment": "^2.24.0",
     "netlify-cms": "^2.9.1",
     "node-sass": "^4.12.0",
