@@ -139,12 +139,6 @@ Whether it's open source, a meetup, or by yourself, just do lots of projects.
 
 ## Thanks for reading
 
-For more content like this, check out <a href="https://yazeedb.com">https://yazeedb.com!</a> And please let me know what else you'd like to see!
-
-## Want Free Mentorship?
-
-If you're in Front-End development, especially as a beginner, I'm offering free coaching for some time.
-
-Whether it's JavaScript, React, or anything else UI-related, [find me on Twitter](https://twitter.com/yazeedBee) and let's get you moving forward again.
+For more content like this, check out <a href="https://yazeedb.com">https://yazeedb.com!</a> And please let me know what else you'd like to see! [My DMs are open on Twitter.](https://twitter.com/yazeedBee)
 
 Until next time!
