@@ -17,10 +17,13 @@ const Post = ({ post }: Props) => {
   const { html } = post;
   const { tagSlugs, slug } = post.fields;
   const { tags, title, date } = post.frontmatter;
+  console.log({ post });
 
   return (
     <div className={styles['post']}>
-      <Link className={styles['post__home-button']} to="/">All Articles</Link>
+      <Link className={styles['post__home-button']} to="/">
+        All Articles
+      </Link>
 
       <div className={styles['post__content']}>
         <Content body={html} title={title} />
