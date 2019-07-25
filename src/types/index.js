@@ -23,12 +23,13 @@ export type Node = {
     categorySlug?: string,
     tagSlugs?: string[]
   },
+  timeToRead: number,
   frontmatter: {
     date: string,
     description?: string,
     category?: string,
     tags?: string[],
-    title: string,
+    title: string
   },
   html: string,
   id: string
@@ -42,7 +43,7 @@ export type Edges = Array<Edge>;
 
 export type AllMarkdownRemark = {
   allMarkdownRemark: {
-    edges: Edges,
+    edges: Edges
   },
   group: {
     fieldValue: string,

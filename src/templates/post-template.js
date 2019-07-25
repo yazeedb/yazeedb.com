@@ -11,8 +11,12 @@ type Props = {
 
 const PostTemplate = ({ data }: Props) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
-  const { title: postTitle, description: postDescription } = data.markdownRemark.frontmatter;
-  const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
+  const {
+    title: postTitle,
+    description: postDescription
+  } = data.markdownRemark.frontmatter;
+  const metaDescription =
+    postDescription !== null ? postDescription : siteSubtitle;
 
   return (
     <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription}>
@@ -20,7 +24,6 @@ const PostTemplate = ({ data }: Props) => {
     </Layout>
   );
 };
-
 
 export const query = graphql`
   query PostBySlug($slug: String!) {
@@ -31,6 +34,7 @@ export const query = graphql`
         slug
         tagSlugs
       }
+      timeToRead
       frontmatter {
         date
         description
@@ -40,6 +44,5 @@ export const query = graphql`
     }
   }
 `;
-
 
 export default PostTemplate;

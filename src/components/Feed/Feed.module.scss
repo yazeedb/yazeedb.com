@@ -40,6 +40,11 @@
         text-transform: uppercase;
       }
 
+      &-read-time-separator {
+        display: inline-block;
+        margin: 0 5px;
+      }
+
       &-divider {
         margin: 0 5px;
       }

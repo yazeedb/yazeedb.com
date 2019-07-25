@@ -19,6 +19,10 @@ const Feed = ({ edges }: Props) => (
             dateTime={moment(edge.node.frontmatter.date).format('MMMM D, YYYY')}
           >
             {moment(edge.node.frontmatter.date).format('MMMM D, YYYY')}
+            <span className={styles['feed__item-meta-read-time-separator']}>
+              •
+            </span>
+            {edge.node.timeToRead} min read
           </time>
           <span className={styles['feed__item-meta-divider']} />
           {/* <span className={styles['feed__item-meta-category']}>
