@@ -6,6 +6,7 @@ draft: false
 template: 'post'
 slug: '/posts/the-guaranteed-fastest-way-to-break-into-web-development'
 category: 'Motivational'
+coverImageUrl: '/media/fastest-way-break-into-web/goku-learning-react.png'
 tags:
   - 'Motivation'
   - 'Self-help'

@@ -6,6 +6,7 @@ draft: false
 template: 'post'
 slug: '/posts/how-to-kill-procrastination'
 category: 'Motivational'
+coverImageUrl: 'https://cdn-images-1.medium.com/max/1600/1*JEKRzcr_4Pl0iXcdRPgU_A.jpeg'
 tags:
   - 'Motivation'
   - 'Self-help'

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  url: 'https://lumen.netlify.com',
+  url: 'https://yazeedb.com',
   title: 'Yazeed Bzadough',
   subtitle:
     'I create motivational and educational content for developers, hoping to inspire and teach with a deep understanding.',
