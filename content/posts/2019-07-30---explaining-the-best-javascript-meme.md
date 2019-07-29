@@ -6,6 +6,7 @@ draft: false
 template: 'post'
 slug: '/posts/explaining-the-best-javascript-meme-i-have-ever-seen'
 category: 'JavaScript In-depth'
+coverImageUrl: '/media/imgs-explaining-the-best-javascript-meme-i-have-ever-seen/Patrick and Manray.png'
 tags:
   - 'JavaScript In-depth'
 ---
