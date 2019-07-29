@@ -6,6 +6,7 @@ draft: false
 template: 'post'
 slug: '/posts/10x-your-productivity-by-creating-a-process'
 category: 'Motivational'
+coverImageUrl: '/media/vegeta-process-twitter.png'
 tags:
   - 'Motivation'
   - 'Self-help'
