@@ -115,9 +115,8 @@ Again [according to the spec](https://www.ecma-international.org/ecma-262/5.1/#s
 In the case of arrays, `toString` joins all of its elements and returns them as a string.
 
 ```js
-[1, 2, 3]
-  .toString() // "1,2,3"
-  [('hello', 'world')].toString(); // "hello,world"
+[1, 2, 3].toString(); // "1,2,3"
+[('hello', 'world')].toString(); // "hello,world"
 ```
 
 Since our array's empty, we have nothing to join! Therefore...
