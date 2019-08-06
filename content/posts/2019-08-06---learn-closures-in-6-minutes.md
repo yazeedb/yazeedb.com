@@ -11,6 +11,8 @@ tags:
   - 'JavaScript In-depth'
 ---
 
+![cover-image](/media/imgs-closures-in-6-minutes/cover-card.png)
+
 ## They're stateful functions.
 
 Closures are notoriously difficult to grasp, yet vital to advancing as a JavaScript developer. Understanding them can lead to more elegant code and better job opportunities.
@@ -167,7 +169,7 @@ Like I said, closures can level up your developer game. Here's a few practical u
 
 ## 1. Data Privacy
 
-Data privacy's essential for safely sharing code.
+Data privacy is essential for safely sharing code.
 
 Without it, anyone using your function/library/framework can maliciously manipulate its inner variables.
 
