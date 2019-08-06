@@ -34,9 +34,11 @@
     &:focus {
       color: $color-primary;
     }
-
   }
 
+  iframe {
+    display: block;
+  }
 }
 
 @include breakpoint-md {
@@ -54,9 +56,7 @@
       max-width: auto;
       margin: 0;
       top: 30px;
-      left: 30px
+      left: 30px;
     }
-
   }
-
 }
