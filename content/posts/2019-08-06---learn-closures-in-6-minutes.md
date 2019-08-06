@@ -6,7 +6,7 @@ draft: false
 template: 'post'
 slug: '/posts/learn-closures-in-6-minutes'
 category: 'JavaScript In-depth'
-coverImageUrl: '/media/imgs-explaining-the-best-javascript-meme-i-have-ever-seen/Patrick and Manray.png'
+coverImageUrl: '/media/imgs-closures-in-6-minutes/cover-card.png'
 tags:
   - 'JavaScript In-depth'
 ---
