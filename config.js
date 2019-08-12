@@ -25,7 +25,7 @@ module.exports = {
   ],
   author: {
     name: 'Yazeed Bzadough',
-    photo: '/me-2016.jpg',
+    photo: '/me-2019-main-side.jpeg',
     bio:
       'I create motivational and educational content for developers, hoping to inspire and teach with a deep understanding.',
     contacts: {

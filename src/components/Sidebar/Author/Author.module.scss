@@ -3,34 +3,36 @@
 
 .author {
   &__photo {
-    display: inline-block;
-    margin-bottom: 0;
-    border-radius: 50%;
-    background-clip: padding-box
+    // display: inline-block;
+    // margin-bottom: 0;
+    // border-radius: 50%;
+    // background-clip: padding-box
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: 1px solid $color-base;
   }
 
   &__title {
     font-size: $typographic-base-font-size * 1.125;
     font-weight: 600;
     @include line-height(1.125);
-    @include margin(.5, 0, .5, 0);
+    @include margin(0.5, 0, 0.5, 0);
 
     &-link {
       color: $color-base;
 
       &:hover,
       &:focus {
-        color: $color-base
+        color: $color-base;
       }
-
     }
-
   }
 
   &__subtitle {
     color: $color-gray;
     @include line-height(1);
-    @include margin-bottom(1)
+    @include margin-bottom(1);
   }
-
 }
