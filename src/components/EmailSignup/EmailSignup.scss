@@ -5,7 +5,8 @@
   padding: 40px;
   box-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
 
-  h1 {
+  h1,
+  h2 {
     margin: 0;
     margin-bottom: 20px;
   }
@@ -14,38 +15,49 @@
     display: block;
   }
 
-  input {
+  input,
+  button {
     margin: 10px 0;
     border-radius: 4px;
     max-width: 300px;
+    font-size: 16px;
+  }
 
-    &[type='text'],
-    &[type='email'] {
-      padding: 16px;
-      border: 1px solid rgb(211, 211, 211);
-      width: 100%;
-      font-size: 16px;
+  input {
+    padding: 16px;
+    border: 1px solid rgb(211, 211, 211);
+    width: 100%;
+  }
+
+  button {
+    background-color: $color-primary;
+
+    padding: 16px 50px;
+    width: 100%;
+    color: white;
+    margin-bottom: 20px;
+
+    &:hover {
+      cursor: pointer;
     }
 
-    &::placeholder {
-      font-size: 16px;
-    }
-
-    &[type='submit'] {
-      background-color: $color-primary;
-      font-size: 16px;
-      padding: 16px 50px;
-      width: 100%;
-      color: white;
-      margin-bottom: 20px;
-
-      &:hover {
-        cursor: pointer;
-      }
+    &:disabled {
+      background-color: rgba($color-primary, 0.5);
+      cursor: not-allowed;
     }
   }
 
-  p {
-    // margin: 0;
+  img {
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 500px) {
+    button {
+      width: 100%;
+    }
+
+    input {
+      width: 80%;
+    }
   }
 }
