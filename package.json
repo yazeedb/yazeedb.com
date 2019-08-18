@@ -49,6 +49,7 @@
     "gatsby-plugin-feed": "^2.2.2",
     "gatsby-plugin-flow": "^1.0.6",
     "gatsby-plugin-google-gtag": "^1.0.17",
+    "gatsby-plugin-mailchimp": "^5.1.2",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-netlify": "^2.0.17",
     "gatsby-plugin-netlify-cms": "^3.0.18",

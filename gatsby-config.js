@@ -191,6 +191,13 @@ module.exports = {
       }
     },
     'gatsby-plugin-flow',
-    'gatsby-plugin-twitter'
+    'gatsby-plugin-twitter',
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint:
+          'https://gmail.us3.list-manage.com/subscribe/post?u=370069ed4d26525b03f6aca88&amp;id=803d52114c'
+      }
+    }
   ]
 };
