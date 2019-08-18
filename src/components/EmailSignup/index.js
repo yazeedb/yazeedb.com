@@ -15,6 +15,11 @@ const EmailSignup = () => {
       >
         <div id="mc_embed_signup_scroll">
           <h1>Join the Newsletter</h1>
+          <p>
+            Educational and motivational web developer content.
+            <br />
+            I'll email you whenever I post something.
+          </p>
           <div className="mc-field-group">
             {/* <label htmlFor="mce-FNAME">First Name </label> */}
             <input
@@ -69,10 +74,9 @@ const EmailSignup = () => {
               className="button"
             />
           </div>
-
-          <p>No spam. Unsubscribe anytime.</p>
         </div>
       </form>
+      <p>No spam. Unsubscribe anytime.</p>
     </div>
   );
 };
