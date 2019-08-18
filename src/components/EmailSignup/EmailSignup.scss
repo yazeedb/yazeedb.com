@@ -43,6 +43,7 @@
 
     &:disabled {
       background-color: rgba($color-primary, 0.5);
+      border: none;
       cursor: not-allowed;
     }
   }
