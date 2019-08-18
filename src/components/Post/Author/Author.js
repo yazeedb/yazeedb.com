@@ -3,13 +3,15 @@ import React from 'react';
 import { getContactHref } from '../../../utils';
 import styles from './Author.module.scss';
 import { useSiteMetadata } from '../../../hooks';
+import EmailSignup from '../../EmailSignup';
 
 const Author = () => {
   const { author } = useSiteMetadata();
 
   return (
     <div className={styles['author']}>
-      <p className={styles['author__bio']}>
+      <EmailSignup />
+      {/* <p className={styles['author__bio']}>
         {author.bio}
         <a
           className={styles['author__bio-twitter']}
@@ -19,7 +21,7 @@ const Author = () => {
         >
           <strong>{author.name}</strong> on Twitter
         </a>
-      </p>
+      </p> */}
     </div>
   );
 };

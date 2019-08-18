@@ -1,0 +1,50 @@
+@import '../../assets/scss/variables';
+
+#mc_embed_signup {
+  text-align: center;
+  padding: 40px;
+  box-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
+
+  h1 {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    margin: 0;
+  }
+
+  label {
+    display: block;
+  }
+
+  input {
+    margin: 10px 0;
+    border-radius: 4px;
+    max-width: 300px;
+
+    &[type='text'],
+    &[type='email'] {
+      padding: 16px;
+      border: 1px solid rgb(211, 211, 211);
+      width: 100%;
+    }
+
+    &::placeholder {
+      font-size: 16px;
+    }
+
+    &[type='submit'] {
+      background-color: $color-primary;
+      font-size: 16px;
+      padding: 16px 50px;
+      width: 100%;
+      color: white;
+      margin-bottom: 20px;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
