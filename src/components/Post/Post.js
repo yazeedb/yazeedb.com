@@ -40,8 +40,6 @@ const Post = ({ post }: Props) => {
     };
   }, []);
 
-  console.log({ scrollPercentage });
-
   return (
     <div className={styles['post']}>
       <div
