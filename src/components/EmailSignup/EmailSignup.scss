@@ -3,7 +3,10 @@
 #mc_embed_signup {
   text-align: center;
   padding: 40px;
-  box-shadow: 0 2px 15px 0 rgba(210, 214, 220, 0.5);
+  background-color: white;
+  border-radius: 4px;
+  max-width: $layout-post-width;
+  margin: 0 auto;
 
   h1,
   h2 {

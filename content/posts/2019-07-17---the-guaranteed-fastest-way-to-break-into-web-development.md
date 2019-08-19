@@ -140,6 +140,8 @@ Whether it's open source, a meetup, or by yourself, just do lots of projects.
 
 ## Thanks for reading
 
-For more content like this, check out <a href="https://yazeedb.com">https://yazeedb.com!</a> And please let me know what else you'd like to see! [My DMs are open on Twitter.](https://twitter.com/yazeedBee)
+If you enjoyed, please consider subscribing to my newsletter below!
+
+This post was originally on <a href="https://yazeedb.com">https://yazeedb.com</a>. And please let me know what else you'd like to see! [My DMs are open on Twitter.](https://twitter.com/yazeedBee)
 
 Until next time!

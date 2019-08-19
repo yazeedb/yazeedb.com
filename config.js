@@ -18,6 +18,11 @@ module.exports = {
       label: 'About me',
       path: '/pages/about'
     }
+    // TODO: This becomes a relative URL. Fix it!
+    // {
+    //   label: 'Join my newsletter',
+    //   path: 'https://mailchi.mp/aab927d1e8e2/yazeedb'
+    // }
     // {
     //   label: 'Contact me',
     //   path: '/pages/contacts'

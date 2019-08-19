@@ -3,9 +3,9 @@
 
 .post {
   &__footer {
-    max-width: $layout-post-width;
-    margin: 0 auto;
-    padding: 0 15px;
+    margin-top: 40px;
+    padding: 50px;
+    background-color: $color-primary;
   }
 
   &__comments {
@@ -43,10 +43,6 @@
 
 @include breakpoint-md {
   .post {
-    &__footer {
-      padding: 0;
-    }
-
     &__comments {
       padding: 0;
     }
