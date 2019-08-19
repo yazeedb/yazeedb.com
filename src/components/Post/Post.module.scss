@@ -2,6 +2,16 @@
 @import '../../assets/scss/mixins';
 
 .post {
+  &__progress {
+    background-color: $color-primary;
+    width: 100%;
+    height: 6px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
   &__footer {
     max-width: $layout-post-width;
     margin: 0 auto;
