@@ -54,7 +54,7 @@ const Post = ({ post }: Props) => {
         <Content body={html} title={title} />
       </div>
 
-      <div className={styles['post__footer']} ref={footerRef}>
+      <div className={styles['post__footer']}>
         <EmailSignup />
       </div>
 
