@@ -1,5 +1,5 @@
 // @flow
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'gatsby';
 import Author from './Author';
 import Comments from './Comments';
@@ -28,15 +28,23 @@ const Post = ({ post }: Props) => {
   const { tagSlugs, slug } = post.fields;
   const { tags, title, date } = post.frontmatter;
   const [scrollPercentage, setScrollPercentage] = useState(0);
-  const updateScrollPercentage = () => {
+  const footerRef = useRef(null);
+  const [footerVisible, setFooterVisible] = useState(false);
+  const handleOnScroll = () => {
     setScrollPercentage(getScrollPercentage());
+
+    if (footerRef.current) {
+      const { top } = footerRef.current.getBoundingClientRect();
+
+      setFooterVisible(top - window.innerHeight <= 0);
+    }
   };
 
   useEffect(() => {
-    document.addEventListener('scroll', updateScrollPercentage);
+    document.addEventListener('scroll', handleOnScroll);
 
     return () => {
-      document.removeEventListener('scroll', updateScrollPercentage);
+      document.removeEventListener('scroll', handleOnScroll);
     };
   }, []);
 
@@ -48,15 +56,17 @@ const Post = ({ post }: Props) => {
           width: `${scrollPercentage}%`
         }}
       />
-      <Link className={styles['post__home-button']} to="/">
-        All Articles
-      </Link>
+      {!footerVisible && (
+        <Link className={styles['post__home-button']} to="/">
+          All Articles
+        </Link>
+      )}
 
       <div className={styles['post__content']}>
         <Content body={html} title={title} />
       </div>
 
-      <div className={styles['post__footer']}>
+      <div className={styles['post__footer']} ref={footerRef}>
         <Meta date={date} />
         {tags && tagSlugs && <Tags tags={tags} tagSlugs={tagSlugs} />}
         <Author />
