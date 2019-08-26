@@ -21,19 +21,18 @@
     @include line-height(1);
     @include margin(0, 0, 1);
   }
-
 }
 
 @include breakpoint-sm {
   .page {
     lost-column: 7/12;
+    max-height: 100vh;
+    overflow-y: auto;
 
     &__inner {
       padding: 30px 20px;
     }
-
   }
-
 }
 
 @include breakpoint-md {
@@ -43,7 +42,5 @@
     &__inner {
       padding: 40px 35px;
     }
-
   }
-
 }
