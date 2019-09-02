@@ -1,6 +1,6 @@
 ---
 title: 'A Quick Intro to Recursion in Javascript'
-date: '2019-09-03'
+date: '2019-09-02'
 description: 'The function calls itself until someone stops it.'
 draft: false
 template: 'post'
