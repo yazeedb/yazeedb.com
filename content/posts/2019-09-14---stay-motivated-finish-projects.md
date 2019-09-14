@@ -12,7 +12,7 @@ tags:
   - 'Self-help'
 ---
 
-Target, structure, accountability.
+## Target, structure, accountability.
 
 Many people have shared with me their motivational struggles while working on a project. Starting is easy of course, but finishing is nearly impossible.
 
@@ -28,7 +28,7 @@ If you don't pick a project, then you won't do a project.
 
 ![you-dont-say](/media/imgs-stay-motivated-finish-projects/you-dont-say.jpg)
 
-Look for something outside your comfort zone but not too overwhelming. I recommend remaking an existing project from the ground up. As I explained in [The Secret to Unlimited Project Ideas](https://www.yazeedb.com/posts/the-secret-to-unlimited-project-ideas), copy–until you can create.
+Look for something outside your comfort zone but not too overwhelming. I recommend remaking an existing project from the ground up. As I explained in [The Secret to Unlimited Project Ideas](/posts/the-secret-to-unlimited-project-ideas), copy–until you can create.
 
 If you really want you can add your own creative twist, but don't waste too much time on design and business logic (unless you want to do web design). Find something that already has those aspects fleshed out and just focus on coding. Maybe [try TodoMVC](http://todomvc.com/examples/vanillajs/) if you haven't already?
 
