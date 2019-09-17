@@ -1,30 +1,33 @@
-// @flow
 import React from 'react';
-import { getContactHref, getIcon } from '../../../utils';
-import Icon from '../../Icon';
 import styles from './Contacts.module.scss';
+import TwitterIcon from '../../Icons/Twitter';
+import GitHubIcon from '../../Icons/GitHub';
+import LinkedInIcon from '../../Icons/LinkedIn';
+import YouTubeIcon from '../../Icons/YouTube';
 
-type Props = {
-  contacts: {
-    [string]: string,
-  },
-};
-
-const Contacts = ({ contacts }: Props) => (
+const Contacts = () => (
   <div className={styles['contacts']}>
     <ul className={styles['contacts__list']}>
-      {Object.keys(contacts).map((name) => (
-        <li className={styles['contacts__list-item']} key={name}>
-          <a
-            className={styles['contacts__list-item-link']}
-            href={getContactHref(name, contacts[name])}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <Icon icon={getIcon(name)} />
-          </a>
-        </li>
-      ))}
+      <li className={styles['contacts__item']}>
+        <a href="https://twitter.com/yazeedBee">
+          <TwitterIcon />
+        </a>
+      </li>
+      <li className={styles['contacts__item']}>
+        <a href="https://github.com/yazeedb">
+          <GitHubIcon />
+        </a>
+      </li>
+      <li className={styles['contacts__item']}>
+        <a href="https://www.linkedin.com/in/yazeedb/">
+          <LinkedInIcon />
+        </a>
+      </li>
+      <li className={styles['contacts__item']}>
+        <a href="https://www.youtube.com/channel/UC9pYepHoYW9Hr_VLDrgLhRA">
+          <YouTubeIcon />
+        </a>
+      </li>
     </ul>
   </div>
 );
