@@ -1,30 +1,32 @@
 // @flow
 import React from 'react';
-import { getContactHref, getIcon } from '../../../utils';
-import Icon from '../../Icon';
 import styles from './Contacts.module.scss';
+import TwitterIcon from '../../Icons/Twitter';
+import GitHubIcon from '../../Icons/GitHub';
+import LinkedInIcon from '../../Icons/LinkedIn';
+import YouTubeIcon from '../../Icons/YouTube';
 
 type Props = {
   contacts: {
-    [string]: string,
-  },
+    [string]: string
+  }
 };
 
 const Contacts = ({ contacts }: Props) => (
   <div className={styles['contacts']}>
     <ul className={styles['contacts__list']}>
-      {Object.keys(contacts).map((name) => (
-        <li className={styles['contacts__list-item']} key={name}>
-          <a
-            className={styles['contacts__list-item-link']}
-            href={getContactHref(name, contacts[name])}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <Icon icon={getIcon(name)} />
-          </a>
-        </li>
-      ))}
+      <li>
+        <TwitterIcon />
+      </li>
+      <li>
+        <GitHubIcon />
+      </li>
+      <li>
+        <LinkedInIcon />
+      </li>
+      <li>
+        <YouTubeIcon />
+      </li>
     </ul>
   </div>
 );

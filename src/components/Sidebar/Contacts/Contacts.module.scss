@@ -6,7 +6,6 @@
 
   &__list {
     display: flex;
-    flex-flow: row wrap;
     flex-grow: 0;
     flex-shrink: 0;
     list-style: none;
@@ -32,16 +31,12 @@
         border: 0;
         display: flex;
         color: $color-base;
-  
+
         &:hover,
         &:focus {
           color: $color-primary;
         }
-
       }
-
     }
-
   }
-
 }
