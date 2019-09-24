@@ -6,7 +6,7 @@ draft: false
 template: 'post'
 slug: '/posts/one-word-that-will-change-your-career'
 category: 'Motivational'
-coverImageUrl: '/media/imgs-one-word-to-change-your-career/cover-image.png'
+coverImageUrl: '/media/imgs-one-word-to-change-your-career/cover-image.jpeg'
 tags:
   - 'Motivation'
   - 'Self-help'
