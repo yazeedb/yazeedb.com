@@ -33,8 +33,6 @@ These types of statements don't just severely limit your career, they limit your
 
 Many of us are so used to saying "I can't" that we've forgotten how damaging it is. Not only are you admitting defeat, but you're absolving yourself of accountability. You want to change but insist on staying in your position, which is lazy and an insult to your true potential.
 
-![pepe-just-cant](/media/imgs-one-word-to-change-your-career/pepe-just-cant.jpeg)
-
 No hard feelings, I sometimes do it too 🙂
 
 Fortunately we may have a simple solution. Look closer at those statements, what's the killer common word? **Can't**.
@@ -65,8 +63,6 @@ This is a much stronger position to be in. Now you're ready to start brainstormi
 If saying "I can't" limits things outside your career, then asking "how" will enhance things outside your career.
 
 It could be spirituality, fitness, finance, networking, or any other kind of personal development. This one word will push you beyond those who give up and help you shatter the beliefs that hold you back.
-
-![how-can-pepe-save-the-world](/media/imgs-one-word-to-change-your-career/how-can-pepe-save-the-world.jpeg)
 
 Go forth and crush it. You got this 😁
 
