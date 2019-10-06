@@ -6,7 +6,7 @@ draft: false
 template: 'post'
 slug: '/posts/how-to-get-more-tech-blog-views'
 category: 'Motivational'
-coverImageUrl: '/media/fastest-way-break-into-web/goku-learning-react.png'
+coverImageUrl: '/media/imgs-get-more-tech-blog-views/cover-image.jpg'
 tags:
   - 'Motivation'
   - 'Self-help'
