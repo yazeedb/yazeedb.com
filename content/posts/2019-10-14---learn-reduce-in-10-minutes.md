@@ -6,12 +6,14 @@ draft: false
 template: 'post'
 slug: '/posts/learn-reduce-in-10-minutes'
 category: 'JavaScript'
-coverImageUrl: '/media/imgs-learn-reduce-in-10-minutes/cover-image.jpg'
+coverImageUrl: '/media/imgs-learn-reduce-in-10-minutes/cover-image.png'
 tags:
   - 'JavaScript'
   - 'JavaScript In-depth'
   - 'Functional Programming'
 ---
+
+<img src="/media/imgs-learn-reduce-in-10-minutes/cover-image.png" />
 
 ## Hopefully this reduces the confusion.
 
