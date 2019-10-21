@@ -94,7 +94,7 @@ If `predicate` returns `false` for _every_ item, `none` returns `true`. Otherwis
 
 ```js
 const none = (predicate, array) =>
-  array.reduce((acc, value) => !acc && !predicate(value), false);
+  array.reduce((acc, value) => acc && !predicate(value), true);
 ```
 
 ### Usage
