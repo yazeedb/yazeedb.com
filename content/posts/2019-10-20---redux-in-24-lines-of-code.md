@@ -112,7 +112,7 @@ And here's our initial boilerplate. We'll need a list of listeners and the initi
 
 ```js
 const createStore = (yourReducer) => {
-  const listeners = [];
+  let listeners = [];
   let currentState = yourReducer(undefined, {});
 };
 ```
@@ -127,7 +127,7 @@ This is a function that returns the latest state from the store. We'll need this
 
 ```js
 const createStore = (yourReducer) => {
-  const listeners = [];
+  let listeners = [];
   let currentState = yourReducer(undefined, {});
 
   return {
@@ -142,7 +142,7 @@ This is a function that takes an `action` as a parameter. It feeds that `action`
 
 ```js
 const createStore = (yourReducer) => {
-  const listeners = [];
+  let listeners = [];
   let currentState = yourReducer(undefined, {});
 
   return {
@@ -164,7 +164,7 @@ This is a function that lets you be notified when the store receives an action I
 
 ```js
 const createStore = (yourReducer) => {
-  const listeners = [];
+  let listeners = [];
   let currentState = yourReducer(undefined, {});
 
   return {
@@ -180,7 +180,7 @@ const createStore = (yourReducer) => {
       listeners.push(newListener);
 
       const unsubscribe = () => {
-        listeners = listeners.filter((l) => l === newListener);
+        listeners = listeners.filter((l) => l !== newListener);
       };
 
       return unsubscribe;
@@ -198,7 +198,7 @@ Let's hook this up to our buttons and view the final source code.
 ```js
 // simplified createStore function
 const createStore = (reducer) => {
-  const listeners = [];
+  let listeners = [];
   let currentState = reducer(undefined, {});
 
   return {
@@ -214,7 +214,7 @@ const createStore = (reducer) => {
       listeners.push(newListener);
 
       const unsubscribe = () => {
-        listeners = listeners.filter((l) => l === newListener);
+        listeners = listeners.filter((l) => l !== newListener);
       };
 
       return unsubscribe;
