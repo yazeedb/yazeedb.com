@@ -7,7 +7,7 @@ module.exports = {
     'I create motivational and educational content for developers, hoping to inspire and teach with a deep understanding.',
   copyright: '© All rights reserved.',
   disqusShortname: '',
-  postsPerPage: 50,
+  postsPerPage: 1000,
   googleAnalyticsId: 'UA-136388820-1',
   menu: [
     {
